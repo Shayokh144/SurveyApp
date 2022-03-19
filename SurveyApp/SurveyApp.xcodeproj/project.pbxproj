@@ -20,6 +20,7 @@
 		E09C3EE627E5A9290043EE6F /* SurveyAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09C3EE527E5A9290043EE6F /* SurveyAppUITestsLaunchTests.swift */; };
 		E09C3EFB27E5B5A30043EE6F /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09C3EFA27E5B5A30043EE6F /* NavigationManager.swift */; };
 		E09C3EFE27E5B6A90043EE6F /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09C3EFD27E5B6A90043EE6F /* UIConstants.swift */; };
+		E0AA028827E61BED00DA1845 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA028727E61BEC00DA1845 /* SpinnerViewController.swift */; };
 		E0B7474327E5D25000EF7EC8 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7474227E5D25000EF7EC8 /* AuthenticationManager.swift */; };
 		E0B7474527E5D2F300EF7EC8 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7474427E5D2F300EF7EC8 /* UserDefaultManager.swift */; };
 		E0B7474727E5D3FD00EF7EC8 /* UserDefaultConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7474627E5D3FD00EF7EC8 /* UserDefaultConstants.swift */; };
@@ -72,6 +73,7 @@
 		E09C3EE527E5A9290043EE6F /* SurveyAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E09C3EFA27E5B5A30043EE6F /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		E09C3EFD27E5B6A90043EE6F /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		E0AA028727E61BEC00DA1845 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		E0B7474227E5D25000EF7EC8 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		E0B7474427E5D2F300EF7EC8 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		E0B7474627E5D3FD00EF7EC8 /* UserDefaultConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultConstants.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		E09C3EF227E5AC7A0043EE6F /* src */ = {
 			isa = PBXGroup;
 			children = (
+				E0AA028527E61BC700DA1845 /* utils */,
 				E0B7474A27E5DD1D00EF7EC8 /* extension */,
 				E0B7473F27E5D05900EF7EC8 /* dataProvider */,
 				E09C3EFC27E5B6960043EE6F /* constants */,
@@ -262,6 +265,22 @@
 				E09C3EFD27E5B6A90043EE6F /* UIConstants.swift */,
 			);
 			path = constants;
+			sourceTree = "<group>";
+		};
+		E0AA028527E61BC700DA1845 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				E0AA028627E61BD300DA1845 /* ui */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		E0AA028627E61BD300DA1845 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				E0AA028727E61BEC00DA1845 /* SpinnerViewController.swift */,
+			);
+			path = ui;
 			sourceTree = "<group>";
 		};
 		E0B7473F27E5D05900EF7EC8 /* dataProvider */ = {
@@ -547,6 +566,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0AA028827E61BED00DA1845 /* SpinnerViewController.swift in Sources */,
 				E09C3EC727E5A9270043EE6F /* LoginView.swift in Sources */,
 				E09C3EFB27E5B5A30043EE6F /* NavigationManager.swift in Sources */,
 				E09C3EFE27E5B6A90043EE6F /* UIConstants.swift in Sources */,

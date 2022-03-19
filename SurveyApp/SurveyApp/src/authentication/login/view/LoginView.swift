@@ -13,15 +13,31 @@ class LoginView: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
+    let spinnerView = SpinnerViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackgroundColor()
         configureLoginButton()
         configureTextFields()
+
     }
     
     @IBAction func loginButtonAction(_ sender: Any) {
         
+    }
+    
+    private func showLoadingSpinner() {
+        addChild(spinnerView)
+        spinnerView.view.frame = view.frame
+        view.addSubview(spinnerView.view)
+        spinnerView.didMove(toParent: self)
+    }
+    
+    private func hideLoadingSpinner(){
+        spinnerView.willMove(toParent: nil)
+        spinnerView.view.removeFromSuperview()
+        spinnerView.removeFromParent()
     }
     
     private func showAlertMessage(message : String){
