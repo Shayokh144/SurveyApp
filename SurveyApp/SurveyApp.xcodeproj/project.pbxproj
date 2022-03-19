@@ -21,6 +21,11 @@
 		E09C3EFB27E5B5A30043EE6F /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09C3EFA27E5B5A30043EE6F /* NavigationManager.swift */; };
 		E09C3EFE27E5B6A90043EE6F /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09C3EFD27E5B6A90043EE6F /* UIConstants.swift */; };
 		E0AA028827E61BED00DA1845 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA028727E61BEC00DA1845 /* SpinnerViewController.swift */; };
+		E0AA028E27E6350200DA1845 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA028D27E6350200DA1845 /* LoginRouter.swift */; };
+		E0AA029127E635B600DA1845 /* LoginProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA029027E635B600DA1845 /* LoginProtocol.swift */; };
+		E0AA029327E635D600DA1845 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA029227E635D600DA1845 /* LoginInteractor.swift */; };
+		E0AA029527E6360600DA1845 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA029427E6360600DA1845 /* LoginPresenter.swift */; };
+		E0AA029727E6362F00DA1845 /* LoginEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA029627E6362F00DA1845 /* LoginEntity.swift */; };
 		E0B7474327E5D25000EF7EC8 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7474227E5D25000EF7EC8 /* AuthenticationManager.swift */; };
 		E0B7474527E5D2F300EF7EC8 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7474427E5D2F300EF7EC8 /* UserDefaultManager.swift */; };
 		E0B7474727E5D3FD00EF7EC8 /* UserDefaultConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7474627E5D3FD00EF7EC8 /* UserDefaultConstants.swift */; };
@@ -74,6 +79,11 @@
 		E09C3EFA27E5B5A30043EE6F /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		E09C3EFD27E5B6A90043EE6F /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		E0AA028727E61BEC00DA1845 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
+		E0AA028D27E6350200DA1845 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		E0AA029027E635B600DA1845 /* LoginProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocol.swift; sourceTree = "<group>"; };
+		E0AA029227E635D600DA1845 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		E0AA029427E6360600DA1845 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		E0AA029627E6362F00DA1845 /* LoginEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntity.swift; sourceTree = "<group>"; };
 		E0B7474227E5D25000EF7EC8 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		E0B7474427E5D2F300EF7EC8 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		E0B7474627E5D3FD00EF7EC8 /* UserDefaultConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultConstants.swift; sourceTree = "<group>"; };
@@ -237,6 +247,11 @@
 		E09C3EF727E5AEF10043EE6F /* login */ = {
 			isa = PBXGroup;
 			children = (
+				E0AA028F27E6356B00DA1845 /* protocol */,
+				E0AA028C27E634EF00DA1845 /* router */,
+				E0AA028B27E634E300DA1845 /* entity */,
+				E0AA028A27E633FF00DA1845 /* interactor */,
+				E0AA028927E633EF00DA1845 /* presenter */,
 				E09C3EF827E5AEF90043EE6F /* view */,
 			);
 			path = login;
@@ -281,6 +296,46 @@
 				E0AA028727E61BEC00DA1845 /* SpinnerViewController.swift */,
 			);
 			path = ui;
+			sourceTree = "<group>";
+		};
+		E0AA028927E633EF00DA1845 /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E0AA029427E6360600DA1845 /* LoginPresenter.swift */,
+			);
+			path = presenter;
+			sourceTree = "<group>";
+		};
+		E0AA028A27E633FF00DA1845 /* interactor */ = {
+			isa = PBXGroup;
+			children = (
+				E0AA029227E635D600DA1845 /* LoginInteractor.swift */,
+			);
+			path = interactor;
+			sourceTree = "<group>";
+		};
+		E0AA028B27E634E300DA1845 /* entity */ = {
+			isa = PBXGroup;
+			children = (
+				E0AA029627E6362F00DA1845 /* LoginEntity.swift */,
+			);
+			path = entity;
+			sourceTree = "<group>";
+		};
+		E0AA028C27E634EF00DA1845 /* router */ = {
+			isa = PBXGroup;
+			children = (
+				E0AA028D27E6350200DA1845 /* LoginRouter.swift */,
+			);
+			path = router;
+			sourceTree = "<group>";
+		};
+		E0AA028F27E6356B00DA1845 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				E0AA029027E635B600DA1845 /* LoginProtocol.swift */,
+			);
+			path = protocol;
 			sourceTree = "<group>";
 		};
 		E0B7473F27E5D05900EF7EC8 /* dataProvider */ = {
@@ -568,10 +623,15 @@
 			files = (
 				E0AA028827E61BED00DA1845 /* SpinnerViewController.swift in Sources */,
 				E09C3EC727E5A9270043EE6F /* LoginView.swift in Sources */,
+				E0AA029727E6362F00DA1845 /* LoginEntity.swift in Sources */,
+				E0AA029327E635D600DA1845 /* LoginInteractor.swift in Sources */,
+				E0AA029127E635B600DA1845 /* LoginProtocol.swift in Sources */,
+				E0AA028E27E6350200DA1845 /* LoginRouter.swift in Sources */,
 				E09C3EFB27E5B5A30043EE6F /* NavigationManager.swift in Sources */,
 				E09C3EFE27E5B6A90043EE6F /* UIConstants.swift in Sources */,
 				E0B7474327E5D25000EF7EC8 /* AuthenticationManager.swift in Sources */,
 				E0B7474927E5D8D000EF7EC8 /* KeyChainManager.swift in Sources */,
+				E0AA029527E6360600DA1845 /* LoginPresenter.swift in Sources */,
 				E09C3EC327E5A9270043EE6F /* AppDelegate.swift in Sources */,
 				E09C3EC527E5A9270043EE6F /* SceneDelegate.swift in Sources */,
 				E0B7474727E5D3FD00EF7EC8 /* UserDefaultConstants.swift in Sources */,

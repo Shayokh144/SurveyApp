@@ -13,18 +13,21 @@ class LoginView: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    let spinnerView = SpinnerViewController()
+    var presenter: LoginViewToPresenterProtocol?
+    var spinnerView : SpinnerViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackgroundColor()
         configureLoginButton()
         configureTextFields()
-        
+        configureLoadingSpinner()
+        addNotificationObserver()
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+        removeNotificationObserver()
     }
     
     @IBAction func loginButtonAction(_ sender: Any) {
@@ -55,6 +58,10 @@ class LoginView: UIViewController {
         let topColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.2)
         let bottomColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
         self.view.setGradientBackground(colorTop: topColor, colorBottom: bottomColor)
+    }
+    
+    private func configureLoadingSpinner(){
+        spinnerView = SpinnerViewController()
     }
     
     private func configureTextFields(){
@@ -98,11 +105,11 @@ class LoginView: UIViewController {
     }
     
     @objc func keyboardWillShow(sender: NSNotification) {
-         self.view.frame.origin.y = -150 // Move view 150 points upward
+        self.view.frame.origin.y = UIConstants.spacceForKeyBoard
     }
 
     @objc func keyboardWillHide(sender: NSNotification) {
-         self.view.frame.origin.y = 0 // Move view to original position
+         self.view.frame.origin.y = 0
     }
 }
 
@@ -111,4 +118,8 @@ extension LoginView : UITextFieldDelegate{
         self.view.endEditing(true)
         return false
     }
+}
+// MARK: PresenterToViewProtocol
+extension LoginView : LoginPresenterToViewProtocol{
+    
 }

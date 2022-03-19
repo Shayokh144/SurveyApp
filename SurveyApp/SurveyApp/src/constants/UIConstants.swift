@@ -16,6 +16,7 @@ class UIConstants{
     public static let loginButtonCornerRadius : CGFloat = 6.0
     public static let emailTextFieldCornerRadius : CGFloat = 10.0
     public static let passwordTextFieldCornerRadius : CGFloat = 10.0
+    public static let spacceForKeyBoard : CGFloat = -150.0
 }
 
 class TextConstants{

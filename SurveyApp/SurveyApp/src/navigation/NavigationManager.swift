@@ -41,9 +41,10 @@ final class NavigationManager{
     }
     
     public func loadLoginView(){
-        let storyboard = UIStoryboard(name: UIConstants.storyBoardName, bundle: nil)
-        let loginVC = storyboard.instantiateViewController(withIdentifier: UIConstants.loginViewStoryBoardId)
-        self.navigationController = UINavigationController(rootViewController: loginVC)
+        /*let storyboard = UIStoryboard(name: UIConstants.storyBoardName, bundle: nil)
+        let loginVC = storyboard.instantiateViewController(withIdentifier: UIConstants.loginViewStoryBoardId)*/
+        let loginVC = LoginRouter.createModule()
+        self.navigationController = UINavigationController(rootViewController: loginVC ?? UIViewController())
         self.navigationController?.modalPresentationStyle = .fullScreen
         self.window?.rootViewController = self.navigationController
         self.window?.makeKeyAndVisible()
