@@ -20,7 +20,11 @@ class LoginView: UIViewController {
         setBackgroundColor()
         configureLoginButton()
         configureTextFields()
-
+        
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
     }
     
     @IBAction func loginButtonAction(_ sender: Any) {
@@ -70,7 +74,6 @@ class LoginView: UIViewController {
         
         attributedText = NSMutableAttributedString(string: TextConstants.passwordPlaceholder, attributes:attrs as [NSAttributedString.Key : Any])
         passwordTextField.attributedPlaceholder = attributedText
-
     }
     
     private func configureLoginButton(){
@@ -81,7 +84,25 @@ class LoginView: UIViewController {
         ]
         let boldString = NSMutableAttributedString(string: buttonText, attributes:attrs as [NSAttributedString.Key : Any])
         self.loginButton.setAttributedTitle(boldString, for: .normal)
-        
+    }
+    
+    private func addNotificationObserver(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil);
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil);
+    }
+    
+    private func removeNotificationObserver(){
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(sender: NSNotification) {
+         self.view.frame.origin.y = -150 // Move view 150 points upward
+    }
+
+    @objc func keyboardWillHide(sender: NSNotification) {
+         self.view.frame.origin.y = 0 // Move view to original position
     }
 }
 
