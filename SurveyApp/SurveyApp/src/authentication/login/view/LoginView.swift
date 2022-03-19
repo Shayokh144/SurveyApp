@@ -31,26 +31,24 @@ class LoginView: UIViewController {
     }
     
     @IBAction func loginButtonAction(_ sender: Any) {
-        
+        presenter?.didTapLoginButton(userEmail: emailTextField.text ?? "", userPassword: passwordTextField.text ?? "")
     }
     
     private func showLoadingSpinner() {
-        addChild(spinnerView)
-        spinnerView.view.frame = view.frame
-        view.addSubview(spinnerView.view)
-        spinnerView.didMove(toParent: self)
+        DispatchQueue.main.async {
+            self.addChild(self.spinnerView)
+            self.spinnerView.view.frame = self.view.frame
+            self.view.addSubview(self.spinnerView.view)
+            self.spinnerView.didMove(toParent: self)
+        }
     }
     
     private func hideLoadingSpinner(){
-        spinnerView.willMove(toParent: nil)
-        spinnerView.view.removeFromSuperview()
-        spinnerView.removeFromParent()
-    }
-    
-    private func showAlertMessage(message : String){
-        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.spinnerView.willMove(toParent: nil)
+            self.spinnerView.view.removeFromSuperview()
+            self.spinnerView.removeFromParent()
+        }
     }
     
     private func setBackgroundColor(){
@@ -67,6 +65,7 @@ class LoginView: UIViewController {
     private func configureTextFields(){
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
         emailTextField.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.18)
         emailTextField.layer.cornerRadius = UIConstants.emailTextFieldCornerRadius
         
@@ -76,10 +75,10 @@ class LoginView: UIViewController {
         let attrs = [NSAttributedString.Key.font : UIFont(name:     UIConstants.fontNeuzeitSLTNormal, size: UIConstants.loginButtonfontSize),
                      NSAttributedString.Key.foregroundColor : UIColor.black
         ]
-        var attributedText = NSMutableAttributedString(string: TextConstants.emailPlaceholder, attributes:attrs as [NSAttributedString.Key : Any])
+        var attributedText = NSMutableAttributedString(string: TextConstants.emailPlaceholderText, attributes:attrs as [NSAttributedString.Key : Any])
         emailTextField.attributedPlaceholder = attributedText
         
-        attributedText = NSMutableAttributedString(string: TextConstants.passwordPlaceholder, attributes:attrs as [NSAttributedString.Key : Any])
+        attributedText = NSMutableAttributedString(string: TextConstants.passwordPlaceholderText, attributes:attrs as [NSAttributedString.Key : Any])
         passwordTextField.attributedPlaceholder = attributedText
     }
     
@@ -104,6 +103,14 @@ class LoginView: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    private func showAlertMessage(title: String, message : String){
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: TextConstants.okText, style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     @objc func keyboardWillShow(sender: NSNotification) {
         self.view.frame.origin.y = UIConstants.spacceForKeyBoard
     }
@@ -121,5 +128,12 @@ extension LoginView : UITextFieldDelegate{
 }
 // MARK: PresenterToViewProtocol
 extension LoginView : LoginPresenterToViewProtocol{
+    func showLoadingSpinnerView() {
+        self.showLoadingSpinner()
+    }
     
+    func showErrorPopUp(title : String, message: String) {
+        self.hideLoadingSpinner()
+        self.showAlertMessage(title: title, message: message)
+    }
 }

@@ -9,12 +9,13 @@ import Foundation
 
 //View ->Presenter
 protocol LoginViewToPresenterProtocol : AnyObject {
-    
+    func didTapLoginButton(userEmail : String, userPassword : String)
 }
 
 //Presenter -> View
 protocol LoginPresenterToViewProtocol : AnyObject {
-    
+    func showLoadingSpinnerView()
+    func showErrorPopUp(title : String, message : String)
 }
 
 //Presenter -> Router
@@ -28,7 +29,7 @@ protocol LoginRouterToPresenterProtocol : AnyObject {
 
 //Presenter -> Interactor
 protocol LoginPresenterToInteractorProtocol : AnyObject {
-    
+    func loginProcessWillStart(userEmail : String, userPassword : String)
 }
 
 //Interactor -> Presenter

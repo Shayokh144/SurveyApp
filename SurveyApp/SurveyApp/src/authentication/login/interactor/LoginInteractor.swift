@@ -10,4 +10,7 @@ class LoginInteractor{
     weak var presenter: LoginInteractorToPresenterProtocol?
 }
 extension LoginInteractor : LoginPresenterToInteractorProtocol{
+    func loginProcessWillStart(userEmail: String, userPassword: String) {
+        
+    }
 }

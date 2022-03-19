@@ -26,6 +26,9 @@
 		E0AA029327E635D600DA1845 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA029227E635D600DA1845 /* LoginInteractor.swift */; };
 		E0AA029527E6360600DA1845 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA029427E6360600DA1845 /* LoginPresenter.swift */; };
 		E0AA029727E6362F00DA1845 /* LoginEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA029627E6362F00DA1845 /* LoginEntity.swift */; };
+		E0AA029927E653C700DA1845 /* ValidityChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA029827E653C700DA1845 /* ValidityChecker.swift */; };
+		E0AA029C27E65D0800DA1845 /* ReachabilityCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA029B27E65D0800DA1845 /* ReachabilityCenter.swift */; };
+		E0AA02A027E6616400DA1845 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA029F27E6616400DA1845 /* NetworkConstants.swift */; };
 		E0B7474327E5D25000EF7EC8 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7474227E5D25000EF7EC8 /* AuthenticationManager.swift */; };
 		E0B7474527E5D2F300EF7EC8 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7474427E5D2F300EF7EC8 /* UserDefaultManager.swift */; };
 		E0B7474727E5D3FD00EF7EC8 /* UserDefaultConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7474627E5D3FD00EF7EC8 /* UserDefaultConstants.swift */; };
@@ -84,6 +87,9 @@
 		E0AA029227E635D600DA1845 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		E0AA029427E6360600DA1845 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		E0AA029627E6362F00DA1845 /* LoginEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntity.swift; sourceTree = "<group>"; };
+		E0AA029827E653C700DA1845 /* ValidityChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidityChecker.swift; sourceTree = "<group>"; };
+		E0AA029B27E65D0800DA1845 /* ReachabilityCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityCenter.swift; sourceTree = "<group>"; };
+		E0AA029F27E6616400DA1845 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		E0B7474227E5D25000EF7EC8 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		E0B7474427E5D2F300EF7EC8 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		E0B7474627E5D3FD00EF7EC8 /* UserDefaultConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultConstants.swift; sourceTree = "<group>"; };
@@ -278,6 +284,7 @@
 			children = (
 				E0B7474627E5D3FD00EF7EC8 /* UserDefaultConstants.swift */,
 				E09C3EFD27E5B6A90043EE6F /* UIConstants.swift */,
+				E0AA029F27E6616400DA1845 /* NetworkConstants.swift */,
 			);
 			path = constants;
 			sourceTree = "<group>";
@@ -285,6 +292,7 @@
 		E0AA028527E61BC700DA1845 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				E0AA029A27E65C1900DA1845 /* network */,
 				E0AA028627E61BD300DA1845 /* ui */,
 			);
 			path = utils;
@@ -294,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				E0AA028727E61BEC00DA1845 /* SpinnerViewController.swift */,
+				E0AA029827E653C700DA1845 /* ValidityChecker.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -336,6 +345,14 @@
 				E0AA029027E635B600DA1845 /* LoginProtocol.swift */,
 			);
 			path = protocol;
+			sourceTree = "<group>";
+		};
+		E0AA029A27E65C1900DA1845 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				E0AA029B27E65D0800DA1845 /* ReachabilityCenter.swift */,
+			);
+			path = network;
 			sourceTree = "<group>";
 		};
 		E0B7473F27E5D05900EF7EC8 /* dataProvider */ = {
@@ -631,11 +648,14 @@
 				E09C3EFE27E5B6A90043EE6F /* UIConstants.swift in Sources */,
 				E0B7474327E5D25000EF7EC8 /* AuthenticationManager.swift in Sources */,
 				E0B7474927E5D8D000EF7EC8 /* KeyChainManager.swift in Sources */,
+				E0AA02A027E6616400DA1845 /* NetworkConstants.swift in Sources */,
 				E0AA029527E6360600DA1845 /* LoginPresenter.swift in Sources */,
 				E09C3EC327E5A9270043EE6F /* AppDelegate.swift in Sources */,
 				E09C3EC527E5A9270043EE6F /* SceneDelegate.swift in Sources */,
 				E0B7474727E5D3FD00EF7EC8 /* UserDefaultConstants.swift in Sources */,
 				E0B7474C27E5DD3D00EF7EC8 /* UIView+Extension.swift in Sources */,
+				E0AA029C27E65D0800DA1845 /* ReachabilityCenter.swift in Sources */,
+				E0AA029927E653C700DA1845 /* ValidityChecker.swift in Sources */,
 				E0B7474527E5D2F300EF7EC8 /* UserDefaultManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,6 +21,12 @@ class UIConstants{
 
 class TextConstants{
     public static let loginText = "Log in"
-    public static let emailPlaceholder = "Email"
-    public static let passwordPlaceholder = "Password"
+    public static let emailPlaceholderText = "Email"
+    public static let passwordPlaceholderText = "Password"
+    public static let okText = "OK"
+    public static let failedLoginAlertTitle = "Login Failed!"
+    public static let invalidEmailAlertMessage = "invalid email given!!\nTry again with valid email."
+    public static let invalidPasswordAlertMessage = "invalid password format!!\nTry again with valid password."
+    public static let noInternetAlertMessage = "Please Check your internet connection and try again"
+
 }

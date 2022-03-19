@@ -13,7 +13,18 @@ class LoginPresenter{
 }
 
 extension LoginPresenter : LoginViewToPresenterProtocol{
-    
+    func didTapLoginButton(userEmail: String, userPassword: String) {
+        if(!ValidityChecker.isValidEmail(address: userEmail)){
+            view?.showErrorPopUp(title: TextConstants.failedLoginAlertTitle, message: TextConstants.invalidEmailAlertMessage)
+        }
+        if(!ValidityChecker.isValidPasswordFormat(password: userPassword)){
+            view?.showErrorPopUp(title: TextConstants.failedLoginAlertTitle, message: TextConstants.invalidPasswordAlertMessage)
+        }
+        if(!ReachabilityCenter.isConnectedToInternet()){
+            view?.showErrorPopUp(title: TextConstants.failedLoginAlertTitle, message: TextConstants.noInternetAlertMessage)
+        }
+        interector?.loginProcessWillStart(userEmail: userEmail, userPassword: userPassword)
+    }
 }
 
 // MARK:  InteractorToPresenterProtocol
