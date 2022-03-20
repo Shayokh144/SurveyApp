@@ -22,6 +22,16 @@ class KeyChainManager{
         return KeyChainAccessManager.get(service: KeyChainCnstants.keyChainServiceName,
                                          account: KeyChainCnstants.keyChainAccountName)
     }
+    public func updateLoginDataInKeyChain(from data : Data){
+        KeyChainAccessManager.update(service: KeyChainCnstants.keyChainServiceName,
+                                     account: KeyChainCnstants.keyChainAccountName,
+                                     newData: data)
+    }
+    
+    public func deleteLoginDataFromKeyChain(){
+        KeyChainAccessManager.delete(service: KeyChainCnstants.keyChainServiceName,
+                                     account: KeyChainCnstants.keyChainAccountName)
+    }
 }
 
 class KeyChainAccessManager{
@@ -59,5 +69,39 @@ class KeyChainAccessManager{
         _ = SecItemCopyMatching(query as CFDictionary, &result)
         return result as? Data
     }
-
+    
+    static func update(service : String, account : String, newData : Data){
+        let query : [String : AnyObject] = [
+            kSecClass as String : kSecClassGenericPassword,
+            kSecAttrAccount as String : account as AnyObject,
+        ]
+        let newAttributes : [String : AnyObject] = [
+            kSecClass as String : kSecClassGenericPassword,
+            kSecAttrService as String : service as AnyObject,
+            kSecAttrAccount as String : account as AnyObject,
+            kSecValueData as String : newData as AnyObject
+        ]
+        let status = SecItemUpdate(query as CFDictionary, newAttributes as CFDictionary)
+        if(status != errSecSuccess){
+            print("cant update keychain")
+        }
+        else{
+            print("key chain data updated")
+        }
+    }
+    
+    static func delete(service : String, account : String){
+        let query : [String : AnyObject] = [
+            kSecClass as String : kSecClassGenericPassword,
+            kSecAttrService as String : service as AnyObject,
+            kSecAttrAccount as String : account as AnyObject
+        ]
+        let status = SecItemDelete(query as CFDictionary)
+        if(status != errSecSuccess){
+            print("cant delete from keychain")
+        }
+        else{
+            print("key chain data deleted")
+        }
+    }
 }

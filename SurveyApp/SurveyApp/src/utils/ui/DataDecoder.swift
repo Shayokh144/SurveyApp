@@ -15,4 +15,11 @@ class DataDecoder{
         }
         return nil
     }
+    static func encodeLoginData(from loginTokenData : LoginTokenData)-> Data?{
+        let encoder = JSONEncoder()
+        if let encodedData = try? encoder.encode(loginTokenData) {
+            return encodedData
+        }
+        return nil
+    }
 }
