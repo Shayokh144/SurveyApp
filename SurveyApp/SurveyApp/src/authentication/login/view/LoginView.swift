@@ -37,7 +37,7 @@ class LoginView: UIViewController {
     private func showLoadingSpinner() {
         DispatchQueue.main.async {
             self.addChild(self.spinnerView)
-            self.spinnerView.view.frame = self.view.frame
+            self.spinnerView.view.frame = CGRect(x: self.view.frame.minX, y: self.view.frame.minY - UIConstants.spacceForKeyBoard, width: self.view.frame.size.width, height: self.view.frame.size.height)
             self.view.addSubview(self.spinnerView.view)
             self.spinnerView.didMove(toParent: self)
         }

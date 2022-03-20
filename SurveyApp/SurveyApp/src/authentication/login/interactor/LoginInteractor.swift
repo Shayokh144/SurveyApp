@@ -21,7 +21,6 @@ class LoginInteractor{
     private func startLoginProcess(userEmail: String, userPassword: String){
         let accessTokenManager = AccessTokenManager()
         accessTokenManager.requestForAccessToken(with: getRequestBodyForToken(userEmail, userPassword)){[weak self] data in
-            print(data ?? "")
             self?.presenter?.didReceiveLoginData(data: data)
         }
     }

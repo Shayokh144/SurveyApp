@@ -17,4 +17,8 @@ class NetworkConstants{
     public static let tokenClientSecretFieldName = "client_secret"
     public static let tokenKey = "ofzl-2h5ympKa0WqqTzqlVJUiRsxmXQmt5tkgrlWnOE"
     public static let tokenSecret = "lMQb900L-mTeU-FVTCwyhjsfBwRCxwwbCitPob96cuU"
+    public static let httpMethodPost = "POST"
+    public static let contentTypeFieldName = "Content-Type"
+    public static let contentTypeFieldValue = "application/json"
+
 }

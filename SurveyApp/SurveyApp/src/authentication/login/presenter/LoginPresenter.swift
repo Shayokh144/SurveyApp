@@ -30,11 +30,21 @@ extension LoginPresenter : LoginViewToPresenterProtocol{
 
 // MARK:  InteractorToPresenterProtocol
 extension LoginPresenter : LoginInteractorToPresenterProtocol{
-    func didReceiveLoginData(data: LoginTokenData?) {
+    func didReceiveLoginData(data: Data?) {
         guard let loginData = data else {
             self.view?.showErrorPopUp(title: TextConstants.failedLoginAlertTitle, message: TextConstants.wrongEmailOrPasswordAlertMessage)
             return
         }
+        //print(loginData)
+        if let loginTokenData = DataDecoder.decodeLoginData(from: loginData) {
+             print(loginTokenData)
+             // data is ok, need to save
+             let keyChainManager = KeyChainManager()
+             keyChainManager.saveLoginDataInKeychain(data: loginData)
+         }
+         else{
+             self.view?.showErrorPopUp(title: TextConstants.failedLoginAlertTitle, message: TextConstants.wrongEmailOrPasswordAlertMessage)
+         }
         
     }
 }

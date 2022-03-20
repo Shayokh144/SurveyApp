@@ -34,5 +34,5 @@ protocol LoginPresenterToInteractorProtocol : AnyObject {
 
 //Interactor -> Presenter
 protocol LoginInteractorToPresenterProtocol : AnyObject {
-    func didReceiveLoginData(data : LoginTokenData?)
+    func didReceiveLoginData(data : Data?)
 }
