@@ -14,6 +14,7 @@ class LoginPresenter{
 
 extension LoginPresenter : LoginViewToPresenterProtocol{
     func didTapLoginButton(userEmail: String, userPassword: String) {
+        view?.showLoadingSpinnerView()
         if(!ValidityChecker.isValidEmail(address: userEmail)){
             view?.showErrorPopUp(title: TextConstants.failedLoginAlertTitle, message: TextConstants.invalidEmailAlertMessage)
         }
@@ -29,7 +30,13 @@ extension LoginPresenter : LoginViewToPresenterProtocol{
 
 // MARK:  InteractorToPresenterProtocol
 extension LoginPresenter : LoginInteractorToPresenterProtocol{
-    
+    func didReceiveLoginData(data: LoginTokenData?) {
+        guard let loginData = data else {
+            self.view?.showErrorPopUp(title: TextConstants.failedLoginAlertTitle, message: TextConstants.wrongEmailOrPasswordAlertMessage)
+            return
+        }
+        
+    }
 }
 
 extension LoginPresenter : LoginRouterToPresenterProtocol{

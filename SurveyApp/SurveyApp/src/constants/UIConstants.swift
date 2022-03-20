@@ -28,5 +28,7 @@ class TextConstants{
     public static let invalidEmailAlertMessage = "invalid email given!!\nTry again with valid email."
     public static let invalidPasswordAlertMessage = "invalid password format!!\nTry again with valid password."
     public static let noInternetAlertMessage = "Please Check your internet connection and try again"
+    public static let wrongEmailOrPasswordAlertMessage = "Email or Password is wrong!"
+
 
 }

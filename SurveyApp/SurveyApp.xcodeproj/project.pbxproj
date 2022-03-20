@@ -34,6 +34,7 @@
 		E0B7474727E5D3FD00EF7EC8 /* UserDefaultConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7474627E5D3FD00EF7EC8 /* UserDefaultConstants.swift */; };
 		E0B7474927E5D8D000EF7EC8 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7474827E5D8D000EF7EC8 /* KeyChainManager.swift */; };
 		E0B7474C27E5DD3D00EF7EC8 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7474B27E5DD3D00EF7EC8 /* UIView+Extension.swift */; };
+		E0C31CFB27E6FC650005173D /* AccessTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C31CFA27E6FC650005173D /* AccessTokenManager.swift */; };
 		E0FEF8C827E5EFD70061BE3D /* NeuzeitSLTStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = E0FEF8C727E5EFD70061BE3D /* NeuzeitSLTStd-Book.otf */; };
 		E0FEF8CA27E5F4CF0061BE3D /* NeuzeitSLTStd-BookHeavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = E0FEF8C927E5F4CF0061BE3D /* NeuzeitSLTStd-BookHeavy.otf */; };
 		EFE446431E1D5F2DDD520ABE /* Pods_SurveyApp_SurveyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D96524B2B2312363682E46D /* Pods_SurveyApp_SurveyAppUITests.framework */; };
@@ -95,6 +96,7 @@
 		E0B7474627E5D3FD00EF7EC8 /* UserDefaultConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultConstants.swift; sourceTree = "<group>"; };
 		E0B7474827E5D8D000EF7EC8 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
 		E0B7474B27E5DD3D00EF7EC8 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		E0C31CFA27E6FC650005173D /* AccessTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenManager.swift; sourceTree = "<group>"; };
 		E0FEF8C727E5EFD70061BE3D /* NeuzeitSLTStd-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeuzeitSLTStd-Book.otf"; sourceTree = "<group>"; };
 		E0FEF8C927E5F4CF0061BE3D /* NeuzeitSLTStd-BookHeavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeuzeitSLTStd-BookHeavy.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -358,6 +360,7 @@
 		E0B7473F27E5D05900EF7EC8 /* dataProvider */ = {
 			isa = PBXGroup;
 			children = (
+				E0C31CF927E6F5AB0005173D /* remoteapi */,
 				E0B7474127E5D16C00EF7EC8 /* keychain */,
 				E0B7474027E5D16000EF7EC8 /* userdefault */,
 			);
@@ -395,6 +398,14 @@
 				E0FEF8C727E5EFD70061BE3D /* NeuzeitSLTStd-Book.otf */,
 			);
 			path = CustomFont;
+			sourceTree = "<group>";
+		};
+		E0C31CF927E6F5AB0005173D /* remoteapi */ = {
+			isa = PBXGroup;
+			children = (
+				E0C31CFA27E6FC650005173D /* AccessTokenManager.swift */,
+			);
+			path = remoteapi;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -655,6 +666,7 @@
 				E0B7474727E5D3FD00EF7EC8 /* UserDefaultConstants.swift in Sources */,
 				E0B7474C27E5DD3D00EF7EC8 /* UIView+Extension.swift in Sources */,
 				E0AA029C27E65D0800DA1845 /* ReachabilityCenter.swift in Sources */,
+				E0C31CFB27E6FC650005173D /* AccessTokenManager.swift in Sources */,
 				E0AA029927E653C700DA1845 /* ValidityChecker.swift in Sources */,
 				E0B7474527E5D2F300EF7EC8 /* UserDefaultManager.swift in Sources */,
 			);

@@ -9,6 +9,12 @@ import Foundation
 
 class NetworkConstants{
     public static let baseUrlString = "https://survey-api.nimblehq.co/api/v1/oauth/token"
-    public let key = "ofzl-2h5ympKa0WqqTzqlVJUiRsxmXQmt5tkgrlWnOE"
-    public let secret = "lMQb900L-mTeU-FVTCwyhjsfBwRCxwwbCitPob96cuU"
+    public static let tokenGrantTypeFieldName = "grant_type"
+    public static let tokenGrantTypeFieldValue = "password"
+    public static let tokenEmailFieldName = "email"
+    public static let tokenPasswordFieldName = "password"
+    public static let tokenClientIdFieldName = "client_id"
+    public static let tokenClientSecretFieldName = "client_secret"
+    public static let tokenKey = "ofzl-2h5ympKa0WqqTzqlVJUiRsxmXQmt5tkgrlWnOE"
+    public static let tokenSecret = "lMQb900L-mTeU-FVTCwyhjsfBwRCxwwbCitPob96cuU"
 }
