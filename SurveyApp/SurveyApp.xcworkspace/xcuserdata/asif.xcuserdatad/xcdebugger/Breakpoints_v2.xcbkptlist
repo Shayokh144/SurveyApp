@@ -23,32 +23,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "507B2A07-6085-472A-A235-AC732A6632A1"
-            shouldBeEnabled = "Yes"
+            uuid = "DE542C23-8322-4E89-9F44-1A6E2C36CBB3"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SurveyApp/src/authentication/login/presenter/LoginPresenter.swift"
+            filePath = "SurveyApp/src/authentication/login/router/LoginRouter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "didReceiveLoginData(data:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "097B0D25-39D5-4EB0-BCF8-DBD58DCD49B2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SurveyApp/src/dataProvider/keychain/KeyChainManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "delete(service:account:)"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "gotoNextView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

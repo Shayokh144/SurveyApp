@@ -23,6 +23,9 @@ class LoginView: UIViewController {
         configureTextFields()
         configureLoadingSpinner()
         addNotificationObserver()
+        let keyC = KeyChainManager()
+        keyC.deleteLoginDataFromKeyChain()
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {

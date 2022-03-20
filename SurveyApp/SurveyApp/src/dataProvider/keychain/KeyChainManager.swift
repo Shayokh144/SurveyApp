@@ -76,9 +76,6 @@ class KeyChainAccessManager{
             kSecAttrAccount as String : account as AnyObject,
         ]
         let newAttributes : [String : AnyObject] = [
-            kSecClass as String : kSecClassGenericPassword,
-            kSecAttrService as String : service as AnyObject,
-            kSecAttrAccount as String : account as AnyObject,
             kSecValueData as String : newData as AnyObject
         ]
         let status = SecItemUpdate(query as CFDictionary, newAttributes as CFDictionary)

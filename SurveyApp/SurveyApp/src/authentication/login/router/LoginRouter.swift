@@ -24,8 +24,14 @@ class LoginRouter{
         LoginRouter.presenter = presenter
         return viewController
     }
+    
+    private func loadSurveyView(){
+        NavigationManager.shared.loadSurveyView(isRootView: true)
+    }
 }
 
 extension LoginRouter : LoginPresenterToRouterProtocol{
-    
+    func gotoNextView() {
+        self.loadSurveyView()
+    }
 }

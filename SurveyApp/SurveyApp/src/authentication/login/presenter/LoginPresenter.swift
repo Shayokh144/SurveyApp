@@ -10,10 +10,16 @@ class LoginPresenter{
     weak var view : LoginPresenterToViewProtocol?
     var interector: LoginPresenterToInteractorProtocol?
     var router: LoginPresenterToRouterProtocol?
+    
+    private func gotoNextView(){
+        router?.gotoNextView()
+    }
 }
 
 extension LoginPresenter : LoginViewToPresenterProtocol{
     func didTapLoginButton(userEmail: String, userPassword: String) {
+        self.gotoNextView()
+        /*
         view?.showLoadingSpinnerView()
         if(!ValidityChecker.isValidEmail(address: userEmail)){
             view?.showErrorPopUp(title: TextConstants.failedLoginAlertTitle, message: TextConstants.invalidEmailAlertMessage)
@@ -24,7 +30,7 @@ extension LoginPresenter : LoginViewToPresenterProtocol{
         if(!ReachabilityCenter.isConnectedToInternet()){
             view?.showErrorPopUp(title: TextConstants.failedLoginAlertTitle, message: TextConstants.noInternetAlertMessage)
         }
-        interector?.loginProcessWillStart(userEmail: userEmail, userPassword: userPassword)
+        interector?.loginProcessWillStart(userEmail: userEmail, userPassword: userPassword)*/
     }
 }
 
@@ -37,10 +43,11 @@ extension LoginPresenter : LoginInteractorToPresenterProtocol{
         }
         //print(loginData)
         if let loginTokenData = DataDecoder.decodeLoginData(from: loginData) {
-             print(loginTokenData)
-             // data is ok, need to save
-             let keyChainManager = KeyChainManager()
-             keyChainManager.saveLoginDataInKeychain(data: loginData)
+            print(loginTokenData)
+            // data is ok, need to save
+            let keyChainManager = KeyChainManager()
+            keyChainManager.saveLoginDataInKeychain(data: loginData)
+            self.gotoNextView()
          }
          else{
              self.view?.showErrorPopUp(title: TextConstants.failedLoginAlertTitle, message: TextConstants.wrongEmailOrPasswordAlertMessage)

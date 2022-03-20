@@ -62,8 +62,8 @@
                                             <constraint firstAttribute="height" constant="56" id="blV-lc-MDE"/>
                                             <constraint firstAttribute="width" constant="327" id="lxK-Qv-ACr"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Log in"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Log in"/>
                                         <connections>
                                             <action selector="loginButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="flV-9K-OyB"/>
                                         </connections>
@@ -92,6 +92,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="20" y="80"/>
+        </scene>
+        <!--Survey View-->
+        <scene sceneID="MdO-iJ-1bA">
+            <objects>
+                <viewController storyboardIdentifier="surveyViewController" id="Wea-9j-9ab" customClass="SurveyView" customModule="SurveyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3jG-A9-HIM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ac5-8n-Rlw">
+                                <rect key="frame" x="8" y="640" width="398" height="214"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="214" id="vay-lp-MLz"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="01c-oc-jF1">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="rJp-id-Z8e">
+                                <rect key="frame" x="0.0" y="606" width="156" height="26"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </pageControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="L5J-eG-VFf"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ac5-8n-Rlw" firstAttribute="top" secondItem="rJp-id-Z8e" secondAttribute="bottom" constant="8" id="3MH-0H-5g3"/>
+                            <constraint firstItem="ac5-8n-Rlw" firstAttribute="leading" secondItem="L5J-eG-VFf" secondAttribute="leading" constant="8" id="Isy-9p-7cG"/>
+                            <constraint firstItem="L5J-eG-VFf" firstAttribute="bottom" secondItem="ac5-8n-Rlw" secondAttribute="bottom" constant="8" id="mtz-EG-0IM"/>
+                            <constraint firstItem="rJp-id-Z8e" firstAttribute="leading" secondItem="L5J-eG-VFf" secondAttribute="leading" id="qLw-BI-oiU"/>
+                            <constraint firstItem="L5J-eG-VFf" firstAttribute="trailing" secondItem="ac5-8n-Rlw" secondAttribute="trailing" constant="8" id="taE-UA-ebH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="ac5-8n-Rlw" id="MPZ-KQ-K41"/>
+                        <outlet property="pageControl" destination="rJp-id-Z8e" id="gf9-dI-JHW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wi8-XD-jO6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1006" y="80"/>
         </scene>
     </scenes>
     <resources>

@@ -20,6 +20,7 @@ protocol LoginPresenterToViewProtocol : AnyObject {
 
 //Presenter -> Router
 protocol LoginPresenterToRouterProtocol : AnyObject {
+    func gotoNextView()
 }
 
 //Router -> Presenter

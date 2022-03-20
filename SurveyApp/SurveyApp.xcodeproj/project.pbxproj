@@ -37,6 +37,11 @@
 		E0C31CFB27E6FC650005173D /* AccessTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C31CFA27E6FC650005173D /* AccessTokenManager.swift */; };
 		E0C31CFD27E70AFA0005173D /* KeyChainCnstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C31CFC27E70AFA0005173D /* KeyChainCnstants.swift */; };
 		E0C31CFF27E7353B0005173D /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C31CFE27E7353B0005173D /* DataDecoder.swift */; };
+		E0DF32ED27E76710007B6938 /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DF32EC27E76710007B6938 /* SurveyView.swift */; };
+		E0DF32F827E7AB19007B6938 /* SurveyCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DF32F527E7AB19007B6938 /* SurveyCellData.swift */; };
+		E0DF32F927E7AB19007B6938 /* SurveyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DF32F627E7AB19007B6938 /* SurveyCollectionViewCell.swift */; };
+		E0DF32FA27E7AB19007B6938 /* SurveyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0DF32F727E7AB19007B6938 /* SurveyCollectionViewCell.xib */; };
+		E0DF32FC27E7B08B007B6938 /* SurveyDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DF32FB27E7B08B007B6938 /* SurveyDataManager.swift */; };
 		E0FEF8C827E5EFD70061BE3D /* NeuzeitSLTStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = E0FEF8C727E5EFD70061BE3D /* NeuzeitSLTStd-Book.otf */; };
 		E0FEF8CA27E5F4CF0061BE3D /* NeuzeitSLTStd-BookHeavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = E0FEF8C927E5F4CF0061BE3D /* NeuzeitSLTStd-BookHeavy.otf */; };
 		EFE446431E1D5F2DDD520ABE /* Pods_SurveyApp_SurveyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D96524B2B2312363682E46D /* Pods_SurveyApp_SurveyAppUITests.framework */; };
@@ -101,6 +106,11 @@
 		E0C31CFA27E6FC650005173D /* AccessTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenManager.swift; sourceTree = "<group>"; };
 		E0C31CFC27E70AFA0005173D /* KeyChainCnstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainCnstants.swift; sourceTree = "<group>"; };
 		E0C31CFE27E7353B0005173D /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
+		E0DF32EC27E76710007B6938 /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
+		E0DF32F527E7AB19007B6938 /* SurveyCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyCellData.swift; sourceTree = "<group>"; };
+		E0DF32F627E7AB19007B6938 /* SurveyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyCollectionViewCell.swift; sourceTree = "<group>"; };
+		E0DF32F727E7AB19007B6938 /* SurveyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SurveyCollectionViewCell.xib; sourceTree = "<group>"; };
+		E0DF32FB27E7B08B007B6938 /* SurveyDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyDataManager.swift; sourceTree = "<group>"; };
 		E0FEF8C727E5EFD70061BE3D /* NeuzeitSLTStd-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeuzeitSLTStd-Book.otf"; sourceTree = "<group>"; };
 		E0FEF8C927E5F4CF0061BE3D /* NeuzeitSLTStd-BookHeavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeuzeitSLTStd-BookHeavy.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -207,6 +217,7 @@
 		E09C3EF227E5AC7A0043EE6F /* src */ = {
 			isa = PBXGroup;
 			children = (
+				E0DF32EA27E766CD007B6938 /* Survey */,
 				E0AA028527E61BC700DA1845 /* utils */,
 				E0B7474A27E5DD1D00EF7EC8 /* extension */,
 				E0B7473F27E5D05900EF7EC8 /* dataProvider */,
@@ -410,8 +421,36 @@
 			isa = PBXGroup;
 			children = (
 				E0C31CFA27E6FC650005173D /* AccessTokenManager.swift */,
+				E0DF32FB27E7B08B007B6938 /* SurveyDataManager.swift */,
 			);
 			path = remoteapi;
+			sourceTree = "<group>";
+		};
+		E0DF32EA27E766CD007B6938 /* Survey */ = {
+			isa = PBXGroup;
+			children = (
+				E0DF32EB27E766D8007B6938 /* view */,
+			);
+			path = Survey;
+			sourceTree = "<group>";
+		};
+		E0DF32EB27E766D8007B6938 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				E0DF32EE27E77148007B6938 /* customcell */,
+				E0DF32EC27E76710007B6938 /* SurveyView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		E0DF32EE27E77148007B6938 /* customcell */ = {
+			isa = PBXGroup;
+			children = (
+				E0DF32F527E7AB19007B6938 /* SurveyCellData.swift */,
+				E0DF32F627E7AB19007B6938 /* SurveyCollectionViewCell.swift */,
+				E0DF32F727E7AB19007B6938 /* SurveyCollectionViewCell.xib */,
+			);
+			path = customcell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -523,6 +562,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0DF32FA27E7AB19007B6938 /* SurveyCollectionViewCell.xib in Resources */,
 				E0FEF8CA27E5F4CF0061BE3D /* NeuzeitSLTStd-BookHeavy.otf in Resources */,
 				E09C3ECF27E5A9280043EE6F /* LaunchScreen.storyboard in Resources */,
 				E09C3ECC27E5A9280043EE6F /* Assets.xcassets in Resources */,
@@ -662,10 +702,13 @@
 				E0AA029127E635B600DA1845 /* LoginProtocol.swift in Sources */,
 				E0AA028E27E6350200DA1845 /* LoginRouter.swift in Sources */,
 				E09C3EFB27E5B5A30043EE6F /* NavigationManager.swift in Sources */,
+				E0DF32F827E7AB19007B6938 /* SurveyCellData.swift in Sources */,
+				E0DF32ED27E76710007B6938 /* SurveyView.swift in Sources */,
 				E09C3EFE27E5B6A90043EE6F /* UIConstants.swift in Sources */,
 				E0B7474327E5D25000EF7EC8 /* AuthenticationManager.swift in Sources */,
 				E0B7474927E5D8D000EF7EC8 /* KeyChainManager.swift in Sources */,
 				E0AA02A027E6616400DA1845 /* NetworkConstants.swift in Sources */,
+				E0DF32F927E7AB19007B6938 /* SurveyCollectionViewCell.swift in Sources */,
 				E0AA029527E6360600DA1845 /* LoginPresenter.swift in Sources */,
 				E0C31CFF27E7353B0005173D /* DataDecoder.swift in Sources */,
 				E09C3EC327E5A9270043EE6F /* AppDelegate.swift in Sources */,
@@ -673,6 +716,7 @@
 				E0B7474727E5D3FD00EF7EC8 /* UserDefaultConstants.swift in Sources */,
 				E0B7474C27E5DD3D00EF7EC8 /* UIView+Extension.swift in Sources */,
 				E0AA029C27E65D0800DA1845 /* ReachabilityCenter.swift in Sources */,
+				E0DF32FC27E7B08B007B6938 /* SurveyDataManager.swift in Sources */,
 				E0C31CFB27E6FC650005173D /* AccessTokenManager.swift in Sources */,
 				E0AA029927E653C700DA1845 /* ValidityChecker.swift in Sources */,
 				E0C31CFD27E70AFA0005173D /* KeyChainCnstants.swift in Sources */,

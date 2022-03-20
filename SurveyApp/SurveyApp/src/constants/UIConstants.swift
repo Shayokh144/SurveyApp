@@ -10,6 +10,7 @@ import UIKit
 class UIConstants{
     public static let storyBoardName = "SurveyAppMain"
     public static let loginViewStoryBoardId = "loginViewId"
+    public static let surveyViewStoryBoardId = "surveyViewController"
     public static let fontNeuzeitSLTNormal = "NeuzeitSLTStd-Book"
     public static let fontNeuzeitSLTHeavy = "NeuzeitSLTStd-BookHeavy"
     public static let loginButtonfontSize : CGFloat = 17.0
@@ -17,6 +18,7 @@ class UIConstants{
     public static let emailTextFieldCornerRadius : CGFloat = 10.0
     public static let passwordTextFieldCornerRadius : CGFloat = 10.0
     public static let spacceForKeyBoard : CGFloat = -150.0
+    public static let surveyCellNibName = "SurveyCollectionViewCell"
 }
 
 class TextConstants{

@@ -32,8 +32,9 @@ final class NavigationManager{
     public func setInitialView(){
         let authenticationManager = AuthenticationManager()
         let status = authenticationManager.userDidLoggedInSuccessfully()
-        if(status == true){
+        if(status == false){
             //load survey view
+            loadSurveyView(isRootView: false)
         }
         else{
             loadLoginView()
@@ -48,6 +49,27 @@ final class NavigationManager{
         self.navigationController?.modalPresentationStyle = .fullScreen
         self.window?.rootViewController = self.navigationController
         self.window?.makeKeyAndVisible()
+    }
+    
+    public func loadSurveyView(isRootView : Bool){
+        if(isRootView){
+            let navC = NavigationManager.shared.getCurrentNavigationController()
+            DispatchQueue.main.async {
+                navC.viewControllers.removeAll()
+                let storyboard = UIStoryboard(name: UIConstants.storyBoardName, bundle: nil)
+                let surveyVc = storyboard.instantiateViewController(withIdentifier: UIConstants.surveyViewStoryBoardId)
+                navC.pushViewController(surveyVc, animated: true)
+                print(navC.viewControllers.count)
+            }
+        }
+        else{
+            let storyboard = UIStoryboard(name: UIConstants.storyBoardName, bundle: nil)
+            let surveyVc = storyboard.instantiateViewController(withIdentifier: UIConstants.surveyViewStoryBoardId)
+            self.navigationController = UINavigationController(rootViewController: surveyVc)
+            self.navigationController?.modalPresentationStyle = .fullScreen
+            self.window?.rootViewController = self.navigationController
+            self.window?.makeKeyAndVisible()
+        }
     }
 }
 
