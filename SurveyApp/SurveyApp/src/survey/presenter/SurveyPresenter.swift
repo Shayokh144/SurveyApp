@@ -90,6 +90,7 @@ class SurveyPresenter{
             loginTokenDataForInteractor = loginTokenData
             let keyChainManager = KeyChainManager()
             keyChainManager.updateLoginDataInKeyChain(from: loginData)
+            userdefaultManager.setUserLoginTime(time: TimeUtil.getCurrentTimeInInt())
             startSurveyDataFetching()
          }
          else{
