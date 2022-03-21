@@ -27,5 +27,9 @@ class SurveyRouter{
 }
 
 extension SurveyRouter : SurveyPresenterToRouterProtocol{
-    
+    func gotoLoginPage() {
+        DispatchQueue.main.async {
+            NavigationManager.shared.loadLoginView()
+        }
+    }
 }

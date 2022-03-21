@@ -16,10 +16,16 @@ class SurveyPresenter{
     
     private func isAccessTokenStillValid()->Bool{
         let keyChainMgr = KeyChainManager()
+        let userDefaultmanager = UserDefaultManager()
         if let loginData = keyChainMgr.getLoginDataFromKeyChain(){
             if let tokenData = DataDecoder.decodeLoginData(from: loginData){
                 loginTokenDataForInteractor = tokenData
-                return tokenData.data.attributes.isValid
+                let loginTime = userDefaultmanager.getUserLoginTime()
+                let timeDif = TimeUtil.getCurrentTimeInInt() - loginTime
+                if(timeDif <= tokenData.data.attributes.expiresIn){
+                    return true
+                }
+                return false
             }else{
                 return false
             }
@@ -28,12 +34,18 @@ class SurveyPresenter{
     }
     
     private func startSurveyDataFetching(){
-        if(isAccessTokenStillValid()){
-            // fetch survey data
-            interector?.willFetchSurveyData(with: loginTokenDataForInteractor)
+        if(!ReachabilityCenter.isConnectedToInternet()){
+            self.view?.showErrorAlert(title: TextConstants.noInternetAlertTitle, message: TextConstants.noInternetAlertMessage, errorType: .noInternetError)
         }
         else{
-            // fetch refresh token data
+            if(isAccessTokenStillValid()){
+                // fetch survey data
+                interector?.willFetchSurveyData(with: loginTokenDataForInteractor)
+            }
+            else{
+                // fetch refresh token data
+                interector?.requestForRefreshToken(with: loginTokenDataForInteractor)
+            }
         }
     }
     
@@ -59,18 +71,58 @@ class SurveyPresenter{
             self.startSurveyImaageFetching(surveyListData: surveyListData)
         }
         else{
-            startSurveyDataFetching()
+            //startSurveyDataFetching()
+            view?.showErrorAlert(title: TextConstants.apiErrotTitle, message: TextConstants.surveyDataFailureDescription, errorType: .apiError)
         }
     }
+    
+    private func processRefreshToken(with data : Data?){
+        let userdefaultManager = UserDefaultManager()
+        guard let loginData = data else {
+            userdefaultManager.setUserLoginStatus(status: false)
+            //todo : show error, take user to login page
+            self.view?.showErrorAlert(title: TextConstants.refreshTokenFailedTitle, message: TextConstants.refreshTokenFailedDescription, errorType: .refreshTokenError)
+            return
+        }
+        if let loginTokenData = DataDecoder.decodeLoginData(from: loginData) {
+            //print(loginTokenData)
+            // data is ok, need to save
+            loginTokenDataForInteractor = loginTokenData
+            let keyChainManager = KeyChainManager()
+            keyChainManager.updateLoginDataInKeyChain(from: loginData)
+            startSurveyDataFetching()
+         }
+         else{
+             //todo : show error, take user to login page
+             userdefaultManager.setUserLoginStatus(status: false)
+             self.view?.showErrorAlert(title: TextConstants.refreshTokenFailedTitle, message: TextConstants.refreshTokenFailedDescription, errorType: .refreshTokenError)
+         }
+    }
 }
+
 extension SurveyPresenter : SurveyViewToPresenterProtocol{
+    func didTapOkButtonOnError(errorType: DataFetchingError) {
+        switch errorType {
+        case .noInternetError:
+            self.startSurveyDataFetching()
+        case .refreshTokenError:
+            self.router?.gotoLoginPage()
+        case .apiError:
+            self.startSurveyDataFetching()
+        }
+    }
+    
     func onViewDidLoadCalled() {
         view?.showSkeletonView()
         startSurveyDataFetching()
     }
-    
 }
+
 extension SurveyPresenter : SurveyInteractorToPresenterProtocol{
+    func didReceiveRefreshTokenData(with data: Data?) {
+        self.processRefreshToken(with: data)
+    }
+    
     func backgroundImageDidAppear(with dataDict: [String : Data]) {
         self.updateView(with: dataDict)
     }
@@ -79,6 +131,7 @@ extension SurveyPresenter : SurveyInteractorToPresenterProtocol{
         self.procesSurveyData(with: data)
     }
 }
+
 extension SurveyPresenter : SurveyRouterToPresenterProtocol{
     
 }

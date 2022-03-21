@@ -9,5 +9,6 @@ import Foundation
 
 class UserDefaultConstants{
     public static let loggedInKey = "loggedInKey"
-    
+    public static let loggedInTimeKey = "loggedInTimeKey"
+
 }

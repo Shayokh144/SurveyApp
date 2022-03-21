@@ -125,6 +125,7 @@
                             </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="L5J-eG-VFf"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ac5-8n-Rlw" firstAttribute="top" secondItem="rJp-id-Z8e" secondAttribute="bottom" constant="8" id="3MH-0H-5g3"/>
                             <constraint firstItem="ac5-8n-Rlw" firstAttribute="leading" secondItem="L5J-eG-VFf" secondAttribute="leading" constant="8" id="Isy-9p-7cG"/>

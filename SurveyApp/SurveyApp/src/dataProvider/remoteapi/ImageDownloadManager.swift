@@ -19,7 +19,7 @@ final class ImageDownloadManager {
     private init() {
         cachedImages = [:]
         imagesDownloadTasks = [:]
-        print("ImageDownloadManager called")
+        //print("ImageDownloadManager called")
     }
     
     func downloadImage(with imageUrlString: String?,

@@ -28,3 +28,9 @@ struct SurveyDataEntity{
     var description : String = ""
     var bgImageData : Data = Data()
 }
+
+enum DataFetchingError{
+    case noInternetError
+    case refreshTokenError
+    case apiError
+}

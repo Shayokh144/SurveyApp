@@ -17,4 +17,13 @@ class UserDefaultManager{
     public func setUserLoginStatus(status : Bool){
         UserDefaults.standard.set(status, forKey: UserDefaultConstants.loggedInKey)
     }
+    
+    public func getUserLoginTime()->Int{
+        let value = UserDefaults.standard.integer(forKey: UserDefaultConstants.loggedInTimeKey)
+        return value
+    }
+    
+    public func setUserLoginTime(time : Int){//seconds
+        UserDefaults.standard.set(time, forKey: UserDefaultConstants.loggedInTimeKey)
+    }
 }

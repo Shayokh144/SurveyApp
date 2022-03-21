@@ -19,7 +19,15 @@ class SurveyInteractor{
         imageDownloadCounter = 0
         downloadedImage.removeAll()
     }
-    
+    private func getRefreshTokenRequestBodyDict(refreshToken : String) -> [String : AnyHashable]{
+        let requestBodyDictionary : [String : AnyHashable] = [
+            NetworkConstants.tokenGrantTypeFieldName : NetworkConstants.refreshTokenGrantTypeFieldValue,
+            NetworkConstants.refreshTokenGrantTypeFieldValue : refreshToken,
+            NetworkConstants.tokenClientIdFieldName : NetworkConstants.tokenKey,
+            NetworkConstants.tokenClientSecretFieldName : NetworkConstants.tokenSecret
+        ]
+        return requestBodyDictionary
+    }
     private func startBackgroundImageFetching(with imageUrlList: [String]){
         if(imageDownloadCounter < imageUrlList.count){
             ImageDownloadManager.shared.downloadImage(with: imageUrlList[imageDownloadCounter]){ [weak self](imageData, cached, urlString) in
@@ -36,6 +44,15 @@ class SurveyInteractor{
         }
     }
     
+    private func fetchRefreshToken(with tokenData: LoginTokenData){
+        let refreshToeknValue = tokenData.data.attributes.refreshToken
+        let requestBodyDict = getRefreshTokenRequestBodyDict(refreshToken: refreshToeknValue)
+        let accessTokenManager = AccessTokenManager()
+        accessTokenManager.requestForAccessToken(with: requestBodyDict){[weak self] data in
+            self?.presenter?.didReceiveRefreshTokenData(with: data)
+        }
+    }
+    
     private func fetchSurveyDataFromRemoteApi(with tokenData: LoginTokenData){
         let surveyDataManager = SurveyDataManager()
         surveyDataManager.requestForAccessSurveyData(with: tokenData){[weak self] data in
@@ -45,6 +62,10 @@ class SurveyInteractor{
 }
 
 extension SurveyInteractor : SurveyPresenterToInteractorProtocol{
+    func requestForRefreshToken(with tokenData: LoginTokenData) {
+        self.fetchRefreshToken(with: tokenData)
+    }
+    
     func willFetchBackgroundImage(with surveyData: SurveyListData) {
         clearOldData()
         var imageUrls = [String]()

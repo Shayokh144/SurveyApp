@@ -47,6 +47,11 @@ class TextConstants{
     public static let invalidPasswordAlertMessage = "invalid password format!!\nTry again with valid password."
     public static let noInternetAlertMessage = "Please Check your internet connection and try again"
     public static let wrongEmailOrPasswordAlertMessage = "Email or Password is wrong!"
-
+    public static let refreshTokenFailedTitle = "Authentication Failed!"
+    public static let refreshTokenFailedDescription = "Try to login again!"
+    public static let noInternetAlertTitle = "Connectivity error!"
+    public static let apiErrotTitle = "Data Fething Failed!"
+    public static let surveyDataFailureDescription = "Survey data not found, please try again later"
+    public static let surveyImageFailureDescription = "Survey image not found, please try again later!"
 
 }

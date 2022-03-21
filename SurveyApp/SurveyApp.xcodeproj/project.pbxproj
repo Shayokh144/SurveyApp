@@ -50,6 +50,7 @@
 		E0DF330927E7BE48007B6938 /* SurveyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DF330827E7BE48007B6938 /* SurveyPresenter.swift */; };
 		E0DF330B27E7BE5D007B6938 /* SurveyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DF330A27E7BE5D007B6938 /* SurveyRouter.swift */; };
 		E0DF330D27E7BE75007B6938 /* SurveyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DF330C27E7BE75007B6938 /* SurveyInteractor.swift */; };
+		E0F7AD1D27E8FDAD00092242 /* TimeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F7AD1C27E8FDAD00092242 /* TimeUtil.swift */; };
 		E0FEF8C827E5EFD70061BE3D /* NeuzeitSLTStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = E0FEF8C727E5EFD70061BE3D /* NeuzeitSLTStd-Book.otf */; };
 		E0FEF8CA27E5F4CF0061BE3D /* NeuzeitSLTStd-BookHeavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = E0FEF8C927E5F4CF0061BE3D /* NeuzeitSLTStd-BookHeavy.otf */; };
 		EFE446431E1D5F2DDD520ABE /* Pods_SurveyApp_SurveyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D96524B2B2312363682E46D /* Pods_SurveyApp_SurveyAppUITests.framework */; };
@@ -127,6 +128,7 @@
 		E0DF330827E7BE48007B6938 /* SurveyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyPresenter.swift; sourceTree = "<group>"; };
 		E0DF330A27E7BE5D007B6938 /* SurveyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyRouter.swift; sourceTree = "<group>"; };
 		E0DF330C27E7BE75007B6938 /* SurveyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyInteractor.swift; sourceTree = "<group>"; };
+		E0F7AD1C27E8FDAD00092242 /* TimeUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUtil.swift; sourceTree = "<group>"; };
 		E0FEF8C727E5EFD70061BE3D /* NeuzeitSLTStd-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeuzeitSLTStd-Book.otf"; sourceTree = "<group>"; };
 		E0FEF8C927E5F4CF0061BE3D /* NeuzeitSLTStd-BookHeavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeuzeitSLTStd-BookHeavy.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -339,6 +341,7 @@
 				E0AA028727E61BEC00DA1845 /* SpinnerViewController.swift */,
 				E0AA029827E653C700DA1845 /* ValidityChecker.swift */,
 				E0C31CFE27E7353B0005173D /* DataDecoder.swift */,
+				E0F7AD1C27E8FDAD00092242 /* TimeUtil.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -808,6 +811,7 @@
 				E0DF330527E7BC9D007B6938 /* SurveyProtocol.swift in Sources */,
 				E0C31CFD27E70AFA0005173D /* KeyChainCnstants.swift in Sources */,
 				E0B7474527E5D2F300EF7EC8 /* UserDefaultManager.swift in Sources */,
+				E0F7AD1D27E8FDAD00092242 /* TimeUtil.swift in Sources */,
 				E0DF330127E7B22B007B6938 /* SurveyEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

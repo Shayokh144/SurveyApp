@@ -52,6 +52,7 @@ final class NavigationManager{
         /*let storyboard = UIStoryboard(name: UIConstants.storyBoardName, bundle: nil)
         let loginVC = storyboard.instantiateViewController(withIdentifier: UIConstants.loginViewStoryBoardId)*/
         let loginVC = LoginRouter.createModule()
+        self.navigationController?.viewControllers.removeAll()
         self.navigationController = UINavigationController(rootViewController: loginVC ?? UIViewController())
         self.navigationController?.modalPresentationStyle = .fullScreen
         self.window?.rootViewController = self.navigationController
