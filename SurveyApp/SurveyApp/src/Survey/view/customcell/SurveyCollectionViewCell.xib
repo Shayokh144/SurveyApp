@@ -48,8 +48,11 @@
                                             <constraint firstAttribute="width" constant="56" id="8tD-hd-3VL"/>
                                             <constraint firstAttribute="height" constant="56" id="Ygd-Yr-nWF"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                         </userDefinedRuntimeAttributes>
@@ -78,6 +81,8 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="arrowButton" destination="bLv-vl-tTQ" id="K58-PU-gKW"/>
+                <outlet property="arrowButtonHeight" destination="Ygd-Yr-nWF" id="p1K-lz-9zw"/>
+                <outlet property="arrowButtonWidth" destination="8tD-hd-3VL" id="ua0-aM-G4u"/>
                 <outlet property="descriptionLabel" destination="X4C-eP-UbA" id="9Fv-nV-UwP"/>
                 <outlet property="titleLabel" destination="EIx-Ij-gLH" id="o09-iX-Eqs"/>
             </connections>

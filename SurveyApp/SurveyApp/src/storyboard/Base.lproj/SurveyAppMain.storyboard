@@ -101,7 +101,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ac5-8n-Rlw">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ac5-8n-Rlw">
                                 <rect key="frame" x="8" y="640" width="398" height="214"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="214" id="vay-lp-MLz"/>
@@ -118,25 +118,30 @@
                                 </userDefinedRuntimeAttributes>
                             </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="rJp-id-Z8e">
-                                <rect key="frame" x="0.0" y="606" width="156" height="26"/>
+                                <rect key="frame" x="-48" y="606" width="156" height="26"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="L5J-eG-VFf"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ac5-8n-Rlw" firstAttribute="top" secondItem="rJp-id-Z8e" secondAttribute="bottom" constant="8" id="3MH-0H-5g3"/>
                             <constraint firstItem="ac5-8n-Rlw" firstAttribute="leading" secondItem="L5J-eG-VFf" secondAttribute="leading" constant="8" id="Isy-9p-7cG"/>
                             <constraint firstItem="L5J-eG-VFf" firstAttribute="bottom" secondItem="ac5-8n-Rlw" secondAttribute="bottom" constant="8" id="mtz-EG-0IM"/>
-                            <constraint firstItem="rJp-id-Z8e" firstAttribute="leading" secondItem="L5J-eG-VFf" secondAttribute="leading" id="qLw-BI-oiU"/>
+                            <constraint firstItem="rJp-id-Z8e" firstAttribute="leading" secondItem="L5J-eG-VFf" secondAttribute="leading" constant="-48" id="qLw-BI-oiU"/>
                             <constraint firstItem="L5J-eG-VFf" firstAttribute="trailing" secondItem="ac5-8n-Rlw" secondAttribute="trailing" constant="8" id="taE-UA-ebH"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="collectionVIewTop" destination="3MH-0H-5g3" id="qS8-pP-cyx"/>
                         <outlet property="collectionView" destination="ac5-8n-Rlw" id="MPZ-KQ-K41"/>
+                        <outlet property="collectionViewBottom" destination="mtz-EG-0IM" id="lEL-mK-1Nr"/>
+                        <outlet property="collectionViewHeight" destination="vay-lp-MLz" id="klC-bJ-9cT"/>
+                        <outlet property="collectionViewLeading" destination="Isy-9p-7cG" id="PZ6-1S-xJA"/>
+                        <outlet property="collectionViewTrailing" destination="taE-UA-ebH" id="xNf-La-AUT"/>
                         <outlet property="pageControl" destination="rJp-id-Z8e" id="gf9-dI-JHW"/>
+                        <outlet property="pageControlLeading" destination="qLw-BI-oiU" id="NPM-Nl-cgd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wi8-XD-jO6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

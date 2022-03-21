@@ -20,5 +20,6 @@ class NetworkConstants{
     public static let httpMethodPost = "POST"
     public static let contentTypeFieldName = "Content-Type"
     public static let contentTypeFieldValue = "application/json"
+    public static let baseUrlStringForSurvey = "https://survey-api.nimblehq.co/api/v1/surveys?page[number]=1&page[size]=5"
 
 }

@@ -19,6 +19,21 @@ class UIConstants{
     public static let passwordTextFieldCornerRadius : CGFloat = 10.0
     public static let spacceForKeyBoard : CGFloat = -150.0
     public static let surveyCellNibName = "SurveyCollectionViewCell"
+    public static let pageControlLeading : CGFloat = -48.0
+    public static let pageControlSkeletonLeading : CGFloat = 8.0
+    public static let screenRatio = min(UIScreen.main.bounds.height, UIScreen.main.bounds.width) / 414.0
+    public static let collectionViewMargin : CGFloat = 8.0
+    public static let collectionViewHeight : CGFloat = 214.0
+    public static let arrowButtonHeight : CGFloat = 56.0
+    public static let arrowButtonWidth : CGFloat = 56.0
+    public static let arrowButtonImageName = "Arrow"
+    public static let surveyTitlefontSize : CGFloat = 28.0
+    public static let surveyDescriptionfontSize : CGFloat = 17.0
+
+    static func multiplyWithScreenRatio(constraint: NSLayoutConstraint) {
+            constraint.constant = constraint.constant * UIConstants.screenRatio
+    }
+
 }
 
 class TextConstants{

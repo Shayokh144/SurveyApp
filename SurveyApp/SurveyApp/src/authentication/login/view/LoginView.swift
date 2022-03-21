@@ -23,8 +23,8 @@ class LoginView: UIViewController {
         configureTextFields()
         configureLoadingSpinner()
         addNotificationObserver()
-        let keyC = KeyChainManager()
-        keyC.deleteLoginDataFromKeyChain()
+        /*let keyC = KeyChainManager()
+        keyC.deleteLoginDataFromKeyChain()*/
 
     }
     

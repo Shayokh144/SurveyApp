@@ -7,9 +7,9 @@
 
 import Foundation
 struct SurveyCellData{
-    var title : String
-    var imageUrl : String
-    var description : String
+    var title : String = ""
+    var imageUrl : String = ""
+    var description : String = ""
 }
 class SurveyCellDataProvider{
     private let cellData : [SurveyCellData] = {

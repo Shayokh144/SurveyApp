@@ -7,6 +7,7 @@
 
 import Foundation
 class DataDecoder{
+    
     static func decodeLoginData(from data : Data)->LoginTokenData?{
         let decoder = JSONDecoder()
         if let loginTokenData = try? decoder.decode(LoginTokenData.self, from: data) {
@@ -15,6 +16,16 @@ class DataDecoder{
         }
         return nil
     }
+    
+    static func decodeSurveyData(from data : Data)->SurveyListData?{
+        let decoder = JSONDecoder()
+        if let surveyList = try? decoder.decode(SurveyListData.self, from: data) {
+            //print(surveyList)
+            return surveyList
+        }
+        return nil
+    }
+    
     static func encodeLoginData(from loginTokenData : LoginTokenData)-> Data?{
         let encoder = JSONEncoder()
         if let encodedData = try? encoder.encode(loginTokenData) {
