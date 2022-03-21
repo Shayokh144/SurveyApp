@@ -29,6 +29,12 @@ class SurveyCollectionViewCell: UICollectionViewCell {
         // Initialization code
         configureButton()
     }
+    @IBAction func arrowBtnAction(_ sender: Any) {
+        let storyboard = UIStoryboard(name: UIConstants.storyBoardName, bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: UIConstants.surveyDetailsViewStoryBoardId) as? SurveyDetailsView
+        viewController?.titleText = self.surveyCellData.title
+        NavigationManager.shared.loadViewController(newViewController: viewController ?? UIViewController())
+    }
     
     private func setTitle(with text : String){
         let attrs = [NSAttributedString.Key.font : UIFont(name:     UIConstants.fontNeuzeitSLTHeavy, size: UIConstants.surveyTitlefontSize),

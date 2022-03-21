@@ -41,6 +41,13 @@ final class NavigationManager{
         }
     }
     
+    public func loadViewController(newViewController : UIViewController){
+        let navC = NavigationManager.shared.getCurrentNavigationController()
+        DispatchQueue.main.async {
+            navC.pushViewController(newViewController, animated: true)
+        }
+    }
+    
     public func loadLoginView(){
         /*let storyboard = UIStoryboard(name: UIConstants.storyBoardName, bundle: nil)
         let loginVC = storyboard.instantiateViewController(withIdentifier: UIConstants.loginViewStoryBoardId)*/
@@ -58,7 +65,7 @@ final class NavigationManager{
                 navC.viewControllers.removeAll()
                 let surveyVc = SurveyRouter.createModule()
                 navC.pushViewController(surveyVc ?? UIViewController(), animated: true)
-                print(navC.viewControllers.count)
+                //print(navC.viewControllers.count)
             }
         }
         else{

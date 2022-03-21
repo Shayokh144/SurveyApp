@@ -62,6 +62,7 @@ class SurveyView: UIViewController {
         self.view.backgroundColor = UIColor(patternImage: resizedImage!)
     }
 }
+
 extension SurveyView : UICollectionViewDelegate, SkeletonCollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return SurveyCollectionViewCell.cellIdentifier

@@ -148,6 +148,37 @@
             </objects>
             <point key="canvasLocation" x="1006" y="80"/>
         </scene>
+        <!--Survey Details View-->
+        <scene sceneID="Z12-te-MzH">
+            <objects>
+                <viewController storyboardIdentifier="surveyDetailsViewController" id="vHH-uC-fn4" customClass="SurveyDetailsView" customModule="SurveyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q3O-6t-2Rp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4q-yh-rdU">
+                                <rect key="frame" x="20" y="64" width="374" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iT2-BT-gy8"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="H4q-yh-rdU" firstAttribute="top" secondItem="iT2-BT-gy8" secondAttribute="top" constant="20" id="FB1-QQ-xg1"/>
+                            <constraint firstItem="H4q-yh-rdU" firstAttribute="leading" secondItem="iT2-BT-gy8" secondAttribute="leading" constant="20" id="or0-h7-bv4"/>
+                            <constraint firstItem="iT2-BT-gy8" firstAttribute="trailing" secondItem="H4q-yh-rdU" secondAttribute="trailing" constant="20" id="skC-vE-cKI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="H4q-yh-rdU" id="5Yb-gQ-BEL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cRq-5j-4Yz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2043" y="185"/>
+        </scene>
     </scenes>
     <resources>
         <image name="homeLogo" width="202" height="48"/>

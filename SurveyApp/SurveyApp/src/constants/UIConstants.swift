@@ -11,6 +11,7 @@ class UIConstants{
     public static let storyBoardName = "SurveyAppMain"
     public static let loginViewStoryBoardId = "loginViewId"
     public static let surveyViewStoryBoardId = "surveyViewController"
+    public static let surveyDetailsViewStoryBoardId = "surveyDetailsViewController"
     public static let fontNeuzeitSLTNormal = "NeuzeitSLTStd-Book"
     public static let fontNeuzeitSLTHeavy = "NeuzeitSLTStd-BookHeavy"
     public static let loginButtonfontSize : CGFloat = 17.0

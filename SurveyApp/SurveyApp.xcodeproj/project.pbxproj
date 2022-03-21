@@ -30,6 +30,7 @@
 		E0AA029C27E65D0800DA1845 /* ReachabilityCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA029B27E65D0800DA1845 /* ReachabilityCenter.swift */; };
 		E0AA02A027E6616400DA1845 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA029F27E6616400DA1845 /* NetworkConstants.swift */; };
 		E0AD08F327E87E740002495D /* ImageDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AD08F227E87E740002495D /* ImageDownloadManager.swift */; };
+		E0AD08F727E8A7B50002495D /* SurveyDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AD08F627E8A7B50002495D /* SurveyDetailsView.swift */; };
 		E0B7474327E5D25000EF7EC8 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7474227E5D25000EF7EC8 /* AuthenticationManager.swift */; };
 		E0B7474527E5D2F300EF7EC8 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7474427E5D2F300EF7EC8 /* UserDefaultManager.swift */; };
 		E0B7474727E5D3FD00EF7EC8 /* UserDefaultConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7474627E5D3FD00EF7EC8 /* UserDefaultConstants.swift */; };
@@ -106,6 +107,7 @@
 		E0AA029B27E65D0800DA1845 /* ReachabilityCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityCenter.swift; sourceTree = "<group>"; };
 		E0AA029F27E6616400DA1845 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		E0AD08F227E87E740002495D /* ImageDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadManager.swift; sourceTree = "<group>"; };
+		E0AD08F627E8A7B50002495D /* SurveyDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyDetailsView.swift; sourceTree = "<group>"; };
 		E0B7474227E5D25000EF7EC8 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		E0B7474427E5D2F300EF7EC8 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		E0B7474627E5D3FD00EF7EC8 /* UserDefaultConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultConstants.swift; sourceTree = "<group>"; };
@@ -231,7 +233,8 @@
 		E09C3EF227E5AC7A0043EE6F /* src */ = {
 			isa = PBXGroup;
 			children = (
-				E0DF32EA27E766CD007B6938 /* Survey */,
+				E0AD08F427E8A75F0002495D /* surveyDetails */,
+				E0DF32EA27E766CD007B6938 /* survey */,
 				E0AA028527E61BC700DA1845 /* utils */,
 				E0B7474A27E5DD1D00EF7EC8 /* extension */,
 				E0B7473F27E5D05900EF7EC8 /* dataProvider */,
@@ -388,6 +391,22 @@
 			path = network;
 			sourceTree = "<group>";
 		};
+		E0AD08F427E8A75F0002495D /* surveyDetails */ = {
+			isa = PBXGroup;
+			children = (
+				E0AD08F527E8A76C0002495D /* view */,
+			);
+			path = surveyDetails;
+			sourceTree = "<group>";
+		};
+		E0AD08F527E8A76C0002495D /* view */ = {
+			isa = PBXGroup;
+			children = (
+				E0AD08F627E8A7B50002495D /* SurveyDetailsView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		E0B7473F27E5D05900EF7EC8 /* dataProvider */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,7 +461,7 @@
 			path = remoteapi;
 			sourceTree = "<group>";
 		};
-		E0DF32EA27E766CD007B6938 /* Survey */ = {
+		E0DF32EA27E766CD007B6938 /* survey */ = {
 			isa = PBXGroup;
 			children = (
 				E0DF330727E7BE32007B6938 /* presenter */,
@@ -452,7 +471,7 @@
 				E0DF32FD27E7B153007B6938 /* entity */,
 				E0DF32EB27E766D8007B6938 /* view */,
 			);
-			path = Survey;
+			path = survey;
 			sourceTree = "<group>";
 		};
 		E0DF32EB27E766D8007B6938 /* view */ = {
@@ -775,6 +794,7 @@
 				E0AA029527E6360600DA1845 /* LoginPresenter.swift in Sources */,
 				E0C31CFF27E7353B0005173D /* DataDecoder.swift in Sources */,
 				E09C3EC327E5A9270043EE6F /* AppDelegate.swift in Sources */,
+				E0AD08F727E8A7B50002495D /* SurveyDetailsView.swift in Sources */,
 				E09C3EC527E5A9270043EE6F /* SceneDelegate.swift in Sources */,
 				E0B7474727E5D3FD00EF7EC8 /* UserDefaultConstants.swift in Sources */,
 				E0DF330327E7BC07007B6938 /* KeyChainAccessManager.swift in Sources */,
