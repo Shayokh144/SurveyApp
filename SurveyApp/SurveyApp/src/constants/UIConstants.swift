@@ -30,6 +30,11 @@ class UIConstants{
     public static let arrowButtonImageName = "Arrow"
     public static let surveyTitlefontSize : CGFloat = 28.0
     public static let surveyDescriptionfontSize : CGFloat = 17.0
+    public static let loginButtonAccesibilityIdentifier = "loginButtonAccesibilityIdentifier"
+    public static let emailTextFieldAccesibilityIdentifier = "emailTextFieldAccesibilityIdentifier"
+    public static let passwordTextFieldAccesibilityIdentifier = "passwordTextFieldAccesibilityIdentifier"
+    public static let loginAlertAccesibilityIdentifier = "loginAlertId"
+
 
     static func multiplyWithScreenRatio(constraint: NSLayoutConstraint) {
             constraint.constant = constraint.constant * UIConstants.screenRatio

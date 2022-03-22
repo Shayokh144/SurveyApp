@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import SurveyApp
 
 class SurveyAppUITests: XCTestCase {
 
@@ -22,13 +23,26 @@ class SurveyAppUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testAppUI() {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
+        let arrowButton = app.buttons["arrowBtnIdentifier"]
+        if(arrowButton.exists == true){
+            XCTAssertTrue(arrowButton.exists)
+        }
+        else{
+            let loginButton = app.buttons["loginButtonAccesibilityIdentifier"]
+            let emailTextField = app.textFields["emailTextFieldAccesibilityIdentifier"]
+            XCTAssertTrue(loginButton.exists)
+            XCTAssertTrue(emailTextField.exists)
+            loginButton.tap()
+            let alert = app.alerts["loginAlertId"]
+            XCTAssertTrue(alert.exists)
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        }
+        app.terminate()
+        
     }
 
     func testLaunchPerformance() throws {

@@ -57,6 +57,7 @@ class SurveyCollectionViewCell: UICollectionViewCell {
     }
 
     private func configureButton(){
+        arrowButton.accessibilityIdentifier = "arrowBtnIdentifier"
         arrowButtonHeight.constant = UIConstants.arrowButtonHeight
         arrowButtonWidth.constant = UIConstants.arrowButtonWidth
         UIConstants.multiplyWithScreenRatio(constraint: arrowButtonHeight)

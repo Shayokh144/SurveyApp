@@ -63,6 +63,9 @@ class LoginView: UIViewController {
     }
     
     private func configureTextFields(){
+        self.emailTextField.accessibilityIdentifier = UIConstants.emailTextFieldAccesibilityIdentifier
+        self.passwordTextField.accessibilityIdentifier = UIConstants.passwordTextFieldAccesibilityIdentifier
+
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
@@ -83,6 +86,7 @@ class LoginView: UIViewController {
     }
     
     private func configureLoginButton(){
+        self.loginButton.accessibilityIdentifier = UIConstants.loginButtonAccesibilityIdentifier
         self.loginButton.layer.cornerRadius = UIConstants.loginButtonCornerRadius
         let  buttonText  = TextConstants.loginText
         let attrs = [NSAttributedString.Key.font : UIFont(name:     UIConstants.fontNeuzeitSLTHeavy, size: UIConstants.loginButtonfontSize),
@@ -106,6 +110,7 @@ class LoginView: UIViewController {
     private func showAlertMessage(title: String, message : String){
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+            alert.view.accessibilityIdentifier = UIConstants.loginAlertAccesibilityIdentifier
             alert.addAction(UIAlertAction(title: TextConstants.okText, style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }

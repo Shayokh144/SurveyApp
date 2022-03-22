@@ -29,7 +29,7 @@ class SurveyView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.pageControl.isHidden = true
-        self.pageControl.showAnimatedGradientSkeleton()
+        self.pageControl.showAnimatedGradientSkeleton(usingGradient: self.gradient, animation: self.animation)
         backgroundChangeAlreadySet = false
         presenter?.onViewDidLoadCalled()
         configureCollectionView()

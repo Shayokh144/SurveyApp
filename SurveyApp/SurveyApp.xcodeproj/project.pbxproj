@@ -14,6 +14,9 @@
 		E071B32527E97D2F00E280BE /* KeyChainManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E071B32427E97D2F00E280BE /* KeyChainManagerTest.swift */; };
 		E071B32827E9837500E280BE /* LoginPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E071B32727E9837500E280BE /* LoginPresenterTest.swift */; };
 		E071B32A27E98A3800E280BE /* LoginRouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E071B32927E98A3800E280BE /* LoginRouterTest.swift */; };
+		E071B32D27E99E4500E280BE /* NavigationManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E071B32C27E99E4500E280BE /* NavigationManagerTest.swift */; };
+		E071B33027E9A1C200E280BE /* LoginVIewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E071B32F27E9A1C200E280BE /* LoginVIewTest.swift */; };
+		E071B33327E9A50900E280BE /* SurveyViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E071B33227E9A50900E280BE /* SurveyViewTest.swift */; };
 		E09C3EC327E5A9270043EE6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09C3EC227E5A9270043EE6F /* AppDelegate.swift */; };
 		E09C3EC527E5A9270043EE6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09C3EC427E5A9270043EE6F /* SceneDelegate.swift */; };
 		E09C3EC727E5A9270043EE6F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09C3EC627E5A9270043EE6F /* LoginView.swift */; };
@@ -22,7 +25,6 @@
 		E09C3ECF27E5A9280043EE6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E09C3ECD27E5A9280043EE6F /* LaunchScreen.storyboard */; };
 		E09C3EDA27E5A9290043EE6F /* SurveyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09C3ED927E5A9290043EE6F /* SurveyAppTests.swift */; };
 		E09C3EE427E5A9290043EE6F /* SurveyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09C3EE327E5A9290043EE6F /* SurveyAppUITests.swift */; };
-		E09C3EE627E5A9290043EE6F /* SurveyAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09C3EE527E5A9290043EE6F /* SurveyAppUITestsLaunchTests.swift */; };
 		E09C3EFB27E5B5A30043EE6F /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09C3EFA27E5B5A30043EE6F /* NavigationManager.swift */; };
 		E09C3EFE27E5B6A90043EE6F /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09C3EFD27E5B6A90043EE6F /* UIConstants.swift */; };
 		E0AA028827E61BED00DA1845 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA028727E61BEC00DA1845 /* SpinnerViewController.swift */; };
@@ -95,6 +97,9 @@
 		E071B32427E97D2F00E280BE /* KeyChainManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManagerTest.swift; sourceTree = "<group>"; };
 		E071B32727E9837500E280BE /* LoginPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterTest.swift; sourceTree = "<group>"; };
 		E071B32927E98A3800E280BE /* LoginRouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouterTest.swift; sourceTree = "<group>"; };
+		E071B32C27E99E4500E280BE /* NavigationManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManagerTest.swift; sourceTree = "<group>"; };
+		E071B32F27E9A1C200E280BE /* LoginVIewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVIewTest.swift; sourceTree = "<group>"; };
+		E071B33227E9A50900E280BE /* SurveyViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewTest.swift; sourceTree = "<group>"; };
 		E09C3EBF27E5A9270043EE6F /* SurveyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurveyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E09C3EC227E5A9270043EE6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E09C3EC427E5A9270043EE6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,7 +112,6 @@
 		E09C3ED927E5A9290043EE6F /* SurveyAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAppTests.swift; sourceTree = "<group>"; };
 		E09C3EDF27E5A9290043EE6F /* SurveyAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SurveyAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E09C3EE327E5A9290043EE6F /* SurveyAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAppUITests.swift; sourceTree = "<group>"; };
-		E09C3EE527E5A9290043EE6F /* SurveyAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E09C3EFA27E5B5A30043EE6F /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		E09C3EFD27E5B6A90043EE6F /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		E0AA028727E61BEC00DA1845 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +228,22 @@
 			path = keychain;
 			sourceTree = "<group>";
 		};
+		E071B32B27E99BCE00E280BE /* navigation */ = {
+			isa = PBXGroup;
+			children = (
+				E071B32C27E99E4500E280BE /* NavigationManagerTest.swift */,
+			);
+			path = navigation;
+			sourceTree = "<group>";
+		};
+		E071B33127E9A4B500E280BE /* survey */ = {
+			isa = PBXGroup;
+			children = (
+				E071B33227E9A50900E280BE /* SurveyViewTest.swift */,
+			);
+			path = survey;
+			sourceTree = "<group>";
+		};
 		E09C3EB627E5A9270043EE6F = {
 			isa = PBXGroup;
 			children = (
@@ -268,7 +288,6 @@
 			isa = PBXGroup;
 			children = (
 				E09C3EE327E5A9290043EE6F /* SurveyAppUITests.swift */,
-				E09C3EE527E5A9290043EE6F /* SurveyAppUITestsLaunchTests.swift */,
 			);
 			path = SurveyAppUITests;
 			sourceTree = "<group>";
@@ -579,6 +598,8 @@
 		E0F7AD1E27E9061F00092242 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				E071B33127E9A4B500E280BE /* survey */,
+				E071B32B27E99BCE00E280BE /* navigation */,
 				E071B31D27E9706700E280BE /* dataProvider */,
 				E0F7AD2527E9102B00092242 /* authentication */,
 				E0F7AD1F27E9062C00092242 /* utils */,
@@ -617,6 +638,7 @@
 				E0F7AD2827E910BE00092242 /* LoginInteractorTest.swift */,
 				E071B32727E9837500E280BE /* LoginPresenterTest.swift */,
 				E071B32927E98A3800E280BE /* LoginRouterTest.swift */,
+				E071B32F27E9A1C200E280BE /* LoginVIewTest.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -904,6 +926,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E071B33027E9A1C200E280BE /* LoginVIewTest.swift in Sources */,
 				E071B32527E97D2F00E280BE /* KeyChainManagerTest.swift in Sources */,
 				E0F7AD2927E910BE00092242 /* LoginInteractorTest.swift in Sources */,
 				E09C3EDA27E5A9290043EE6F /* SurveyAppTests.swift in Sources */,
@@ -911,8 +934,10 @@
 				E071B32827E9837500E280BE /* LoginPresenterTest.swift in Sources */,
 				E071B32A27E98A3800E280BE /* LoginRouterTest.swift in Sources */,
 				E071B32027E970B700E280BE /* ImageDownloadManagerTest.swift in Sources */,
+				E071B33327E9A50900E280BE /* SurveyViewTest.swift in Sources */,
 				E0F7AD2227E9067400092242 /* ValidityCheckerTest.swift in Sources */,
 				E071B32227E978CC00E280BE /* AccessTokenManagerTest.swift in Sources */,
+				E071B32D27E99E4500E280BE /* NavigationManagerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -920,7 +945,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E09C3EE627E5A9290043EE6F /* SurveyAppUITestsLaunchTests.swift in Sources */,
 				E09C3EE427E5A9290043EE6F /* SurveyAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
