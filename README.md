@@ -14,23 +14,17 @@
 ### Screenshots
 
 #### initial login page
-<img src="https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2732.PNG" width="400" height="700">
+<img src="https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2732.PNG" width="300" height="550">
 
 
 #### keyboard appear for typing
-![alt text][keyboardappearence]
+<img src="https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2733.PNG" width="300" height="550">
 
 #### login error shown
-![alt text][failedloginmsg]
+<img src="https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2734.PNG" width="300" height="550">
 
 #### loading survey data
-![alt text][loadingsurveydata]
+<img src="https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2735.PNG" width="300" height="550">
 
 #### survey data appears
-![alt text][surveydatashown]
-
-![initialloginpage](https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2732.PNG =250x250)
-[keyboardappearence]: https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2733.PNG=250x250
-[failedloginmsg]: https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2734.PNG=250x250
-[loadingsurveydata]: https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2735.PNG=250x250
-[surveydatashown]: https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2736.PNG=250x250
+<img src="https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2736.PNG" width="300" height="550">
