@@ -28,8 +28,7 @@
 #### survey data appears
 ![alt text][surveydatashown]
 
-
-[initialloginpage]: https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2732.PNG=250x250
+![initialloginpage](https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2732.PNGg =250x250)
 [keyboardappearence]: https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2733.PNG=250x250
 [failedloginmsg]: https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2734.PNG=250x250
 [loadingsurveydata]: https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2735.PNG=250x250
