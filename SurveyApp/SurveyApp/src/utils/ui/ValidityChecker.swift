@@ -15,6 +15,9 @@ class ValidityChecker{
     }
     
     class func isValidPasswordFormat(password : String) -> Bool{
-        return true
+        if(password.count > 0){
+            return true
+        }
+        return false
     }
 }
