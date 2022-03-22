@@ -28,7 +28,8 @@ class SurveyView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.pageControl.showAnimatedGradientSkeleton(usingGradient: self.gradient, animation: self.animation)
+        self.pageControl.isHidden = true
+        self.pageControl.showAnimatedGradientSkeleton()
         backgroundChangeAlreadySet = false
         presenter?.onViewDidLoadCalled()
         configureCollectionView()
@@ -154,6 +155,7 @@ extension SurveyView : SurveyPresenterToViewProtocol{
     
     func showSkeletonView() {
         DispatchQueue.main.async {
+            self.pageControl.isHidden = false
             self.pageControlLeading.constant = UIConstants.pageControlSkeletonLeading
             UIConstants.multiplyWithScreenRatio(constraint: self.pageControlLeading)
             self.collectionView.isSkeletonable = true
@@ -164,6 +166,7 @@ extension SurveyView : SurveyPresenterToViewProtocol{
     
     func hideSkeletonView() {
         DispatchQueue.main.async {
+            self.pageControl.isHidden = true
             self.pageControl.stopSkeletonAnimation()
             self.collectionView.stopSkeletonAnimation()
             self.view.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))

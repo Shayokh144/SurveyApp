@@ -11,7 +11,7 @@ import XCTest
 class LoginPresenterTest: XCTestCase {
     var sut : LoginPresenter?
     var mockLoginInteractor : MockLoginInteractor?
-    
+    var mockView : Int?
     override func setUpWithError() throws {
         sut = LoginPresenter()
         mockLoginInteractor = MockLoginInteractor()
@@ -42,5 +42,8 @@ class  MockLoginInteractor : MockLoginInteractorProtocol {
 }
 
 protocol MockLoginInteractorProtocol : LoginPresenterToInteractorProtocol{
-    var isLoggedInDatareceived : Bool { get set}
+    var isLoggedInDatareceived : Bool {get set}
+}
+protocol MockLoginViewProtocol : LoginPresenterToViewProtocol{
+    var didStartViewUpdating : Bool {get set}
 }
