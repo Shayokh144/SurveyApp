@@ -14,7 +14,8 @@
 ### Screenshots
 
 #### initial login page
-![alt text][initialloginpage]
+<img src="https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2732.PNG" width="400" height="700">
+
 
 #### keyboard appear for typing
 ![alt text][keyboardappearence]
@@ -28,7 +29,6 @@
 #### survey data appears
 ![alt text][surveydatashown]
 
-<img src="https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2732.PNG" width="100" height="100">
 ![initialloginpage](https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2732.PNG =250x250)
 [keyboardappearence]: https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2733.PNG=250x250
 [failedloginmsg]: https://github.com/Shayokh144/SurveyApp/blob/main/appScreenShots/IMG_2734.PNG=250x250
