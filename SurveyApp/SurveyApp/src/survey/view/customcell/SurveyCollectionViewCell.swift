@@ -28,6 +28,7 @@ class SurveyCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         configureButton()
+        self.titleLabel.accessibilityIdentifier = "cellDataTitleAccIdentifier"
     }
     @IBAction func arrowBtnAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: UIConstants.storyBoardName, bundle: nil)

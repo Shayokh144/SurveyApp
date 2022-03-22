@@ -30,6 +30,10 @@ class SurveyAppUITests: XCTestCase {
         let arrowButton = app.buttons["arrowBtnIdentifier"]
         if(arrowButton.exists == true){
             XCTAssertTrue(arrowButton.exists)
+            sleep(60)
+            let title = app.staticTexts.element(matching:.any, identifier: "cellDataTitleAccIdentifier").label
+            XCTAssertTrue(title.count > 0, "")
+            //XCTAssertEqual(app.staticTexts.element(matching:.any, identifier: "cellDataTitleAccIdentifier").label, "89")
         }
         else{
             let loginButton = app.buttons["loginButtonAccesibilityIdentifier"]
@@ -43,14 +47,5 @@ class SurveyAppUITests: XCTestCase {
         }
         app.terminate()
         
-    }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
     }
 }
