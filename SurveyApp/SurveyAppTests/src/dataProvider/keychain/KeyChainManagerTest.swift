@@ -11,41 +11,49 @@ import XCTest
 class KeyChainManagerTest: XCTestCase {
 
     var sut : KeyChainManager?
+    let testData = "testDataToSave".data(using: .utf8)
     
     override func setUpWithError() throws {
-        sut = KeyChainManager()
+        sut = KeyChainManager(service: "SurveyApp.TestKeyChain", account: "devNimble.Test")
+        sut?.deleteLoginDataFromKeyChain()
     }
 
     override func tearDownWithError() throws {
+        sut?.deleteLoginDataFromKeyChain()
         sut = nil
     }
-
+    func saveTestData(){
+        sut?.saveLoginDataInKeychain(data: testData ?? Data())
+    }
+    
     func testSave() {
-        let loginData = sut?.getLoginDataFromKeyChain()
-        XCTAssertNotNil(loginData)
-        sut?.saveLoginDataInKeychain(data: loginData!)
+        saveTestData()
+        let newData = sut?.getLoginDataFromKeyChain()
+        XCTAssertEqual(newData, testData)
     }
     
     func testGet(){
-        let loginData = sut?.getLoginDataFromKeyChain()
+        var loginData = sut?.getLoginDataFromKeyChain()
+        XCTAssertNil(loginData)
+        saveTestData()
+        loginData = sut?.getLoginDataFromKeyChain()
         XCTAssertNotNil(loginData)
     }
 
     func testUpdate(){
-        let loginData = sut?.getLoginDataFromKeyChain()
-        XCTAssertNotNil(loginData)
-        sut?.updateLoginDataInKeyChain(from: Data())
-        sut?.deleteLoginDataFromKeyChain()
-        sut?.saveLoginDataInKeychain(data: loginData!)
+        saveTestData()
+        let updatedData = "updatedDataForTest".data(using: .utf8)
+        sut?.updateLoginDataInKeyChain(from: updatedData ?? Data())
+        let newData = sut?.getLoginDataFromKeyChain()
+        XCTAssertEqual(newData, updatedData)
     }
     
     func testDelete(){
+        saveTestData()
         let loginData = sut?.getLoginDataFromKeyChain()
         XCTAssertNotNil(loginData)
         sut?.deleteLoginDataFromKeyChain()
-        sut?.saveLoginDataInKeychain(data: loginData!)
         let newLoginData = sut?.getLoginDataFromKeyChain()
-        XCTAssertEqual(loginData, newLoginData)
-        
+        XCTAssertNil(newLoginData)
     }
 }
