@@ -19,6 +19,7 @@ class SurveyCollectionViewCell: UICollectionViewCell {
     
     var surveyCellData : SurveyDataEntity = SurveyDataEntity(){
         didSet{
+            self.showButton()
             self.setTitle(with: surveyCellData.title)
             self.setDescription(with: surveyCellData.description)
         }
@@ -61,12 +62,24 @@ class SurveyCollectionViewCell: UICollectionViewCell {
     
     private func configureTextLabel(){
         self.titleLabel.accessibilityIdentifier = UIConstants.surveyCellTitleAccesibilityIdentifier
+        self.titleLabel.skeletonPaddingInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 8.0, right: 56.0)
+        self.titleLabel.lastLineFillPercent = 40
+        self.descriptionLabel.skeletonPaddingInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 8.0, right: 24.0)
+        self.titleLabel.skeletonLineSpacing = 5.0
         self.titleLabel.linesCornerRadius = UIConstants.skeletonCornerRadius
+        self.descriptionLabel.skeletonLineSpacing = 5.0
         self.descriptionLabel.linesCornerRadius = UIConstants.skeletonCornerRadius
 
     }
+    
+    private func showButton(){
+        DispatchQueue.main.async {
+            self.arrowButton.isHidden = false
+        }
+    }
 
     private func configureButton(){
+        arrowButton.isHidden = true
         arrowButton.accessibilityIdentifier = UIConstants.surveyCellButtonAccesibilityIdentifier
         arrowButton.clipsToBounds = true
         arrowButton.layer.cornerRadius = 0.5 * min(arrowButton.frame.size.width , arrowButton.frame.size.width)

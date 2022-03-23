@@ -13,6 +13,7 @@ class SurveyView: UIViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var skeletonViewForPageController: UIView!
     
     @IBOutlet weak var pageControlLeading: NSLayoutConstraint!
     @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!//214
@@ -24,7 +25,8 @@ class SurveyView: UIViewController {
     var presenter: SurveyViewToPresenterProtocol?
     var cellDataList : [SurveyDataEntity] = []
     var backgroundChangeAlreadySet = false
-    let gradient = SkeletonGradient(baseColor: UIColor.asbestos)
+    
+    let gradient = SkeletonGradient(baseColor: UIConstants.skeletonBaseGradiantColor, secondaryColor:  UIConstants.skeletonSecondaryGradiantColor)
     let animation = GradientDirection.leftRight.slidingAnimation()
     let tintView = UIView()
 
@@ -53,6 +55,9 @@ class SurveyView: UIViewController {
     
     private func setInitialPageControl(){
         self.pageControl.isHidden = true
+        self.skeletonViewForPageController.isHidden = false
+        self.skeletonViewForPageController.skeletonCornerRadius = Float(self.pageControl.frame.size.height * 0.5)
+        self.skeletonViewForPageController.showAnimatedGradientSkeleton(usingGradient: self.gradient, animation: self.animation)
         self.pageControl.skeletonCornerRadius = Float(self.pageControl.frame.size.height * 0.5)
         self.pageControl.showAnimatedGradientSkeleton(usingGradient: self.gradient, animation: self.animation)
     }
@@ -164,18 +169,20 @@ extension SurveyView : SurveyPresenterToViewProtocol{
     
     func showSkeletonView() {
         DispatchQueue.main.async {
-            self.pageControl.isHidden = false
+            self.pageControl.isHidden = true
             self.pageControlLeading.constant = UIConstants.pageControlSkeletonLeading
             UIConstants.multiplyWithScreenRatio(constraint: self.pageControlLeading)
             self.collectionView.isSkeletonable = true
             self.collectionView.showAnimatedGradientSkeleton(usingGradient: self.gradient, animation: self.animation)
-            self.pageControl.showAnimatedGradientSkeleton(usingGradient: self.gradient, animation: self.animation)
+            self.skeletonViewForPageController.showAnimatedGradientSkeleton(usingGradient: self.gradient, animation: self.animation)
+            
         }
     }
     
     func hideSkeletonView() {
         DispatchQueue.main.async {
             self.pageControl.isHidden = false
+            self.skeletonViewForPageController.isHidden = true
             self.pageControl.stopSkeletonAnimation()
             self.collectionView.stopSkeletonAnimation()
             self.view.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
