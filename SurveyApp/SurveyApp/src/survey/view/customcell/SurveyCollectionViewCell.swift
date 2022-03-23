@@ -28,14 +28,16 @@ class SurveyCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         configureButton()
-        self.titleLabel.accessibilityIdentifier = "cellDataTitleAccIdentifier"
+        configureTextLabel()
     }
+    
     @IBAction func arrowBtnAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: UIConstants.storyBoardName, bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: UIConstants.surveyDetailsViewStoryBoardId) as? SurveyDetailsView
         viewController?.titleText = self.surveyCellData.title
         NavigationManager.shared.loadViewController(newViewController: viewController ?? UIViewController())
     }
+    
     
     private func setTitle(with text : String){
         let attrs = [NSAttributedString.Key.font : UIFont(name:     UIConstants.fontNeuzeitSLTHeavy, size: UIConstants.surveyTitlefontSize),
@@ -56,15 +58,18 @@ class SurveyCollectionViewCell: UICollectionViewCell {
             self.descriptionLabel.attributedText = normalText
         }
     }
+    
+    private func configureTextLabel(){
+        self.titleLabel.accessibilityIdentifier = UIConstants.surveyCellTitleAccesibilityIdentifier
+        self.titleLabel.linesCornerRadius = UIConstants.skeletonCornerRadius
+        self.descriptionLabel.linesCornerRadius = UIConstants.skeletonCornerRadius
+
+    }
 
     private func configureButton(){
-        arrowButton.accessibilityIdentifier = "arrowBtnIdentifier"
-        arrowButtonHeight.constant = UIConstants.arrowButtonHeight
-        arrowButtonWidth.constant = UIConstants.arrowButtonWidth
-        UIConstants.multiplyWithScreenRatio(constraint: arrowButtonHeight)
-        UIConstants.multiplyWithScreenRatio(constraint: arrowButtonHeight)
+        arrowButton.accessibilityIdentifier = UIConstants.surveyCellButtonAccesibilityIdentifier
         arrowButton.clipsToBounds = true
-        arrowButton.layer.cornerRadius = 0.5 * arrowButton.bounds.size.width
+        arrowButton.layer.cornerRadius = 0.5 * min(arrowButton.frame.size.width , arrowButton.frame.size.width)
         arrowButton.setTitle("", for: .normal)
         arrowButton.setImage(UIImage(named: UIConstants.arrowButtonImageName), for: .normal)
     }

@@ -10,6 +10,7 @@ import SkeletonView
 
 class SurveyView: UIViewController {
     
+    @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
@@ -25,11 +26,12 @@ class SurveyView: UIViewController {
     var backgroundChangeAlreadySet = false
     let gradient = SkeletonGradient(baseColor: UIColor.asbestos)
     let animation = GradientDirection.leftRight.slidingAnimation()
-    
+    let tintView = UIView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.pageControl.isHidden = true
-        self.pageControl.showAnimatedGradientSkeleton(usingGradient: self.gradient, animation: self.animation)
+        self.navigationController?.navigationBar.barStyle = .blackTranslucent
+        setInitialPageControl()
         backgroundChangeAlreadySet = false
         presenter?.onViewDidLoadCalled()
         configureCollectionView()
@@ -49,6 +51,12 @@ class SurveyView: UIViewController {
         UIConstants.multiplyWithScreenRatio(constraint: collectionViewLeading)
     }
     
+    private func setInitialPageControl(){
+        self.pageControl.isHidden = true
+        self.pageControl.skeletonCornerRadius = Float(self.pageControl.frame.size.height * 0.5)
+        self.pageControl.showAnimatedGradientSkeleton(usingGradient: self.gradient, animation: self.animation)
+    }
+    
     private func configureCollectionView(){
         collectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         collectionView.delegate = self
@@ -58,11 +66,12 @@ class SurveyView: UIViewController {
     }
     
     private func setBackgroundImage(imageData : Data){
+        tintView.removeFromSuperview()
+        tintView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        tintView.frame = CGRect(x: 0, y: 0, width: backgroundImageView.frame.width, height: backgroundImageView.frame.height)
+        backgroundImageView.addSubview(tintView)
         guard let image = UIImage(data: imageData) else{ return }
-        //let blurImage = blurImage(image: image)
-        let resizedImage = image.resizeImageTo(size: CGSize(width: self.view.bounds.width, height: self.view.bounds.height))
-        self.view.contentMode = .scaleAspectFill
-        self.view.backgroundColor = UIColor(patternImage: resizedImage ?? UIImage())
+        backgroundImageView.image = image
     }
     
     private func showAlertMessage(title : String, message : String, errorType : DataFetchingError){

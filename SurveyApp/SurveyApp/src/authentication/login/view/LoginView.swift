@@ -18,6 +18,7 @@ class LoginView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.barStyle = .blackTranslucent
         setBackgroundColor()
         configureLoginButton()
         configureTextFields()
