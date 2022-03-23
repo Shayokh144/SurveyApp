@@ -166,7 +166,7 @@ extension SurveyView : SurveyPresenterToViewProtocol{
     
     func hideSkeletonView() {
         DispatchQueue.main.async {
-            self.pageControl.isHidden = true
+            self.pageControl.isHidden = false
             self.pageControl.stopSkeletonAnimation()
             self.collectionView.stopSkeletonAnimation()
             self.view.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
