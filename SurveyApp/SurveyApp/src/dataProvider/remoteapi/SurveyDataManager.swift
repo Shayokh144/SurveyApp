@@ -8,14 +8,14 @@
 import Foundation
 
 class SurveyDataManager{
-    func requestForAccessSurveyData(with loginTokenData : LoginTokenData?, completion : @escaping (Data?) -> Void){
+    func requestForAccessSurveyData(with surveyUrl : String, loginTokenData : LoginTokenData?, completion : @escaping (Data?) -> Void){
         guard let loginData = loginTokenData else{
             completion(nil)
             return
         }
         let accessToken = loginData.data.attributes.accessToken
         let tokenType = loginData.data.attributes.tokenType
-        guard let baseUrl  = URL(string: NetworkConstants.baseUrlStringForSurvey) else{
+        guard let baseUrl  = URL(string: surveyUrl) else{
             completion(nil)
             return
         }

@@ -53,15 +53,19 @@ class SurveyInteractor{
         }
     }
     
-    private func fetchSurveyDataFromRemoteApi(with tokenData: LoginTokenData){
+    private func fetchSurveyDataFromRemoteApi(with usrlString : String, tokenData: LoginTokenData){
         let surveyDataManager = SurveyDataManager()
-        surveyDataManager.requestForAccessSurveyData(with: tokenData){[weak self] data in
+        surveyDataManager.requestForAccessSurveyData(with: usrlString, loginTokenData:  tokenData){[weak self] data in
             self?.presenter?.surveyDidAppear(with: data)
         }
     }
 }
 
 extension SurveyInteractor : SurveyPresenterToInteractorProtocol{
+    func willFetchSurveyData(with surveyUrl: String, tokenData: LoginTokenData) {
+        self.fetchSurveyDataFromRemoteApi(with: surveyUrl, tokenData: tokenData)
+    }
+    
     func requestForRefreshToken(with tokenData: LoginTokenData) {
         self.fetchRefreshToken(with: tokenData)
     }
@@ -73,9 +77,5 @@ extension SurveyInteractor : SurveyPresenterToInteractorProtocol{
             imageUrls.append(data.attributes.coverImageUrl)
         }
         self.startBackgroundImageFetching(with: imageUrls)
-    }
-    
-    func willFetchSurveyData(with tokenData: LoginTokenData) {
-        self.fetchSurveyDataFromRemoteApi(with: tokenData)
     }
 }

@@ -15,6 +15,7 @@ class SurveyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var arrowButtonHeight: NSLayoutConstraint!
     @IBOutlet weak var arrowButtonWidth: NSLayoutConstraint!
     
+    @IBOutlet weak var cellBackgroundImage: UIImageView!
     static let cellIdentifier: String = "surveyCollectionViewCellId"
     
     var surveyCellData : SurveyDataEntity = SurveyDataEntity(){
@@ -22,6 +23,7 @@ class SurveyCollectionViewCell: UICollectionViewCell {
             self.showButton()
             self.setTitle(with: surveyCellData.title)
             self.setDescription(with: surveyCellData.description)
+            self.showImage(image: surveyCellData.bgImageData)
         }
     }
     
@@ -70,6 +72,12 @@ class SurveyCollectionViewCell: UICollectionViewCell {
         self.descriptionLabel.skeletonLineSpacing = 5.0
         self.descriptionLabel.linesCornerRadius = UIConstants.skeletonCornerRadius
 
+    }
+    
+    private func showImage(image : Data){
+        DispatchQueue.main.async {
+            self.cellBackgroundImage.image = UIImage(data: image)
+        }
     }
     
     private func showButton(){
