@@ -26,6 +26,9 @@
                                     <constraint firstAttribute="width" constant="201" id="P5f-j0-M0X"/>
                                 </constraints>
                             </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Overlay" translatesAutoresizingMaskIntoConstraints="NO" id="Ct1-JZ-NlZ" userLabel="overLayBackg">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -36,6 +39,10 @@
                             <constraint firstItem="8Fu-qB-3J0" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="8bN-xw-lIO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YTa-Xv-MQB" secondAttribute="trailing" id="BlJ-B2-6wn"/>
                             <constraint firstItem="8Fu-qB-3J0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Huv-bx-N2N"/>
+                            <constraint firstAttribute="trailing" secondItem="Ct1-JZ-NlZ" secondAttribute="trailing" id="I19-Ly-ZE4"/>
+                            <constraint firstAttribute="bottom" secondItem="Ct1-JZ-NlZ" secondAttribute="bottom" id="NSA-cp-4VT"/>
+                            <constraint firstItem="Ct1-JZ-NlZ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Vaq-GK-HHn"/>
+                            <constraint firstItem="Ct1-JZ-NlZ" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="b27-eY-ZJ7"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -45,6 +52,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Overlay" width="125" height="270.66665649414062"/>
         <image name="homeLogo" width="202" height="48"/>
         <image name="launcherBackground" width="125" height="270.66665649414062"/>
     </resources>
