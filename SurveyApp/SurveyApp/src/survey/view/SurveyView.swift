@@ -10,8 +10,10 @@ import SkeletonView
 
 class SurveyView: UIViewController {
     
+    @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var skeletonViewForPageController: UIView!
     
     @IBOutlet weak var pageControlLeading: NSLayoutConstraint!
     @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!//214
@@ -23,13 +25,15 @@ class SurveyView: UIViewController {
     var presenter: SurveyViewToPresenterProtocol?
     var cellDataList : [SurveyDataEntity] = []
     var backgroundChangeAlreadySet = false
-    let gradient = SkeletonGradient(baseColor: UIColor.asbestos)
-    let animation = GradientDirection.leftRight.slidingAnimation()
     
+    let gradient = SkeletonGradient(baseColor: UIConstants.skeletonBaseGradiantColor, secondaryColor:  UIConstants.skeletonSecondaryGradiantColor)
+    let animation = GradientDirection.leftRight.slidingAnimation()
+    let tintView = UIView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.pageControl.isHidden = true
-        self.pageControl.showAnimatedGradientSkeleton(usingGradient: self.gradient, animation: self.animation)
+        self.navigationController?.navigationBar.barStyle = .blackTranslucent
+        setInitialPageControl()
         backgroundChangeAlreadySet = false
         presenter?.onViewDidLoadCalled()
         configureCollectionView()
@@ -49,6 +53,15 @@ class SurveyView: UIViewController {
         UIConstants.multiplyWithScreenRatio(constraint: collectionViewLeading)
     }
     
+    private func setInitialPageControl(){
+        self.pageControl.isHidden = true
+        self.skeletonViewForPageController.isHidden = false
+        self.skeletonViewForPageController.skeletonCornerRadius = Float(self.pageControl.frame.size.height * 0.5)
+        self.skeletonViewForPageController.showAnimatedGradientSkeleton(usingGradient: self.gradient, animation: self.animation)
+        self.pageControl.skeletonCornerRadius = Float(self.pageControl.frame.size.height * 0.5)
+        self.pageControl.showAnimatedGradientSkeleton(usingGradient: self.gradient, animation: self.animation)
+    }
+    
     private func configureCollectionView(){
         collectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         collectionView.delegate = self
@@ -58,11 +71,12 @@ class SurveyView: UIViewController {
     }
     
     private func setBackgroundImage(imageData : Data){
+        tintView.removeFromSuperview()
+        tintView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        tintView.frame = CGRect(x: 0, y: 0, width: backgroundImageView.frame.width, height: backgroundImageView.frame.height)
+        backgroundImageView.addSubview(tintView)
         guard let image = UIImage(data: imageData) else{ return }
-        //let blurImage = blurImage(image: image)
-        let resizedImage = image.resizeImageTo(size: CGSize(width: self.view.bounds.width, height: self.view.bounds.height))
-        self.view.contentMode = .scaleAspectFill
-        self.view.backgroundColor = UIColor(patternImage: resizedImage ?? UIImage())
+        backgroundImageView.image = image
     }
     
     private func showAlertMessage(title : String, message : String, errorType : DataFetchingError){
@@ -73,29 +87,6 @@ class SurveyView: UIViewController {
             }))
             self.present(alert, animated: true, completion: nil)
         }
-    }
-    
-    private func blurImage(image:UIImage) -> UIImage? {
-        let context = CIContext(options: nil)
-        let inputImage = CIImage(image: image)
-        let originalOrientation = image.imageOrientation
-        let originalScale = image.scale
-        let filter = CIFilter(name: "CIGaussianBlur")
-        filter?.setValue(inputImage, forKey: kCIInputImageKey)
-        filter?.setValue(2.0, forKey: kCIInputRadiusKey)
-        let outputImage = filter?.outputImage
-        var cgImage:CGImage?
-        if let asd = outputImage
-        {
-            cgImage = context.createCGImage(asd, from: (inputImage?.extent)!)
-        }
-        
-        if let cgImageA = cgImage
-        {
-            return UIImage(cgImage: cgImageA, scale: originalScale, orientation: originalOrientation)
-        }
-        
-        return nil
     }
 }
 
@@ -155,18 +146,20 @@ extension SurveyView : SurveyPresenterToViewProtocol{
     
     func showSkeletonView() {
         DispatchQueue.main.async {
-            self.pageControl.isHidden = false
+            self.pageControl.isHidden = true
             self.pageControlLeading.constant = UIConstants.pageControlSkeletonLeading
             UIConstants.multiplyWithScreenRatio(constraint: self.pageControlLeading)
             self.collectionView.isSkeletonable = true
             self.collectionView.showAnimatedGradientSkeleton(usingGradient: self.gradient, animation: self.animation)
-            self.pageControl.showAnimatedGradientSkeleton(usingGradient: self.gradient, animation: self.animation)
+            self.skeletonViewForPageController.showAnimatedGradientSkeleton(usingGradient: self.gradient, animation: self.animation)
+            
         }
     }
     
     func hideSkeletonView() {
         DispatchQueue.main.async {
-            self.pageControl.isHidden = true
+            self.pageControl.isHidden = false
+            self.skeletonViewForPageController.isHidden = true
             self.pageControl.stopSkeletonAnimation()
             self.collectionView.stopSkeletonAnimation()
             self.view.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))

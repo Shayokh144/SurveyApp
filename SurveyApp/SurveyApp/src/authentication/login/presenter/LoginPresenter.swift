@@ -49,7 +49,7 @@ extension LoginPresenter : LoginInteractorToPresenterProtocol{
         if DataDecoder.decodeLoginData(from: loginData) != nil {
             //print(loginTokenData)
             // data is ok, need to save
-            let keyChainManager = KeyChainManager()
+            let keyChainManager = KeyChainManager(service: KeyChainCnstants.keyChainServiceName, account: KeyChainCnstants.keyChainAccountName)
             keyChainManager.saveLoginDataInKeychain(data: loginData)
             let userdefaultManager = UserDefaultManager()
             userdefaultManager.setUserLoginStatus(status: true)

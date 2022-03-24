@@ -24,5 +24,11 @@
 		<string>NeuzeitSLTStd-Book.otf</string>
 		<string>NeuzeitSLTStd-BookHeavy.otf</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
+	<key>UIStatusBarHidden</key>
+	<false/>
 </dict>
 </plist>

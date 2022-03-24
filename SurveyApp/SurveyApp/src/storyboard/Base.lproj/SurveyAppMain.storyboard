@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,12 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="vFA-Fw-3Mh" userLabel="logo">
-                                <rect key="frame" x="123" y="194" width="168" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="168" id="Gu4-be-4j5"/>
-                                    <constraint firstAttribute="height" constant="40" id="pj5-3d-zSs"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginViewOverLay" translatesAutoresizingMaskIntoConstraints="NO" id="QSk-fZ-kI1">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XN6-VS-JZE">
                                 <rect key="frame" x="43.5" y="343" width="327" height="208"/>
@@ -31,6 +28,7 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O8h-Du-spm" userLabel="emailTextField">
                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="56"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56" id="SVo-hc-8KV"/>
                                                 </constraints>
@@ -39,6 +37,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pRE-0d-wz9" userLabel="passwordTextField">
                                                 <rect key="frame" x="0.0" y="76" width="327" height="56"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
@@ -73,14 +72,25 @@
                                     <constraint firstItem="R74-zM-SYs" firstAttribute="centerX" secondItem="XN6-VS-JZE" secondAttribute="centerX" id="fJe-lj-dGz"/>
                                 </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="vFA-Fw-3Mh" userLabel="logo">
+                                <rect key="frame" x="123" y="194" width="168" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="168" id="Gu4-be-4j5"/>
+                                    <constraint firstAttribute="height" constant="40" id="pj5-3d-zSs"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vFA-Fw-3Mh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="5QU-Uq-LWn"/>
                             <constraint firstItem="XN6-VS-JZE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ae1-i4-PVv"/>
+                            <constraint firstItem="QSk-fZ-kI1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IFU-Yp-ltg"/>
                             <constraint firstItem="XN6-VS-JZE" firstAttribute="top" secondItem="vFA-Fw-3Mh" secondAttribute="bottom" constant="109" id="s5q-PB-VN5"/>
+                            <constraint firstItem="QSk-fZ-kI1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sdM-VN-Piu"/>
                             <constraint firstItem="vFA-Fw-3Mh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="woF-j3-02j"/>
+                            <constraint firstAttribute="trailing" secondItem="QSk-fZ-kI1" secondAttribute="trailing" id="x95-dB-vxD"/>
+                            <constraint firstAttribute="bottom" secondItem="QSk-fZ-kI1" secondAttribute="bottom" id="xAz-m1-rFm"/>
                         </constraints>
                     </view>
                     <connections>
@@ -101,10 +111,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gem-No-3qq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ac5-8n-Rlw">
-                                <rect key="frame" x="8" y="640" width="398" height="214"/>
+                                <rect key="frame" x="20" y="674" width="374" height="180"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="214" id="vay-lp-MLz"/>
+                                    <constraint firstAttribute="height" constant="180" id="vay-lp-MLz"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="01c-oc-jF1">
                                     <size key="itemSize" width="128" height="128"/>
@@ -118,23 +131,44 @@
                                 </userDefinedRuntimeAttributes>
                             </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="rJp-id-Z8e">
-                                <rect key="frame" x="-48" y="606" width="156" height="26"/>
+                                <rect key="frame" x="-48" y="660" width="156" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="xBK-jo-KCJ"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </pageControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Scg-pT-sDc">
+                                <rect key="frame" x="16" y="652" width="40" height="14"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="3ED-JA-Rgd"/>
+                                    <constraint firstAttribute="height" constant="14" id="5oQ-4y-zBQ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="L5J-eG-VFf"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ac5-8n-Rlw" firstAttribute="top" secondItem="rJp-id-Z8e" secondAttribute="bottom" constant="8" id="3MH-0H-5g3"/>
-                            <constraint firstItem="ac5-8n-Rlw" firstAttribute="leading" secondItem="L5J-eG-VFf" secondAttribute="leading" constant="8" id="Isy-9p-7cG"/>
+                            <constraint firstItem="ac5-8n-Rlw" firstAttribute="top" secondItem="Scg-pT-sDc" secondAttribute="bottom" constant="8" id="2wd-d7-zvL"/>
+                            <constraint firstItem="ac5-8n-Rlw" firstAttribute="top" secondItem="rJp-id-Z8e" secondAttribute="bottom" id="3MH-0H-5g3"/>
+                            <constraint firstItem="gem-No-3qq" firstAttribute="leading" secondItem="L5J-eG-VFf" secondAttribute="leading" id="8sf-KE-OVb"/>
+                            <constraint firstItem="ac5-8n-Rlw" firstAttribute="leading" secondItem="L5J-eG-VFf" secondAttribute="leading" constant="20" id="Isy-9p-7cG"/>
+                            <constraint firstItem="gem-No-3qq" firstAttribute="top" secondItem="3jG-A9-HIM" secondAttribute="top" id="WOX-XL-XCo"/>
+                            <constraint firstAttribute="bottom" secondItem="gem-No-3qq" secondAttribute="bottom" id="grG-ZU-d8R"/>
                             <constraint firstItem="L5J-eG-VFf" firstAttribute="bottom" secondItem="ac5-8n-Rlw" secondAttribute="bottom" constant="8" id="mtz-EG-0IM"/>
                             <constraint firstItem="rJp-id-Z8e" firstAttribute="leading" secondItem="L5J-eG-VFf" secondAttribute="leading" constant="-48" id="qLw-BI-oiU"/>
-                            <constraint firstItem="L5J-eG-VFf" firstAttribute="trailing" secondItem="ac5-8n-Rlw" secondAttribute="trailing" constant="8" id="taE-UA-ebH"/>
+                            <constraint firstItem="L5J-eG-VFf" firstAttribute="trailing" secondItem="ac5-8n-Rlw" secondAttribute="trailing" constant="20" id="taE-UA-ebH"/>
+                            <constraint firstItem="L5J-eG-VFf" firstAttribute="trailing" secondItem="gem-No-3qq" secondAttribute="trailing" id="xRw-4b-oOn"/>
+                            <constraint firstItem="Scg-pT-sDc" firstAttribute="leading" secondItem="L5J-eG-VFf" secondAttribute="leading" constant="16" id="ymc-GP-wUv"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundImageView" destination="gem-No-3qq" id="abl-3E-x28"/>
                         <outlet property="collectionVIewTop" destination="3MH-0H-5g3" id="qS8-pP-cyx"/>
                         <outlet property="collectionView" destination="ac5-8n-Rlw" id="MPZ-KQ-K41"/>
                         <outlet property="collectionViewBottom" destination="mtz-EG-0IM" id="lEL-mK-1Nr"/>
@@ -143,11 +177,12 @@
                         <outlet property="collectionViewTrailing" destination="taE-UA-ebH" id="xNf-La-AUT"/>
                         <outlet property="pageControl" destination="rJp-id-Z8e" id="gf9-dI-JHW"/>
                         <outlet property="pageControlLeading" destination="qLw-BI-oiU" id="NPM-Nl-cgd"/>
+                        <outlet property="skeletonViewForPageController" destination="Scg-pT-sDc" id="K6q-fE-pCt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wi8-XD-jO6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1006" y="80"/>
+            <point key="canvasLocation" x="1005.7971014492755" y="79.6875"/>
         </scene>
         <!--Survey Details View-->
         <scene sceneID="Z12-te-MzH">
@@ -183,5 +218,9 @@
     </scenes>
     <resources>
         <image name="homeLogo" width="202" height="48"/>
+        <image name="loginViewOverLay" width="125" height="270.66665649414062"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

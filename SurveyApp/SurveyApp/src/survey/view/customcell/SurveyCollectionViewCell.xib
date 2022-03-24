@@ -17,11 +17,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="357" height="173"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3uN-8z-2PY" userLabel="outerStackView">
-                        <rect key="frame" x="0.0" y="0.0" width="357" height="105.5"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3uN-8z-2PY" userLabel="outerStackView">
+                        <rect key="frame" x="8" y="29.5" width="341" height="89.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIx-Ij-gLH">
-                                <rect key="frame" x="0.0" y="0.0" width="357" height="33.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="341" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -30,10 +30,10 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fDx-0H-faw">
-                                <rect key="frame" x="0.0" y="49.5" width="357" height="56"/>
+                                <rect key="frame" x="0.0" y="33.5" width="341" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description jhbjhkb jhbjhb hjbjh  jhbjhb jhbjhb" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4C-eP-UbA">
-                                        <rect key="frame" x="0.0" y="0.0" width="281" height="56"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="265" height="56"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLv-vl-tTQ">
-                                        <rect key="frame" x="301" y="0.0" width="56" height="56"/>
+                                        <rect key="frame" x="285" y="0.0" width="56" height="56"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="56" id="8tD-hd-3VL"/>
@@ -54,7 +54,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="arrowBtnAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="w4d-aQ-Mf2"/>
@@ -74,9 +74,9 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="3uN-8z-2PY" secondAttribute="trailing" id="RKj-ei-aiS"/>
-                <constraint firstItem="3uN-8z-2PY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="f9j-si-wJi"/>
-                <constraint firstItem="3uN-8z-2PY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zAq-7W-bAi"/>
+                <constraint firstAttribute="trailing" secondItem="3uN-8z-2PY" secondAttribute="trailing" constant="8" id="RKj-ei-aiS"/>
+                <constraint firstItem="3uN-8z-2PY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="f9j-si-wJi"/>
+                <constraint firstAttribute="bottom" secondItem="3uN-8z-2PY" secondAttribute="bottom" constant="54" id="zAq-7W-bAi"/>
             </constraints>
             <size key="customSize" width="357" height="173"/>
             <userDefinedRuntimeAttributes>

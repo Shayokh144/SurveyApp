@@ -16,19 +16,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nimble Survey App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Uq-tl-gqQ">
-                                <rect key="frame" x="48" y="244" width="318" height="38.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launcherBackground" translatesAutoresizingMaskIntoConstraints="NO" id="YTa-Xv-MQB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="8Fu-qB-3J0">
+                                <rect key="frame" x="106.5" y="424" width="201" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Bvi-Sg-ZdK"/>
+                                    <constraint firstAttribute="width" constant="201" id="P5f-j0-M0X"/>
+                                </constraints>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Overlay" translatesAutoresizingMaskIntoConstraints="NO" id="Ct1-JZ-NlZ" userLabel="overLayBackg">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="3Uq-tl-gqQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="5kq-SE-2oR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3Uq-tl-gqQ" secondAttribute="trailing" constant="48" id="fDd-sY-cpY"/>
-                            <constraint firstItem="3Uq-tl-gqQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="igb-OY-2H6"/>
+                            <constraint firstItem="YTa-Xv-MQB" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="1bn-tx-oml"/>
+                            <constraint firstItem="YTa-Xv-MQB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5E5-aq-0WT"/>
+                            <constraint firstAttribute="bottom" secondItem="YTa-Xv-MQB" secondAttribute="bottom" id="6wh-V6-OdJ"/>
+                            <constraint firstItem="8Fu-qB-3J0" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="8bN-xw-lIO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YTa-Xv-MQB" secondAttribute="trailing" id="BlJ-B2-6wn"/>
+                            <constraint firstItem="8Fu-qB-3J0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Huv-bx-N2N"/>
+                            <constraint firstAttribute="trailing" secondItem="Ct1-JZ-NlZ" secondAttribute="trailing" id="I19-Ly-ZE4"/>
+                            <constraint firstAttribute="bottom" secondItem="Ct1-JZ-NlZ" secondAttribute="bottom" id="NSA-cp-4VT"/>
+                            <constraint firstItem="Ct1-JZ-NlZ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Vaq-GK-HHn"/>
+                            <constraint firstItem="Ct1-JZ-NlZ" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="b27-eY-ZJ7"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -37,4 +51,9 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Overlay" width="125" height="270.66665649414062"/>
+        <image name="homeLogo" width="202" height="48"/>
+        <image name="launcherBackground" width="125" height="270.66665649414062"/>
+    </resources>
 </document>

@@ -19,6 +19,7 @@ class SurveyCollectionViewCell: UICollectionViewCell {
     
     var surveyCellData : SurveyDataEntity = SurveyDataEntity(){
         didSet{
+            self.showButton()
             self.setTitle(with: surveyCellData.title)
             self.setDescription(with: surveyCellData.description)
         }
@@ -28,14 +29,16 @@ class SurveyCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         configureButton()
-        self.titleLabel.accessibilityIdentifier = "cellDataTitleAccIdentifier"
+        configureTextLabel()
     }
+    
     @IBAction func arrowBtnAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: UIConstants.storyBoardName, bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: UIConstants.surveyDetailsViewStoryBoardId) as? SurveyDetailsView
         viewController?.titleText = self.surveyCellData.title
         NavigationManager.shared.loadViewController(newViewController: viewController ?? UIViewController())
     }
+    
     
     private func setTitle(with text : String){
         let attrs = [NSAttributedString.Key.font : UIFont(name:     UIConstants.fontNeuzeitSLTHeavy, size: UIConstants.surveyTitlefontSize),
@@ -56,15 +59,30 @@ class SurveyCollectionViewCell: UICollectionViewCell {
             self.descriptionLabel.attributedText = normalText
         }
     }
+    
+    private func configureTextLabel(){
+        self.titleLabel.accessibilityIdentifier = UIConstants.surveyCellTitleAccesibilityIdentifier
+        self.titleLabel.skeletonPaddingInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 8.0, right: 56.0)
+        self.titleLabel.lastLineFillPercent = 40
+        self.descriptionLabel.skeletonPaddingInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 8.0, right: 24.0)
+        self.titleLabel.skeletonLineSpacing = 5.0
+        self.titleLabel.linesCornerRadius = UIConstants.skeletonCornerRadius
+        self.descriptionLabel.skeletonLineSpacing = 5.0
+        self.descriptionLabel.linesCornerRadius = UIConstants.skeletonCornerRadius
+
+    }
+    
+    private func showButton(){
+        DispatchQueue.main.async {
+            self.arrowButton.isHidden = false
+        }
+    }
 
     private func configureButton(){
-        arrowButton.accessibilityIdentifier = "arrowBtnIdentifier"
-        arrowButtonHeight.constant = UIConstants.arrowButtonHeight
-        arrowButtonWidth.constant = UIConstants.arrowButtonWidth
-        UIConstants.multiplyWithScreenRatio(constraint: arrowButtonHeight)
-        UIConstants.multiplyWithScreenRatio(constraint: arrowButtonHeight)
+        arrowButton.isHidden = true
+        arrowButton.accessibilityIdentifier = UIConstants.surveyCellButtonAccesibilityIdentifier
         arrowButton.clipsToBounds = true
-        arrowButton.layer.cornerRadius = 0.5 * arrowButton.bounds.size.width
+        arrowButton.layer.cornerRadius = 0.5 * min(arrowButton.frame.size.width , arrowButton.frame.size.width)
         arrowButton.setTitle("", for: .normal)
         arrowButton.setImage(UIImage(named: UIConstants.arrowButtonImageName), for: .normal)
     }

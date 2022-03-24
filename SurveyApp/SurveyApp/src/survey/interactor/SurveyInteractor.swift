@@ -56,8 +56,6 @@ class SurveyInteractor{
     private func fetchSurveyDataFromRemoteApi(with tokenData: LoginTokenData){
         let surveyDataManager = SurveyDataManager()
         surveyDataManager.requestForAccessSurveyData(with: tokenData){[weak self] data in
-            let response  = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments)
-            print("SUCCESS :  \(response)")
             self?.presenter?.surveyDidAppear(with: data)
         }
     }

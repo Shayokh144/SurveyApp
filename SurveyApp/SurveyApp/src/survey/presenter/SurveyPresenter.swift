@@ -15,7 +15,7 @@ class SurveyPresenter{
     var surveyList : SurveyListData?
     
     private func isAccessTokenStillValid()->Bool{
-        let keyChainMgr = KeyChainManager()
+        let keyChainMgr = KeyChainManager(service: KeyChainCnstants.keyChainServiceName, account: KeyChainCnstants.keyChainAccountName)
         let userDefaultmanager = UserDefaultManager()
         if let loginData = keyChainMgr.getLoginDataFromKeyChain(){
             if let tokenData = DataDecoder.decodeLoginData(from: loginData){
@@ -88,7 +88,7 @@ class SurveyPresenter{
             //print(loginTokenData)
             // data is ok, need to save
             loginTokenDataForInteractor = loginTokenData
-            let keyChainManager = KeyChainManager()
+            let keyChainManager = KeyChainManager(service: KeyChainCnstants.keyChainServiceName, account: KeyChainCnstants.keyChainAccountName)
             keyChainManager.updateLoginDataInKeyChain(from: loginData)
             userdefaultManager.setUserLoginTime(time: TimeUtil.getCurrentTimeInInt())
             startSurveyDataFetching()
