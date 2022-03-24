@@ -77,13 +77,17 @@ class LoginView: UIViewController {
         passwordTextField.layer.cornerRadius = UIConstants.passwordTextFieldCornerRadius
         
         let attrs = [NSAttributedString.Key.font : UIFont(name:     UIConstants.fontNeuzeitSLTNormal, size: UIConstants.loginButtonfontSize),
-                     NSAttributedString.Key.foregroundColor : UIColor.black
+                     NSAttributedString.Key.foregroundColor : UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.4)
         ]
         var attributedText = NSMutableAttributedString(string: TextConstants.emailPlaceholderText, attributes:attrs as [NSAttributedString.Key : Any])
         emailTextField.attributedPlaceholder = attributedText
-        
+        emailTextField.textColor = .white
         attributedText = NSMutableAttributedString(string: TextConstants.passwordPlaceholderText, attributes:attrs as [NSAttributedString.Key : Any])
         passwordTextField.attributedPlaceholder = attributedText
+        attributedText = NSMutableAttributedString(string: "", attributes:attrs as [NSAttributedString.Key : Any])
+        passwordTextField.textColor = .white
+        passwordTextField.attributedText = attributedText
+        emailTextField.attributedText = attributedText
     }
     
     private func configureLoginButton(){

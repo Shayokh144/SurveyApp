@@ -17,12 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="vFA-Fw-3Mh" userLabel="logo">
-                                <rect key="frame" x="123" y="194" width="168" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="168" id="Gu4-be-4j5"/>
-                                    <constraint firstAttribute="height" constant="40" id="pj5-3d-zSs"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginViewOverLay" translatesAutoresizingMaskIntoConstraints="NO" id="QSk-fZ-kI1">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XN6-VS-JZE">
                                 <rect key="frame" x="43.5" y="343" width="327" height="208"/>
@@ -32,6 +28,7 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O8h-Du-spm" userLabel="emailTextField">
                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="56"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56" id="SVo-hc-8KV"/>
                                                 </constraints>
@@ -40,6 +37,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pRE-0d-wz9" userLabel="passwordTextField">
                                                 <rect key="frame" x="0.0" y="76" width="327" height="56"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
@@ -74,14 +72,25 @@
                                     <constraint firstItem="R74-zM-SYs" firstAttribute="centerX" secondItem="XN6-VS-JZE" secondAttribute="centerX" id="fJe-lj-dGz"/>
                                 </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="vFA-Fw-3Mh" userLabel="logo">
+                                <rect key="frame" x="123" y="194" width="168" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="168" id="Gu4-be-4j5"/>
+                                    <constraint firstAttribute="height" constant="40" id="pj5-3d-zSs"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vFA-Fw-3Mh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="5QU-Uq-LWn"/>
                             <constraint firstItem="XN6-VS-JZE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ae1-i4-PVv"/>
+                            <constraint firstItem="QSk-fZ-kI1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IFU-Yp-ltg"/>
                             <constraint firstItem="XN6-VS-JZE" firstAttribute="top" secondItem="vFA-Fw-3Mh" secondAttribute="bottom" constant="109" id="s5q-PB-VN5"/>
+                            <constraint firstItem="QSk-fZ-kI1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sdM-VN-Piu"/>
                             <constraint firstItem="vFA-Fw-3Mh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="woF-j3-02j"/>
+                            <constraint firstAttribute="trailing" secondItem="QSk-fZ-kI1" secondAttribute="trailing" id="x95-dB-vxD"/>
+                            <constraint firstAttribute="bottom" secondItem="QSk-fZ-kI1" secondAttribute="bottom" id="xAz-m1-rFm"/>
                         </constraints>
                     </view>
                     <connections>
@@ -209,6 +218,7 @@
     </scenes>
     <resources>
         <image name="homeLogo" width="202" height="48"/>
+        <image name="loginViewOverLay" width="125" height="270.66665649414062"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
