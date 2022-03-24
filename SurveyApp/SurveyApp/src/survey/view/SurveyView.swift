@@ -10,25 +10,26 @@ import SkeletonView
 
 class SurveyView: UIViewController {
     
-    @IBOutlet weak var backgroundImageView: UIImageView!
+    //@IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var skeletonViewForPageController: UIView!
     
     @IBOutlet weak var pageControlLeading: NSLayoutConstraint!
-    @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!//214
+    //@IBOutlet weak var collectionViewHeight: NSLayoutConstraint!//214
     @IBOutlet weak var collectionViewBottom: NSLayoutConstraint!//8
     @IBOutlet weak var collectionViewTrailing: NSLayoutConstraint!//8
-    @IBOutlet weak var collectionVIewTop: NSLayoutConstraint!//8
+    //@IBOutlet weak var collectionVIewTop: NSLayoutConstraint!//8
     @IBOutlet weak var collectionViewLeading: NSLayoutConstraint!//8
     
     var presenter: SurveyViewToPresenterProtocol?
     var cellDataList : [SurveyDataEntity] = []
     var backgroundChangeAlreadySet = false
-    
+    var prevviousIndexPathRow = 0
     let gradient = SkeletonGradient(baseColor: UIConstants.skeletonBaseGradiantColor, secondaryColor:  UIConstants.skeletonSecondaryGradiantColor)
     let animation = GradientDirection.leftRight.slidingAnimation()
     let tintView = UIView()
+    var spinnerView : SpinnerViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,23 +38,11 @@ class SurveyView: UIViewController {
         backgroundChangeAlreadySet = false
         presenter?.onViewDidLoadCalled()
         configureCollectionView()
-        configureCollectionViewConstraints()
-    }
-    
-    private func configureCollectionViewConstraints(){
-        collectionViewHeight.constant = UIConstants.collectionViewHeight
-        UIConstants.multiplyWithScreenRatio(constraint: collectionViewHeight)
-        collectionViewBottom.constant = UIConstants.collectionViewMargin
-        UIConstants.multiplyWithScreenRatio(constraint: collectionViewBottom)
-        collectionViewTrailing.constant = UIConstants.collectionViewMargin
-        UIConstants.multiplyWithScreenRatio(constraint: collectionViewTrailing)
-        collectionVIewTop.constant = UIConstants.collectionViewMargin
-        UIConstants.multiplyWithScreenRatio(constraint: collectionVIewTop)
-        collectionViewLeading.constant = UIConstants.collectionViewMargin
-        UIConstants.multiplyWithScreenRatio(constraint: collectionViewLeading)
+        configureLoadingSpinnerOverlay()
     }
     
     private func setInitialPageControl(){
+        self.pageControl.addTarget(self, action: #selector(pageControltapped(_:)), for: .touchUpInside)
         self.pageControl.isHidden = true
         self.skeletonViewForPageController.isHidden = false
         self.skeletonViewForPageController.skeletonCornerRadius = Float(self.pageControl.frame.size.height * 0.5)
@@ -70,15 +59,6 @@ class SurveyView: UIViewController {
         collectionView.register(cellNib, forCellWithReuseIdentifier: SurveyCollectionViewCell.cellIdentifier)
     }
     
-    private func setBackgroundImage(imageData : Data){
-        tintView.removeFromSuperview()
-        tintView.backgroundColor = UIColor(white: 0, alpha: 0.5)
-        tintView.frame = CGRect(x: 0, y: 0, width: backgroundImageView.frame.width, height: backgroundImageView.frame.height)
-        backgroundImageView.addSubview(tintView)
-        guard let image = UIImage(data: imageData) else{ return }
-        backgroundImageView.image = image
-    }
-    
     private func showAlertMessage(title : String, message : String, errorType : DataFetchingError){
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
@@ -87,6 +67,38 @@ class SurveyView: UIViewController {
             }))
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    private func configureLoadingSpinnerOverlay(){
+        spinnerView = SpinnerViewController()
+    }
+    
+    private func showLoadingSpinnerOverlay(){
+        DispatchQueue.main.async {
+            self.addChild(self.spinnerView)
+            self.spinnerView.view.frame = CGRect(x: self.view.frame.minX, y: self.view.frame.minY, width: self.view.frame.size.width, height: self.view.frame.size.height)
+            self.view.addSubview(self.spinnerView.view)
+            self.spinnerView.didMove(toParent: self)
+        }
+    }
+    
+    private func hideLoadingSpinnerOverlay(){
+        DispatchQueue.main.async {
+            self.spinnerView.willMove(toParent: nil)
+            self.spinnerView.view.removeFromSuperview()
+            self.spinnerView.removeFromParent()
+        }
+    }
+    
+    @IBAction func pageControltapped(_ sender: Any) {
+        guard let pageControlC = sender as? UIPageControl else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute:{
+            let page  = pageControlC.currentPage
+            //print("current page : \(page ?? -10)")
+            let newIndexPath = IndexPath(row: page, section: 0)
+            self.collectionView.scrollToItem(at: newIndexPath, at: .left, animated: true)
+        })
+        
     }
 }
 
@@ -103,20 +115,24 @@ extension SurveyView : UICollectionViewDelegate, SkeletonCollectionViewDataSourc
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SurveyCollectionViewCell.cellIdentifier, for: indexPath) as! SurveyCollectionViewCell
         if(cellDataList.count > 0){
             cell.surveyCellData = cellDataList[indexPath.row]
-            if(backgroundChangeAlreadySet == false){
-                self.setBackgroundImage(imageData : cellDataList[indexPath.row].bgImageData)
-                backgroundChangeAlreadySet = true
-            }
         }
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+        return CGSize(width: self.collectionView.frame.width, height: self.collectionView.frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
+    }
+    
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         var visibleRect = CGRect()
@@ -127,13 +143,35 @@ extension SurveyView : UICollectionViewDelegate, SkeletonCollectionViewDataSourc
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
         
         guard let indexPath = collectionView.indexPathForItem(at: visiblePoint) else { return }
-        //print(indexPath)
-        self.setBackgroundImage(imageData : cellDataList[indexPath.row].bgImageData)
+        print("indexPath = \(indexPath)")
+        if(indexPath.row == prevviousIndexPathRow && indexPath.row > 0){
+            print("load more...")
+            self.presenter?.didScrollForNewData()
+        }
         self.pageControl.currentPage = indexPath.row
+        prevviousIndexPathRow = indexPath.row
         
     }
 }
 extension SurveyView : SurveyPresenterToViewProtocol{
+    func showLoadingSpinner() {
+        self.showLoadingSpinnerOverlay()
+    }
+    
+    func updateViewWithNewData(dataList: [SurveyDataEntity]) {
+        DispatchQueue.main.async {
+            let newIndexPathRow = self.cellDataList.count
+            self.cellDataList.append(contentsOf: dataList)
+            self.pageControl.numberOfPages = self.cellDataList.count
+            self.pageControl.currentPage = newIndexPathRow
+            self.collectionView.reloadData()
+            if(newIndexPathRow < self.cellDataList.count){
+                self.collectionView.scrollToItem(at: IndexPath(row: newIndexPathRow, section: 0), at: .left, animated: true)
+            }
+            self.hideLoadingSpinnerOverlay()
+        }
+    }
+    
     func showErrorAlert(title: String, message: String, errorType: DataFetchingError) {
         self.showAlertMessage(title: title, message: message, errorType: errorType)
     }

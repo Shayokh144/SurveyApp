@@ -11,13 +11,16 @@ import Foundation
 protocol SurveyViewToPresenterProtocol : AnyObject {
     func onViewDidLoadCalled()
     func didTapOkButtonOnError(errorType : DataFetchingError)
+    func didScrollForNewData()
 }
 
 //Presenter -> View
 protocol SurveyPresenterToViewProtocol : AnyObject {
     func showSkeletonView()
     func hideSkeletonView()
+    func showLoadingSpinner()
     func populateSurveyData(with dataList : [SurveyDataEntity])
+    func updateViewWithNewData(dataList : [SurveyDataEntity])
     func showErrorAlert(title : String, message : String, errorType : DataFetchingError)
 }
 
@@ -34,7 +37,7 @@ protocol SurveyRouterToPresenterProtocol : AnyObject {
 //Presenter -> Interactor
 protocol SurveyPresenterToInteractorProtocol : AnyObject {
     func requestForRefreshToken(with tokenData : LoginTokenData)
-    func willFetchSurveyData(with tokenData : LoginTokenData)
+    func willFetchSurveyData(with surveyUrl : String, tokenData : LoginTokenData)
     func willFetchBackgroundImage(with surveyData : SurveyListData)
 }
 

@@ -13,6 +13,11 @@ class SurveyPresenter{
     var router: SurveyPresenterToRouterProtocol?
     var loginTokenDataForInteractor : LoginTokenData!
     var surveyList : SurveyListData?
+    var currentSurveyPage : Int = 0
+    
+    init(){
+        self.currentSurveyPage = 1
+    }
     
     private func isAccessTokenStillValid()->Bool{
         let keyChainMgr = KeyChainManager(service: KeyChainCnstants.keyChainServiceName, account: KeyChainCnstants.keyChainAccountName)
@@ -33,6 +38,10 @@ class SurveyPresenter{
         return false
     }
     
+    private func getSurveyUrl()->String{
+        return "https://survey-api.nimblehq.co/api/v1/surveys?page[number]=\(self.currentSurveyPage)&page[size]=5"
+    }
+    
     private func startSurveyDataFetching(){
         if(!ReachabilityCenter.isConnectedToInternet()){
             self.view?.showErrorAlert(title: TextConstants.noInternetAlertTitle, message: TextConstants.noInternetAlertMessage, errorType: .noInternetError)
@@ -40,7 +49,7 @@ class SurveyPresenter{
         else{
             if(isAccessTokenStillValid()){
                 // fetch survey data
-                interector?.willFetchSurveyData(with: loginTokenDataForInteractor)
+                interector?.willFetchSurveyData(with: self.getSurveyUrl(), tokenData: loginTokenDataForInteractor)
             }
             else{
                 // fetch refresh token data
@@ -61,13 +70,20 @@ class SurveyPresenter{
                 dataListForSurveyUi.append(entity)
             }
         }
-        view?.populateSurveyData(with: dataListForSurveyUi)
-        view?.hideSkeletonView()
+        if(self.currentSurveyPage > 2){
+            view?.updateViewWithNewData(dataList: dataListForSurveyUi)
+        }
+        else{
+            view?.populateSurveyData(with: dataListForSurveyUi)
+            view?.hideSkeletonView()
+        }
+        
     }
     
     private func procesSurveyData(with surveyData : Data?){
         if let surveyListData = DataDecoder.decodeSurveyData(from: surveyData ?? Data()){
             self.surveyList = surveyListData
+            self.currentSurveyPage += 1
             self.startSurveyImaageFetching(surveyListData: surveyListData)
         }
         else{
@@ -102,6 +118,11 @@ class SurveyPresenter{
 }
 
 extension SurveyPresenter : SurveyViewToPresenterProtocol{
+    func didScrollForNewData() {
+            self.view?.showLoadingSpinner()
+            self.startSurveyDataFetching()
+    }
+    
     func didTapOkButtonOnError(errorType: DataFetchingError) {
         switch errorType {
         case .noInternetError:
