@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XN6-VS-JZE">
-                                <rect key="frame" x="43.5" y="343" width="327" height="208"/>
+                                <rect key="frame" x="43.5" y="344" width="327" height="208"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xd1-Ay-3Wr" userLabel="TextFieldContainerView">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="132"/>
@@ -68,12 +68,9 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="R74-zM-SYs" firstAttribute="centerX" secondItem="XN6-VS-JZE" secondAttribute="centerX" id="fJe-lj-dGz"/>
-                                </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="vFA-Fw-3Mh" userLabel="logo">
-                                <rect key="frame" x="123" y="194" width="168" height="40"/>
+                                <rect key="frame" x="123" y="195" width="168" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="168" id="Gu4-be-4j5"/>
                                     <constraint firstAttribute="height" constant="40" id="pj5-3d-zSs"/>
@@ -83,10 +80,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vFA-Fw-3Mh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="5QU-Uq-LWn"/>
                             <constraint firstItem="XN6-VS-JZE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ae1-i4-PVv"/>
                             <constraint firstItem="QSk-fZ-kI1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IFU-Yp-ltg"/>
-                            <constraint firstItem="XN6-VS-JZE" firstAttribute="top" secondItem="vFA-Fw-3Mh" secondAttribute="bottom" constant="109" id="s5q-PB-VN5"/>
+                            <constraint firstItem="XN6-VS-JZE" firstAttribute="top" secondItem="vFA-Fw-3Mh" secondAttribute="bottom" constant="109" id="Z5h-zi-ioT"/>
+                            <constraint firstItem="XN6-VS-JZE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gJy-2e-f9E"/>
                             <constraint firstItem="QSk-fZ-kI1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sdM-VN-Piu"/>
                             <constraint firstItem="vFA-Fw-3Mh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="woF-j3-02j"/>
                             <constraint firstAttribute="trailing" secondItem="QSk-fZ-kI1" secondAttribute="trailing" id="x95-dB-vxD"/>

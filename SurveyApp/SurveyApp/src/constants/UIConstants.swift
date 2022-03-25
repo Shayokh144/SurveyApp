@@ -18,7 +18,7 @@ class UIConstants{
     public static let loginButtonCornerRadius : CGFloat = 6.0
     public static let emailTextFieldCornerRadius : CGFloat = 10.0
     public static let passwordTextFieldCornerRadius : CGFloat = 10.0
-    public static let spacceForKeyBoard : CGFloat = -150.0
+    public static let spacceForKeyBoard : CGFloat = -20.0
     public static let surveyCellNibName = "SurveyCollectionViewCell"
     public static let pageControlLeading : CGFloat = -40.0
     public static let pageControlSkeletonLeading : CGFloat = 8.0
