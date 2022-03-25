@@ -7,18 +7,24 @@
 
 import Foundation
 class SurveyInteractor{
+    
     weak var presenter: SurveyInteractorToPresenterProtocol?
     var imageDownloadCounter = 0
+    var imageUrlListForDownload : [String] = []
     var downloadedImage : [String : Data] = [:]
+    let networkMannger : NetworkManager = NetworkManager(retryCount: 1)
     
     init(){
         clearOldData()
+        networkMannger.delegate = self
     }
     
     private func clearOldData(){
         imageDownloadCounter = 0
         downloadedImage.removeAll()
+        imageUrlListForDownload.removeAll()
     }
+    
     private func getRefreshTokenRequestBodyDict(refreshToken : String) -> [String : AnyHashable]{
         let requestBodyDictionary : [String : AnyHashable] = [
             NetworkConstants.tokenGrantTypeFieldName : NetworkConstants.refreshTokenGrantTypeFieldValue,
@@ -28,16 +34,16 @@ class SurveyInteractor{
         ]
         return requestBodyDictionary
     }
-    private func startBackgroundImageFetching(with imageUrlList: [String]){
-        if(imageDownloadCounter < imageUrlList.count){
-            ImageDownloadManager.shared.downloadImage(with: imageUrlList[imageDownloadCounter]){ [weak self](imageData, cached, urlString) in
-                if let imageUrl = urlString{
-                    self?.downloadedImage[imageUrl] = imageData
-                    self?.imageDownloadCounter += 1
-                    self?.startBackgroundImageFetching(with: imageUrlList)
-                }
-            }
-
+    
+    private func startBackgroundImageFetching(with imageUrl : String){
+        networkMannger.getImage(from: imageUrl)
+    }
+    
+    private func didReceiveImageData(imageData : Data){
+        self.downloadedImage[self.imageUrlListForDownload[self.imageDownloadCounter]] = imageData
+        self.imageDownloadCounter += 1
+        if(imageDownloadCounter < imageUrlListForDownload.count){
+            startBackgroundImageFetching(with: imageUrlListForDownload[imageDownloadCounter])
         }
         else{
             self.presenter?.backgroundImageDidAppear(with: self.downloadedImage)
@@ -47,23 +53,17 @@ class SurveyInteractor{
     private func fetchRefreshToken(with tokenData: LoginTokenData){
         let refreshToeknValue = tokenData.data.attributes.refreshToken
         let requestBodyDict = getRefreshTokenRequestBodyDict(refreshToken: refreshToeknValue)
-        let accessTokenManager = AccessTokenManager()
-        accessTokenManager.requestForAccessToken(with: requestBodyDict){[weak self] data in
-            self?.presenter?.didReceiveRefreshTokenData(with: data)
-        }
+        networkMannger.getRefreshTokenData(requestBody: requestBodyDict)
     }
     
-    private func fetchSurveyDataFromRemoteApi(with usrlString : String, tokenData: LoginTokenData){
-        let surveyDataManager = SurveyDataManager()
-        surveyDataManager.requestForAccessSurveyData(with: usrlString, loginTokenData:  tokenData){[weak self] data in
-            self?.presenter?.surveyDidAppear(with: data)
-        }
+    private func fetchSurveyDataFromRemoteApi(with surveyPageNumber : Int, tokenData: LoginTokenData){
+        networkMannger.getSurveyData(pageCount: surveyPageNumber, tokenType: tokenData.data.attributes.tokenType, accessToken: tokenData.data.attributes.accessToken)
     }
 }
 
 extension SurveyInteractor : SurveyPresenterToInteractorProtocol{
-    func willFetchSurveyData(with surveyUrl: String, tokenData: LoginTokenData) {
-        self.fetchSurveyDataFromRemoteApi(with: surveyUrl, tokenData: tokenData)
+    func willFetchSurveyData(with surveyPageNumber: Int, tokenData: LoginTokenData) {
+        self.fetchSurveyDataFromRemoteApi(with: surveyPageNumber, tokenData: tokenData)
     }
     
     func requestForRefreshToken(with tokenData: LoginTokenData) {
@@ -72,10 +72,28 @@ extension SurveyInteractor : SurveyPresenterToInteractorProtocol{
     
     func willFetchBackgroundImage(with surveyData: SurveyListData) {
         clearOldData()
-        var imageUrls = [String]()
         for data in surveyData.data{
-            imageUrls.append(data.attributes.coverImageUrl)
+            imageUrlListForDownload.append(data.attributes.coverImageUrl)
         }
-        self.startBackgroundImageFetching(with: imageUrls)
+        self.startBackgroundImageFetching(with: imageUrlListForDownload[0])
+    }
+}
+
+extension SurveyInteractor : NetworkManagerProtocol{
+    func dataDidAppear(htttpStatusCode: Int, networkApiType: NetworkApiType, receivedData: Data?) {
+        switch networkApiType {
+        case .refreshTokenApi:
+            //print("refresh data arrived")
+            self.presenter?.didReceiveRefreshTokenData(with: receivedData)
+        case .surveyDataApi:
+            //print("survey data arrived")
+            self.presenter?.surveyDidAppear(with: htttpStatusCode, data : receivedData)
+        case.imageDownloadApi:
+            //print("image data arrived")
+            self.didReceiveImageData(imageData: receivedData ?? Data())
+        default:
+            print("ignor other cases for now")
+        }
+
     }
 }

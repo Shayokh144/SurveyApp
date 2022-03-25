@@ -8,6 +8,17 @@
 import Foundation
 class LoginInteractor{
     weak var presenter: LoginInteractorToPresenterProtocol?
+    var networkMannger : NetworkManager?
+    
+    init(){
+        networkMannger = NetworkManager(retryCount: 1)
+        networkMannger?.delegate = self
+    }
+    
+    deinit{
+        networkMannger = nil
+    }
+    
     private func getRequestBodyForToken(_ userEmail : String, _ userPassword : String)->[String : AnyHashable]{
         let requestBodyDictionary : [String : AnyHashable] = [
             NetworkConstants.tokenGrantTypeFieldName : NetworkConstants.tokenGrantTypeFieldValue,
@@ -19,14 +30,23 @@ class LoginInteractor{
         return requestBodyDictionary
     }
     private func startLoginProcess(userEmail: String, userPassword: String){
-        let accessTokenManager = AccessTokenManager()
-        accessTokenManager.requestForAccessToken(with: getRequestBodyForToken(userEmail, userPassword)){[weak self] data in
-            self?.presenter?.didReceiveLoginData(data: data)
-        }
+        networkMannger?.getAccessTokenData(requestBody: getRequestBodyForToken(userEmail, userPassword))
     }
 }
 extension LoginInteractor : LoginPresenterToInteractorProtocol{
     func loginProcessWillStart(userEmail: String, userPassword: String) {
         self.startLoginProcess(userEmail: userEmail, userPassword: userPassword)
+    }
+}
+
+extension LoginInteractor : NetworkManagerProtocol{
+    func dataDidAppear(htttpStatusCode: Int, networkApiType: NetworkApiType, receivedData: Data?) {
+        switch networkApiType {
+        case .authenticationApi:
+            self.presenter?.didReceiveLoginData(data: receivedData, httpResponseCode: htttpStatusCode)
+        default:
+            print("ignor other cases for now")
+        }
+
     }
 }

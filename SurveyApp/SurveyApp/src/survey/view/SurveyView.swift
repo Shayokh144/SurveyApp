@@ -26,14 +26,20 @@ class SurveyView: UIViewController {
     var cellDataList : [SurveyDataEntity] = []
     var backgroundChangeAlreadySet = false
     var prevviousIndexPathRow = 0
+    var dataLoafinInProgress = false
+    var isAlreadyShowingAlert = false
     let gradient = SkeletonGradient(baseColor: UIConstants.skeletonBaseGradiantColor, secondaryColor:  UIConstants.skeletonSecondaryGradiantColor)
     let animation = GradientDirection.leftRight.slidingAnimation()
     let tintView = UIView()
     var spinnerView : SpinnerViewController!
-
+    var scrollViewPosition : CGFloat = 0.0
+    var alertController : UIAlertController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barStyle = .blackTranslucent
+        dataLoafinInProgress = false
+        isAlreadyShowingAlert = false
         setInitialPageControl()
         backgroundChangeAlreadySet = false
         presenter?.onViewDidLoadCalled()
@@ -60,12 +66,21 @@ class SurveyView: UIViewController {
     }
     
     private func showAlertMessage(title : String, message : String, errorType : DataFetchingError){
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: TextConstants.okText, style: UIAlertAction.Style.default, handler: { _ in
-                self.presenter?.didTapOkButtonOnError(errorType: errorType)
-            }))
-            self.present(alert, animated: true, completion: nil)
+        if(isAlreadyShowingAlert == false){
+            DispatchQueue.main.async {
+                self.alertController = nil
+                self.alertController = UIAlertController(title: "", message: "", preferredStyle: UIAlertController.Style.alert)
+                self.alertController?.dismiss(animated: true, completion: nil)
+                self.alertController?.title = title
+                self.alertController?.message = message
+                self.alertController?.addAction(UIAlertAction(title: TextConstants.okText, style: UIAlertAction.Style.default, handler: { _ in
+                    self.isAlreadyShowingAlert = false
+                    self.presenter?.didTapOkButtonOnError(errorType: errorType)
+                }))
+                self.present(self.alertController ?? UIAlertController(), animated: true, completion: {
+                    self.isAlreadyShowingAlert = true
+                })
+            }
         }
     }
     
@@ -92,7 +107,7 @@ class SurveyView: UIViewController {
     
     @IBAction func pageControltapped(_ sender: Any) {
         guard let pageControlC = sender as? UIPageControl else { return }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute:{
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute:{
             let page  = pageControlC.currentPage
             //print("current page : \(page ?? -10)")
             let newIndexPath = IndexPath(row: page, section: 0)
@@ -121,10 +136,14 @@ extension SurveyView : UICollectionViewDelegate, SkeletonCollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.collectionView.frame.width, height: self.collectionView.frame.height)
     }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        self.pageControl.currentPage = indexPath.row
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
     }
@@ -133,27 +152,42 @@ extension SurveyView : UICollectionViewDelegate, SkeletonCollectionViewDataSourc
         return UIEdgeInsets.zero
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.x + self.collectionView.frame.size.width
+        scrollViewPosition = max(position, scrollViewPosition)
+    }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        //print("position = \(scrollViewPosition)")
+        //print("width = \(self.collectionView.contentSize.width)")
+        if(scrollViewPosition > self.collectionView.contentSize.width + 80){
+            print("load more data")
+            if(self.dataLoafinInProgress == false){
+                print("load more dataLoafinInProgress")
+
+                self.dataLoafinInProgress = true
+                self.presenter?.didScrollForNewData()
+
+            }
+        }
         var visibleRect = CGRect()
-        
         visibleRect.origin = collectionView.contentOffset
         visibleRect.size = collectionView.bounds.size
-        
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
-        
         guard let indexPath = collectionView.indexPathForItem(at: visiblePoint) else { return }
-        print("indexPath = \(indexPath)")
-        if(indexPath.row == prevviousIndexPathRow && indexPath.row > 0){
-            print("load more...")
-            self.presenter?.didScrollForNewData()
-        }
+        
         self.pageControl.currentPage = indexPath.row
         prevviousIndexPathRow = indexPath.row
-        
+        self.scrollViewPosition = 0
     }
 }
 extension SurveyView : SurveyPresenterToViewProtocol{
+    func hideLoadingSpinner() {
+        DispatchQueue.main.async {
+            self.hideLoadingSpinnerOverlay()
+        }
+    }
+    
     func showLoadingSpinner() {
         self.showLoadingSpinnerOverlay()
     }
@@ -169,11 +203,13 @@ extension SurveyView : SurveyPresenterToViewProtocol{
                 self.collectionView.scrollToItem(at: IndexPath(row: newIndexPathRow, section: 0), at: .left, animated: true)
             }
             self.hideLoadingSpinnerOverlay()
+            self.dataLoafinInProgress = false
         }
     }
     
     func showErrorAlert(title: String, message: String, errorType: DataFetchingError) {
         self.showAlertMessage(title: title, message: message, errorType: errorType)
+        self.dataLoafinInProgress = false
     }
     
     func populateSurveyData(with dataList: [SurveyDataEntity]) {

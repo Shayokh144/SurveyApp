@@ -35,5 +35,5 @@ protocol LoginPresenterToInteractorProtocol : AnyObject {
 
 //Interactor -> Presenter
 protocol LoginInteractorToPresenterProtocol : AnyObject {
-    func didReceiveLoginData(data : Data?)
+    func didReceiveLoginData(data : Data?, httpResponseCode : Int)
 }

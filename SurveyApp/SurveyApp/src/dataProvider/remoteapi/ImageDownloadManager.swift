@@ -23,18 +23,18 @@ final class ImageDownloadManager {
     }
     
     func downloadImage(with imageUrlString: String?,
-                       completionHandler: @escaping (Data?, Bool, String?) -> Void){
+                       completionHandler: @escaping (Data?, Int, String?) -> Void){
         
         guard let imageUrlString = imageUrlString else {
-            completionHandler(nil, false, imageUrlString)
+            completionHandler(nil, 404, imageUrlString)
             return
         }
         
         if let image = getCachedImageFrom(urlString: imageUrlString) {
-            completionHandler(image, true, imageUrlString)
+            completionHandler(image, 404, imageUrlString)
         } else {
             guard let url = URL(string: imageUrlString + "l") else {
-                completionHandler(nil, true, imageUrlString)
+                completionHandler(nil, 404, imageUrlString)
                 return
             }
             
@@ -43,14 +43,22 @@ final class ImageDownloadManager {
             }
             
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-                
+                if (response as? HTTPURLResponse == nil){
+                    DispatchQueue.main.async {
+                        completionHandler(nil, 404, imageUrlString)
+                    }
+                    return
+                }
                 guard let data = data else {
+                    DispatchQueue.main.async {
+                        completionHandler(nil, 404, imageUrlString)
+                    }
                     return
                 }
                 
                 if let _ = error {
                     DispatchQueue.main.async {
-                        completionHandler(nil, true, imageUrlString)
+                        completionHandler(nil, 404, imageUrlString)
                     }
                     return
                 }
@@ -64,7 +72,7 @@ final class ImageDownloadManager {
                 }
                 
                 DispatchQueue.main.async {
-                    completionHandler(data, false, imageUrlString)
+                    completionHandler(data, 200, imageUrlString)
                 }
             }
             

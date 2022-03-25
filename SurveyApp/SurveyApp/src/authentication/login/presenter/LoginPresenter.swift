@@ -40,26 +40,33 @@ extension LoginPresenter : LoginViewToPresenterProtocol{
 
 // MARK:  InteractorToPresenterProtocol
 extension LoginPresenter : LoginInteractorToPresenterProtocol{
-    func didReceiveLoginData(data: Data?) {
-        guard let loginData = data else {
+    func didReceiveLoginData(data: Data?, httpResponseCode: Int) {
+        if (httpResponseCode == NetworkResponseType.authenticationError.rawValue || httpResponseCode == NetworkResponseType.badRequest.rawValue){
             self.view?.showErrorPopUp(title: TextConstants.failedLoginAlertTitle, message: TextConstants.wrongEmailOrPasswordAlertMessage)
-            return
         }
-        //print(loginData)
-        if DataDecoder.decodeLoginData(from: loginData) != nil {
-            //print(loginTokenData)
-            // data is ok, need to save
-            let keyChainManager = KeyChainManager(service: KeyChainCnstants.keyChainServiceName, account: KeyChainCnstants.keyChainAccountName)
-            keyChainManager.saveLoginDataInKeychain(data: loginData)
-            let userdefaultManager = UserDefaultManager()
-            userdefaultManager.setUserLoginStatus(status: true)
-            userdefaultManager.setUserLoginTime(time: TimeUtil.getCurrentTimeInInt())
-            self.gotoNextView()
-         }
-         else{
-             self.view?.showErrorPopUp(title: TextConstants.failedLoginAlertTitle, message: TextConstants.wrongEmailOrPasswordAlertMessage)
-         }
-        
+        else if(httpResponseCode != NetworkResponseType.success.rawValue){
+            self.view?.showErrorPopUp(title: TextConstants.failedLoginAlertTitle, message: TextConstants.tryAgain)
+        }
+        else{
+            guard let loginData = data else {
+                self.view?.showErrorPopUp(title: TextConstants.failedLoginAlertTitle, message: TextConstants.wrongEmailOrPasswordAlertMessage)
+                return
+            }
+            //print(loginData)
+            if DataDecoder.decodeLoginData(from: loginData) != nil {
+                //print(loginTokenData)
+                // data is ok, need to save
+                let keyChainManager = KeyChainManager(service: KeyChainCnstants.keyChainServiceName, account: KeyChainCnstants.keyChainAccountName)
+                keyChainManager.saveLoginDataInKeychain(data: loginData)
+                let userdefaultManager = UserDefaultManager()
+                userdefaultManager.setUserLoginStatus(status: true)
+                userdefaultManager.setUserLoginTime(time: TimeUtil.getCurrentTimeInInt())
+                self.gotoNextView()
+             }
+             else{
+                 self.view?.showErrorPopUp(title: TextConstants.failedLoginAlertTitle, message: TextConstants.wrongEmailOrPasswordAlertMessage)
+             }
+        }
     }
 }
 
