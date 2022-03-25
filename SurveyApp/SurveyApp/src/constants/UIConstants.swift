@@ -57,6 +57,7 @@ class TextConstants{
     public static let noInternetAlertMessage = "Please Check your internet connection and try again"
     public static let wrongEmailOrPasswordAlertMessage = "Email or Password is wrong!"
     public static let refreshTokenFailedTitle = "Authentication Failed!"
+    public static let tryAgain = "Please Try again!"
     public static let refreshTokenFailedDescription = "Try to login again!"
     public static let noInternetAlertTitle = "Connectivity error!"
     public static let apiErrotTitle = "Data Fething Failed!"

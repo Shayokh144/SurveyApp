@@ -21,6 +21,7 @@ protocol SurveyPresenterToViewProtocol : AnyObject {
     func showLoadingSpinner()
     func populateSurveyData(with dataList : [SurveyDataEntity])
     func updateViewWithNewData(dataList : [SurveyDataEntity])
+    func hideLoadingSpinner()
     func showErrorAlert(title : String, message : String, errorType : DataFetchingError)
 }
 
@@ -37,13 +38,13 @@ protocol SurveyRouterToPresenterProtocol : AnyObject {
 //Presenter -> Interactor
 protocol SurveyPresenterToInteractorProtocol : AnyObject {
     func requestForRefreshToken(with tokenData : LoginTokenData)
-    func willFetchSurveyData(with surveyUrl : String, tokenData : LoginTokenData)
+    func willFetchSurveyData(with surveyPageNumber : Int, tokenData : LoginTokenData)
     func willFetchBackgroundImage(with surveyData : SurveyListData)
 }
 
 //Interactor -> Presenter
 protocol SurveyInteractorToPresenterProtocol : AnyObject {
     func didReceiveRefreshTokenData(with data : Data?)
-    func surveyDidAppear(with data : Data?)
+    func surveyDidAppear(with httpStatusCode : Int, data : Data?)
     func backgroundImageDidAppear(with dataDict : [String : Data])
 }

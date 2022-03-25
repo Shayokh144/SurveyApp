@@ -14,28 +14,24 @@ class SurveyPresenter{
     var loginTokenDataForInteractor : LoginTokenData!
     var surveyList : SurveyListData?
     var currentSurveyPage : Int = 0
-    
+    var isDataFetchingInProgress = false
     init(){
+        self.isDataFetchingInProgress = false
         self.currentSurveyPage = 1
     }
     
-    private func isAccessTokenStillValid()->Bool{
+    private func getLoginTokenDataFromKeyChain()->LoginTokenData{
+        if(loginTokenDataForInteractor != nil){
+            return loginTokenDataForInteractor
+        }
         let keyChainMgr = KeyChainManager(service: KeyChainCnstants.keyChainServiceName, account: KeyChainCnstants.keyChainAccountName)
-        let userDefaultmanager = UserDefaultManager()
         if let loginData = keyChainMgr.getLoginDataFromKeyChain(){
             if let tokenData = DataDecoder.decodeLoginData(from: loginData){
                 loginTokenDataForInteractor = tokenData
-                let loginTime = userDefaultmanager.getUserLoginTime()
-                let timeDif = TimeUtil.getCurrentTimeInInt() - loginTime
-                if(timeDif <= tokenData.data.attributes.expiresIn){
-                    return true
-                }
-                return false
-            }else{
-                return false
+                
             }
         }
-        return false
+        return loginTokenDataForInteractor
     }
     
     private func getSurveyUrl()->String{
@@ -44,17 +40,11 @@ class SurveyPresenter{
     
     private func startSurveyDataFetching(){
         if(!ReachabilityCenter.isConnectedToInternet()){
+            self.isDataFetchingInProgress = false
             self.view?.showErrorAlert(title: TextConstants.noInternetAlertTitle, message: TextConstants.noInternetAlertMessage, errorType: .noInternetError)
         }
         else{
-            if(isAccessTokenStillValid()){
-                // fetch survey data
-                interector?.willFetchSurveyData(with: self.getSurveyUrl(), tokenData: loginTokenDataForInteractor)
-            }
-            else{
-                // fetch refresh token data
-                interector?.requestForRefreshToken(with: loginTokenDataForInteractor)
-            }
+            interector?.willFetchSurveyData(with: self.currentSurveyPage, tokenData: getLoginTokenDataFromKeyChain())
         }
     }
     
@@ -63,6 +53,7 @@ class SurveyPresenter{
     }
     
     private func updateView(with imageDataDict: [String : Data]){
+        self.isDataFetchingInProgress = false
         var dataListForSurveyUi : [SurveyDataEntity] = []
         if let surveyListData = self.surveyList{
             for data in surveyListData.data{
@@ -87,6 +78,7 @@ class SurveyPresenter{
             self.startSurveyImaageFetching(surveyListData: surveyListData)
         }
         else{
+            self.isDataFetchingInProgress = false
             //startSurveyDataFetching()
             view?.showErrorAlert(title: TextConstants.apiErrotTitle, message: TextConstants.surveyDataFailureDescription, errorType: .apiError)
         }
@@ -97,6 +89,7 @@ class SurveyPresenter{
         guard let loginData = data else {
             userdefaultManager.setUserLoginStatus(status: false)
             //todo : show error, take user to login page
+            self.isDataFetchingInProgress = false
             self.view?.showErrorAlert(title: TextConstants.refreshTokenFailedTitle, message: TextConstants.refreshTokenFailedDescription, errorType: .refreshTokenError)
             return
         }
@@ -108,22 +101,27 @@ class SurveyPresenter{
             keyChainManager.updateLoginDataInKeyChain(from: loginData)
             userdefaultManager.setUserLoginTime(time: TimeUtil.getCurrentTimeInInt())
             startSurveyDataFetching()
-         }
-         else{
-             //todo : show error, take user to login page
-             userdefaultManager.setUserLoginStatus(status: false)
-             self.view?.showErrorAlert(title: TextConstants.refreshTokenFailedTitle, message: TextConstants.refreshTokenFailedDescription, errorType: .refreshTokenError)
-         }
+        }
+        else{
+            //todo : show error, take user to login page
+            self.isDataFetchingInProgress = false
+            userdefaultManager.setUserLoginStatus(status: false)
+            self.view?.showErrorAlert(title: TextConstants.refreshTokenFailedTitle, message: TextConstants.refreshTokenFailedDescription, errorType: .refreshTokenError)
+        }
     }
 }
 
 extension SurveyPresenter : SurveyViewToPresenterProtocol{
     func didScrollForNewData() {
+        if(self.isDataFetchingInProgress ==  false){
             self.view?.showLoadingSpinner()
             self.startSurveyDataFetching()
+            self.isDataFetchingInProgress = true
+        }
     }
     
     func didTapOkButtonOnError(errorType: DataFetchingError) {
+        self.isDataFetchingInProgress = false
         switch errorType {
         case .noInternetError:
             self.startSurveyDataFetching()
@@ -131,6 +129,8 @@ extension SurveyPresenter : SurveyViewToPresenterProtocol{
             self.router?.gotoLoginPage()
         case .apiError:
             self.startSurveyDataFetching()
+        case .noDataFound:
+            print("no more data found")
         }
     }
     
@@ -141,6 +141,20 @@ extension SurveyPresenter : SurveyViewToPresenterProtocol{
 }
 
 extension SurveyPresenter : SurveyInteractorToPresenterProtocol{
+    func surveyDidAppear(with httpStatusCode: Int, data: Data?) {
+        if(NetworkResponseType.success.rawValue == httpStatusCode){
+            self.procesSurveyData(with: data)
+        }
+        else if (NetworkResponseType.authenticationError.rawValue == httpStatusCode){
+            self.interector?.requestForRefreshToken(with: self.loginTokenDataForInteractor)
+        }
+        else if(NetworkResponseType.urlNotFoundError.rawValue == httpStatusCode){
+            self.isDataFetchingInProgress = false
+            self.view?.hideLoadingSpinner()
+            self.view?.showErrorAlert(title: "Data Not Found", message: "no more data to load", errorType: .noDataFound)
+        }
+    }
+    
     func didReceiveRefreshTokenData(with data: Data?) {
         self.processRefreshToken(with: data)
     }
@@ -149,9 +163,6 @@ extension SurveyPresenter : SurveyInteractorToPresenterProtocol{
         self.updateView(with: dataDict)
     }
     
-    func surveyDidAppear(with data: Data?) {
-        self.procesSurveyData(with: data)
-    }
 }
 
 extension SurveyPresenter : SurveyRouterToPresenterProtocol{

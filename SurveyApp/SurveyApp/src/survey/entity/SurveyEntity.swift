@@ -33,4 +33,5 @@ enum DataFetchingError{
     case noInternetError
     case refreshTokenError
     case apiError
+    case noDataFound
 }
