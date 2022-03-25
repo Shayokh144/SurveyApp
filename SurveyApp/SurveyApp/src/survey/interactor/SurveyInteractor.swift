@@ -12,11 +12,16 @@ class SurveyInteractor{
     var imageDownloadCounter = 0
     var imageUrlListForDownload : [String] = []
     var downloadedImage : [String : Data] = [:]
-    let networkMannger : NetworkManager = NetworkManager(retryCount: 1)
+    var networkMannger : NetworkManager?
     
-    init(){
+    init(networkMgr : NetworkManager){
         clearOldData()
-        networkMannger.delegate = self
+        networkMannger = networkMgr
+        networkMannger?.delegate = self
+    }
+    
+    deinit{
+        networkMannger = nil
     }
     
     private func clearOldData(){
@@ -36,7 +41,7 @@ class SurveyInteractor{
     }
     
     private func startBackgroundImageFetching(with imageUrl : String){
-        networkMannger.getImage(from: imageUrl)
+        networkMannger?.getImage(from: imageUrl)
     }
     
     private func didReceiveImageData(imageData : Data){
@@ -53,11 +58,11 @@ class SurveyInteractor{
     private func fetchRefreshToken(with tokenData: LoginTokenData){
         let refreshToeknValue = tokenData.data.attributes.refreshToken
         let requestBodyDict = getRefreshTokenRequestBodyDict(refreshToken: refreshToeknValue)
-        networkMannger.getRefreshTokenData(requestBody: requestBodyDict)
+        networkMannger?.getRefreshTokenData(requestBody: requestBodyDict)
     }
     
     private func fetchSurveyDataFromRemoteApi(with surveyPageNumber : Int, tokenData: LoginTokenData){
-        networkMannger.getSurveyData(pageCount: surveyPageNumber, tokenType: tokenData.data.attributes.tokenType, accessToken: tokenData.data.attributes.accessToken)
+        networkMannger?.getSurveyData(pageCount: surveyPageNumber, tokenType: tokenData.data.attributes.tokenType, accessToken: tokenData.data.attributes.accessToken)
     }
 }
 

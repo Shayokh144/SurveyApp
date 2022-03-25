@@ -10,8 +10,8 @@ class LoginInteractor{
     weak var presenter: LoginInteractorToPresenterProtocol?
     var networkMannger : NetworkManager?
     
-    init(){
-        networkMannger = NetworkManager(retryCount: 1)
+    init(networkMgr : NetworkManager){
+        networkMannger = networkMgr
         networkMannger?.delegate = self
     }
     

@@ -41,40 +41,49 @@ final class NavigationManager{
         }
     }
     
-    public func loadViewController(newViewController : UIViewController){
+    public func loadViewController(newViewController : UIViewController, isFirstView : Bool){
         let navC = NavigationManager.shared.getCurrentNavigationController()
         DispatchQueue.main.async {
+            if(isFirstView){
+                navC.viewControllers.removeAll()
+            }
             navC.pushViewController(newViewController, animated: true)
         }
     }
     
-    public func loadLoginView(){
-        /*let storyboard = UIStoryboard(name: UIConstants.storyBoardName, bundle: nil)
-        let loginVC = storyboard.instantiateViewController(withIdentifier: UIConstants.loginViewStoryBoardId)*/
-        let loginVC = LoginRouter.createModule()
-        self.navigationController?.viewControllers.removeAll()
-        self.navigationController = UINavigationController(rootViewController: loginVC ?? UIViewController())
-        self.navigationController?.modalPresentationStyle = .fullScreen
-        self.window?.rootViewController = self.navigationController
-        self.window?.makeKeyAndVisible()
-    }
-    
-    public func loadSurveyView(isRootView : Bool){
-        if(isRootView){
-            let navC = NavigationManager.shared.getCurrentNavigationController()
-            DispatchQueue.main.async {
-                navC.viewControllers.removeAll()
-                let surveyVc = SurveyRouter.createModule()
-                navC.pushViewController(surveyVc ?? UIViewController(), animated: true)
-                //print(navC.viewControllers.count)
-            }
-        }
-        else{
-            let surveyVc = SurveyRouter.createModule()
-            self.navigationController = UINavigationController(rootViewController: surveyVc ?? UIViewController())
+    public func loadRootViewController(newViewController : UIViewController){
+        DispatchQueue.main.async {
+            self.navigationController?.viewControllers.removeAll()
+            self.navigationController = UINavigationController(rootViewController: newViewController)
             self.navigationController?.modalPresentationStyle = .fullScreen
             self.window?.rootViewController = self.navigationController
             self.window?.makeKeyAndVisible()
+        }
+    }
+    
+    public func loadLoginView(){
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: UIConstants.storyBoardName, bundle: nil)
+            let view = storyboard.instantiateViewController(withIdentifier: UIConstants.loginViewStoryBoardId) as? LoginView
+            let presenter = LoginPresenter()
+            let interactor = LoginInteractor(networkMgr: NetworkManager(retryCount: 1))
+            LoginRouter.createLoginModule(view: view , presenter: presenter, interactor: interactor)
+        }
+    }
+    
+    public func loadSurveyView(isRootView : Bool){
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: UIConstants.storyBoardName, bundle: nil)
+            let view = storyboard.instantiateViewController(withIdentifier: UIConstants.surveyViewStoryBoardId) as? SurveyView
+            let presenter = SurveyPresenter()
+            let interactor = SurveyInteractor(networkMgr: NetworkManager(retryCount: 1))
+            if(isRootView){
+                SurveyRouter.createSurveyModule(view: view, presenter: presenter, interactor: interactor, setAsRootView: false)
+            }
+            else{
+                SurveyRouter.createSurveyModule(view: view, presenter: presenter, interactor: interactor, setAsRootView: true)
+                //SurveyRouter.createSurveyAsRootModule(view: view, presenter: presenter, interactor: interactor)
+            }
         }
     }
 }

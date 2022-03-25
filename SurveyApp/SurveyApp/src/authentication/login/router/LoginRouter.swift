@@ -10,19 +10,15 @@ import UIKit
 class LoginRouter{
     
     static weak var presenter: LoginRouterToPresenterProtocol?
-    
-    class func createModule()-> UIViewController?{
-        let storyboard = UIStoryboard(name: UIConstants.storyBoardName, bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: UIConstants.loginViewStoryBoardId) as? LoginView
-        let presenter = LoginPresenter()
-        let interactor = LoginInteractor()
-        viewController?.presenter = presenter
-        presenter.view = viewController
+
+    class func createLoginModule(view : LoginView?, presenter : LoginPresenter, interactor : LoginInteractor){
+        view?.presenter = presenter
+        presenter.view = view
         presenter.router = LoginRouter.self()
         presenter.interector = interactor
         interactor.presenter = presenter
         LoginRouter.presenter = presenter
-        return viewController
+        NavigationManager.shared.loadRootViewController(newViewController: view ?? UIViewController())
     }
     
     private func loadSurveyView(){
