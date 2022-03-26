@@ -30,7 +30,6 @@ class SurveyView: UIViewController {
     var isAlreadyShowingAlert = false
     let gradient = SkeletonGradient(baseColor: UIConstants.skeletonBaseGradiantColor, secondaryColor:  UIConstants.skeletonSecondaryGradiantColor)
     let animation = GradientDirection.leftRight.slidingAnimation()
-    let tintView = UIView()
     var spinnerView : SpinnerViewController!
     var scrollViewPosition : CGFloat = 0.0
     var alertController : UIAlertController?

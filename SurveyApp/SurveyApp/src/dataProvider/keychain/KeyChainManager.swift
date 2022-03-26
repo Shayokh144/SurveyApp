@@ -26,10 +26,12 @@ class KeyChainManager{
             print(error)
         }
     }
+    
     public func getLoginDataFromKeyChain()->Data?{
         return KeyChainAccessManager.get(service: self.serviceName,
                                          account: self.accountName)
     }
+    
     public func updateLoginDataInKeyChain(from data : Data){
         KeyChainAccessManager.update(service: self.serviceName,
                                      account: self.accountName,

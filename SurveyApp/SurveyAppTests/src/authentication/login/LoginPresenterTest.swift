@@ -26,7 +26,7 @@ class LoginPresenterTest: XCTestCase {
     }
 
     func testLoginProcessCalled() {
-        sut?.didReceiveLoginData(data: Data())
+        sut?.didReceiveLoginData(data: Data(), httpResponseCode: 404)
         sut?.didTapLoginButton(userEmail: "", userPassword: "")
         sut?.interector?.loginProcessWillStart(userEmail: "", userPassword: "")
         XCTAssertTrue(mockLoginInteractor?.isLoggedInDatareceived ?? false, "using dummy data")

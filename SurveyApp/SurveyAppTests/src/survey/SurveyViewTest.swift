@@ -26,6 +26,10 @@ class SurveyViewTest: XCTestCase {
     }
 }
 class MockSurveyPresenter : SurveyViewToPresenterProtocol{
+    func didScrollForNewData() {
+        
+    }
+    
     private(set) var onOKButtonTapped = false
     private(set) var onViewDidMethodLoadCalled = false
     

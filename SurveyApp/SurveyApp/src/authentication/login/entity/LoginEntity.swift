@@ -20,11 +20,6 @@ struct LoginTokenAttributes: Codable{
     var expiresIn: Int
     var refreshToken: String
     var createdAt: Int
-    var isValid: Bool {
-        let now = Date()
-        let seconds = TimeInterval(expiresIn)
-        return now.timeIntervalSince(date) < seconds
-    }
 }
 struct LoginTokenDataList : Codable{
     var attributes : LoginTokenAttributes

@@ -38,7 +38,7 @@ class SurveyCollectionViewCell: UICollectionViewCell {
         let storyboard = UIStoryboard(name: UIConstants.storyBoardName, bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: UIConstants.surveyDetailsViewStoryBoardId) as? SurveyDetailsView
         viewController?.titleText = self.surveyCellData.title
-        NavigationManager.shared.loadViewController(newViewController: viewController ?? UIViewController())
+        NavigationManager.shared.loadViewController(newViewController: viewController ?? UIViewController(), isFirstView: false)
     }
     
     
