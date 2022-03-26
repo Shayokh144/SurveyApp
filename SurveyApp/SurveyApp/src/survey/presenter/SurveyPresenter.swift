@@ -20,7 +20,7 @@ class SurveyPresenter{
         self.currentSurveyPage = 1
     }
     
-    private func getLoginTokenDataFromKeyChain()->LoginTokenData{
+    private func getLoginTokenDataFromKeyChain()->LoginTokenData?{
         if(loginTokenDataForInteractor != nil){
             return loginTokenDataForInteractor
         }
@@ -44,7 +44,12 @@ class SurveyPresenter{
             self.view?.showErrorAlert(title: TextConstants.noInternetAlertTitle, message: TextConstants.noInternetAlertMessage, errorType: .noInternetError)
         }
         else{
-            interector?.willFetchSurveyData(with: self.currentSurveyPage, tokenData: getLoginTokenDataFromKeyChain())
+            if let tokenData = getLoginTokenDataFromKeyChain(){
+                interector?.willFetchSurveyData(with: self.currentSurveyPage, tokenData: tokenData)
+            }
+            else{
+                self.view?.showErrorAlert(title: TextConstants.refreshTokenFailedTitle, message: TextConstants.refreshTokenFailedDescription, errorType: .refreshTokenError)
+            }
         }
     }
     

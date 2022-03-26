@@ -14,7 +14,7 @@ class LoginInteractorTest: XCTestCase {
     var mockLoginInteractorToPresenterProtocol : MockLoginInteractorToPresenterProtocol?
     
     override func setUpWithError() throws {
-        sut = LoginInteractor()
+        sut = LoginInteractor(networkMgr: NetworkManager(retryCount: 1))
         mockLoginInteractorToPresenterProtocol = MockLoginInteractorToPresenterProtocol()
         sut?.presenter = mockLoginInteractorToPresenterProtocol
         try super.setUpWithError()
@@ -27,7 +27,7 @@ class LoginInteractorTest: XCTestCase {
     }
     
     func testCanStartLoginProcess(){
-        sut?.presenter?.didReceiveLoginData(data: Data())
+        sut?.presenter?.didReceiveLoginData(data: Data(), httpResponseCode: 200)
         sut?.loginProcessWillStart(userEmail: "dev@nimblehq.co", userPassword: "12345678")
         XCTAssertNotNil(mockLoginInteractorToPresenterProtocol?.mockData)
     }
@@ -35,7 +35,8 @@ class LoginInteractorTest: XCTestCase {
 
 class MockLoginInteractorToPresenterProtocol : LoginInteractorToPresenterProtocol{
     public var mockData : Data?
-    func didReceiveLoginData(data: Data?) {
-        self.mockData = data
+
+    func didReceiveLoginData(data: Data?, httpResponseCode: Int) {
+        mockData = data
     }
 }
