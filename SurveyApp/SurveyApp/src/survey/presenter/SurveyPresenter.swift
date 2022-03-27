@@ -28,7 +28,6 @@ class SurveyPresenter{
         if let loginData = keyChainMgr.getLoginDataFromKeyChain(){
             if let tokenData = DataDecoder.decodeLoginData(from: loginData){
                 loginTokenDataForInteractor = tokenData
-                
             }
         }
         return loginTokenDataForInteractor
@@ -151,7 +150,12 @@ extension SurveyPresenter : SurveyInteractorToPresenterProtocol{
             self.procesSurveyData(with: data)
         }
         else if (NetworkResponseType.authenticationError.rawValue == httpStatusCode){
-            self.interector?.requestForRefreshToken(with: self.loginTokenDataForInteractor)
+            if let loginTokenData = self.getLoginTokenDataFromKeyChain(){
+                self.interector?.requestForRefreshToken(with: loginTokenData)
+            }
+            else{
+                self.view?.showErrorAlert(title: TextConstants.refreshTokenFailedTitle, message: TextConstants.refreshTokenFailedDescription, errorType: .refreshTokenError)
+            }
         }
         else if(NetworkResponseType.urlNotFoundError.rawValue == httpStatusCode){
             self.isDataFetchingInProgress = false

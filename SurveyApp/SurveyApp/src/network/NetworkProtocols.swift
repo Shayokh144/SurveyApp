@@ -18,3 +18,11 @@ protocol EndPointConfiguration{
 protocol NetworkManagerProtocol : AnyObject{
     func dataDidAppear(htttpStatusCode : Int, networkApiType: NetworkApiType,receivedData : Data?)
 }
+
+protocol DataFetcherProtocol : AnyObject{
+    var dataFetcherDelegate : NetworkManagerProtocol? {get set}
+    func getAccessTokenData(requestBody : [String : AnyHashable])
+    func getRefreshTokenData(requestBody : [String : AnyHashable])
+    func getSurveyData(pageCount : Int, tokenType : String, accessToken : String)
+    func getImage(from urlString : String)
+}

@@ -15,6 +15,7 @@ class SurveyDetailsView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleLabel.accessibilityIdentifier = UIConstants.surveyDetailsViewTitleAccesibilityIdentifier
         titleLabel.text = titleText
     }
 
