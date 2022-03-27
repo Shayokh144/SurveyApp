@@ -12,12 +12,12 @@ class SurveyInteractor{
     var imageDownloadCounter = 0
     var imageUrlListForDownload : [String] = []
     var downloadedImage : [String : Data] = [:]
-    var networkMannger : NetworkManager?
+    var networkMannger : DataFetcherProtocol?
     
-    init(networkMgr : NetworkManager){
+    init(networkMgr : DataFetcherProtocol){
         clearOldData()
         networkMannger = networkMgr
-        networkMannger?.delegate = self
+        networkMannger?.dataFetcherDelegate = self
     }
     
     deinit{

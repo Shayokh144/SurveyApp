@@ -82,7 +82,6 @@ final class NavigationManager{
             }
             else{
                 SurveyRouter.createSurveyModule(view: view, presenter: presenter, interactor: interactor, setAsRootView: true)
-                //SurveyRouter.createSurveyAsRootModule(view: view, presenter: presenter, interactor: interactor)
             }
         }
     }

@@ -39,6 +39,8 @@ class UIConstants{
     public static let loginAlertAccesibilityIdentifier = "loginAlertId"
     public static let surveyCellTitleAccesibilityIdentifier = "cellDataTitleAccIdentifier"
     public static let surveyCellButtonAccesibilityIdentifier = "arrowBtnIdentifier"
+    public static let surveyDetailsViewTitleAccesibilityIdentifier = "surveyDetailsViewTitleAccesibilityIdentifier"
+
 
     static func multiplyWithScreenRatio(constraint: NSLayoutConstraint) {
             constraint.constant = constraint.constant * UIConstants.screenRatio

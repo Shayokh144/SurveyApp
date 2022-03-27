@@ -27,23 +27,49 @@ class SurveyAppUITests: XCTestCase {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
+        sleep(20)
         let arrowButton = app.buttons["arrowBtnIdentifier"]
         if(arrowButton.exists == true){
             XCTAssertTrue(arrowButton.exists)
-            sleep(60)
-            let title = app.staticTexts.element(matching:.any, identifier: "cellDataTitleAccIdentifier").label
+            var title = app.staticTexts.element(matching:.any, identifier: "cellDataTitleAccIdentifier").label
             XCTAssertTrue(title.count > 0, "")
-            //XCTAssertEqual(app.staticTexts.element(matching:.any, identifier: "cellDataTitleAccIdentifier").label, "89")
+            arrowButton.tap()
+            sleep(3)
+            title = app.staticTexts.element(matching:.any, identifier: "surveyDetailsViewTitleAccesibilityIdentifier").label
+            XCTAssertTrue(title.count > 0, "")
         }
         else{
             let loginButton = app.buttons["loginButtonAccesibilityIdentifier"]
             let emailTextField = app.textFields["emailTextFieldAccesibilityIdentifier"]
+            let passwordTextField = app.secureTextFields["passwordTextFieldAccesibilityIdentifier"]
+            
             XCTAssertTrue(loginButton.exists)
             XCTAssertTrue(emailTextField.exists)
+            XCTAssertTrue(passwordTextField.exists)
             loginButton.tap()
+            sleep(3)
+            
             let alert = app.alerts["loginAlertId"]
             XCTAssertTrue(alert.exists)
-
+            
+            alert.buttons["OK"].tap()
+            sleep(3)
+            XCTAssertFalse(alert.exists)
+            
+            emailTextField.tap()
+            emailTextField.typeText("dev@nimblehq.co")
+            sleep(2)
+            
+            passwordTextField.tap()
+            passwordTextField.typeText("12345678")
+            sleep(2)
+            
+            loginButton.tap()
+            
+            sleep(10)
+            
+            let arrowBtn = app.buttons["arrowBtnIdentifier"]
+            XCTAssertTrue(arrowBtn.exists)
         }
         app.terminate()
         

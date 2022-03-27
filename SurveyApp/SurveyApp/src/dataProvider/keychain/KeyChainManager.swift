@@ -17,6 +17,7 @@ class KeyChainManager{
     }
     
     public func saveLoginDataInKeychain(data : Data){
+        self.deleteLoginDataFromKeyChain()
         do{
             try KeyChainAccessManager.save(service: self.serviceName,
                                            account: self.accountName,

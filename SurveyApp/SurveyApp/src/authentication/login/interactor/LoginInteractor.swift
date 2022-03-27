@@ -8,11 +8,11 @@
 import Foundation
 class LoginInteractor{
     weak var presenter: LoginInteractorToPresenterProtocol?
-    var networkMannger : NetworkManager?
+    var networkMannger : DataFetcherProtocol?
     
-    init(networkMgr : NetworkManager){
+    init(networkMgr : DataFetcherProtocol){
         networkMannger = networkMgr
-        networkMannger?.delegate = self
+        networkMannger?.dataFetcherDelegate = self
     }
     
     deinit{
