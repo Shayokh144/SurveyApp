@@ -3,7 +3,7 @@ import Foundation
 import PackageDescription
 
 let package = Package(
-     name: "ModularSlothCreator-PRLinter",
+     name: "SurveyApp-PRLinter",
      defaultLocalization: "en",
      products: [
        .library(name: "DangerDeps", type: .dynamic, targets: ["SurveyApp-PRLinter"])
@@ -18,7 +18,7 @@ let package = Package(
                  .product(name: "Danger", package: "swift")
              ],
              path: "SurveyApp",
-             sources: ["src/utils/network/ReachabilityCenter.swift"]
+             sources: ["SurveyApp/src/utils/network/ReachabilityCenter.swift"]
          )
      ]
  )
