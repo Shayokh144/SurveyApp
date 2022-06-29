@@ -18,7 +18,7 @@ let package = Package(
                  .product(name: "Danger", package: "swift")
              ],
              path: "SurveyApp",
-             sources: ["SurveyApp/src/utils/network/ReachabilityCenter.swift"]
+             sources: ["SurveyApp/src/utils/ui/TimeUtil.swift"]
          )
      ]
  )
