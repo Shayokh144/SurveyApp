@@ -1,0 +1,255 @@
+{
+  "kind": "Root",
+  "name": "TopLevel",
+  "printedName": "TopLevel",
+  "children": [
+    {
+      "kind": "Import",
+      "name": "Foundation",
+      "printedName": "Foundation",
+      "declKind": "Import",
+      "moduleName": "SurveyApp_PRLinter",
+      "declAttributes": [
+        "RawDocComment"
+      ]
+    },
+    {
+      "kind": "Import",
+      "name": "SystemConfiguration",
+      "printedName": "SystemConfiguration",
+      "declKind": "Import",
+      "moduleName": "SurveyApp_PRLinter"
+    },
+    {
+      "kind": "TypeDecl",
+      "name": "ReachabilityCenter",
+      "printedName": "ReachabilityCenter",
+      "children": [
+        {
+          "kind": "Function",
+          "name": "isConnectedToInternet",
+          "printedName": "isConnectedToInternet()",
+          "children": [
+            {
+              "kind": "TypeNominal",
+              "name": "Bool",
+              "printedName": "Swift.Bool",
+              "usr": "s:Sb"
+            }
+          ],
+          "declKind": "Func",
+          "usr": "s:18SurveyApp_PRLinter18ReachabilityCenterC21isConnectedToInternetSbyFZ",
+          "mangledName": "$s18SurveyApp_PRLinter18ReachabilityCenterC21isConnectedToInternetSbyFZ",
+          "moduleName": "SurveyApp_PRLinter",
+          "static": true,
+          "isOpen": true,
+          "funcSelfKind": "NonMutating"
+        },
+        {
+          "kind": "Constructor",
+          "name": "init",
+          "printedName": "init()",
+          "children": [
+            {
+              "kind": "TypeNominal",
+              "name": "ReachabilityCenter",
+              "printedName": "SurveyApp_PRLinter.ReachabilityCenter",
+              "usr": "s:18SurveyApp_PRLinter18ReachabilityCenterC"
+            }
+          ],
+          "declKind": "Constructor",
+          "usr": "s:18SurveyApp_PRLinter18ReachabilityCenterCACycfc",
+          "mangledName": "$s18SurveyApp_PRLinter18ReachabilityCenterCACycfc",
+          "moduleName": "SurveyApp_PRLinter",
+          "implicit": true,
+          "init_kind": "Designated"
+        }
+      ],
+      "declKind": "Class",
+      "usr": "s:18SurveyApp_PRLinter18ReachabilityCenterC",
+      "mangledName": "$s18SurveyApp_PRLinter18ReachabilityCenterC",
+      "moduleName": "SurveyApp_PRLinter",
+      "isOpen": true
+    },
+    {
+      "kind": "Import",
+      "name": "Foundation",
+      "printedName": "Foundation",
+      "declKind": "Import",
+      "moduleName": "SurveyApp_PRLinter"
+    },
+    {
+      "kind": "TypeDecl",
+      "name": "Bundle",
+      "printedName": "Bundle",
+      "children": [
+        {
+          "kind": "Var",
+          "name": "module",
+          "printedName": "module",
+          "children": [
+            {
+              "kind": "TypeNominal",
+              "name": "Bundle",
+              "printedName": "Foundation.Bundle",
+              "usr": "c:objc(cs)NSBundle"
+            }
+          ],
+          "declKind": "Var",
+          "usr": "s:So8NSBundleC18SurveyApp_PRLinterE6moduleABvpZ",
+          "mangledName": "$sSo8NSBundleC18SurveyApp_PRLinterE6moduleABvpZ",
+          "moduleName": "SurveyApp_PRLinter",
+          "static": true,
+          "declAttributes": [
+            "HasInitialValue",
+            "Final",
+            "HasStorage"
+          ],
+          "hasStorage": true,
+          "accessors": [
+            {
+              "kind": "Accessor",
+              "name": "Get",
+              "printedName": "Get()",
+              "children": [
+                {
+                  "kind": "TypeNominal",
+                  "name": "Bundle",
+                  "printedName": "Foundation.Bundle",
+                  "usr": "c:objc(cs)NSBundle"
+                }
+              ],
+              "declKind": "Accessor",
+              "usr": "s:So8NSBundleC18SurveyApp_PRLinterE6moduleABvgZ",
+              "mangledName": "$sSo8NSBundleC18SurveyApp_PRLinterE6moduleABvgZ",
+              "moduleName": "SurveyApp_PRLinter",
+              "static": true,
+              "implicit": true,
+              "declAttributes": [
+                "Final"
+              ],
+              "accessorKind": "get"
+            },
+            {
+              "kind": "Accessor",
+              "name": "Set",
+              "printedName": "Set()",
+              "children": [
+                {
+                  "kind": "TypeNominal",
+                  "name": "Void",
+                  "printedName": "()"
+                },
+                {
+                  "kind": "TypeNominal",
+                  "name": "Bundle",
+                  "printedName": "Foundation.Bundle",
+                  "usr": "c:objc(cs)NSBundle"
+                }
+              ],
+              "declKind": "Accessor",
+              "usr": "s:So8NSBundleC18SurveyApp_PRLinterE6moduleABvsZ",
+              "mangledName": "$sSo8NSBundleC18SurveyApp_PRLinterE6moduleABvsZ",
+              "moduleName": "SurveyApp_PRLinter",
+              "static": true,
+              "implicit": true,
+              "declAttributes": [
+                "Final"
+              ],
+              "accessorKind": "set"
+            },
+            {
+              "kind": "Accessor",
+              "name": "Modify",
+              "printedName": "Modify()",
+              "children": [
+                {
+                  "kind": "TypeNominal",
+                  "name": "Void",
+                  "printedName": "()"
+                }
+              ],
+              "declKind": "Accessor",
+              "usr": "s:So8NSBundleC18SurveyApp_PRLinterE6moduleABvMZ",
+              "mangledName": "$sSo8NSBundleC18SurveyApp_PRLinterE6moduleABvMZ",
+              "moduleName": "SurveyApp_PRLinter",
+              "static": true,
+              "implicit": true,
+              "declAttributes": [
+                "Final"
+              ],
+              "accessorKind": "_modify"
+            }
+          ]
+        }
+      ],
+      "declKind": "Class",
+      "usr": "c:objc(cs)NSBundle",
+      "moduleName": "Foundation",
+      "isOpen": true,
+      "objc_name": "NSBundle",
+      "declAttributes": [
+        "ObjC",
+        "Dynamic"
+      ],
+      "superclassUsr": "c:objc(cs)NSObject",
+      "isExternal": true,
+      "inheritsConvenienceInitializers": true,
+      "superclassNames": [
+        "ObjectiveC.NSObject"
+      ],
+      "conformances": [
+        {
+          "kind": "Conformance",
+          "name": "Equatable",
+          "printedName": "Equatable",
+          "usr": "s:SQ",
+          "mangledName": "$sSQ"
+        },
+        {
+          "kind": "Conformance",
+          "name": "Hashable",
+          "printedName": "Hashable",
+          "usr": "s:SH",
+          "mangledName": "$sSH"
+        },
+        {
+          "kind": "Conformance",
+          "name": "CVarArg",
+          "printedName": "CVarArg",
+          "usr": "s:s7CVarArgP",
+          "mangledName": "$ss7CVarArgP"
+        },
+        {
+          "kind": "Conformance",
+          "name": "_KeyValueCodingAndObservingPublishing",
+          "printedName": "_KeyValueCodingAndObservingPublishing",
+          "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+          "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+        },
+        {
+          "kind": "Conformance",
+          "name": "_KeyValueCodingAndObserving",
+          "printedName": "_KeyValueCodingAndObserving",
+          "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+          "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+        },
+        {
+          "kind": "Conformance",
+          "name": "CustomStringConvertible",
+          "printedName": "CustomStringConvertible",
+          "usr": "s:s23CustomStringConvertibleP",
+          "mangledName": "$ss23CustomStringConvertibleP"
+        },
+        {
+          "kind": "Conformance",
+          "name": "CustomDebugStringConvertible",
+          "printedName": "CustomDebugStringConvertible",
+          "usr": "s:s28CustomDebugStringConvertibleP",
+          "mangledName": "$ss28CustomDebugStringConvertibleP"
+        }
+      ]
+    }
+  ],
+  "json_format_version": 6
+}

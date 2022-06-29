@@ -89,6 +89,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0488F0E1286C008700D5F598 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		4FEED6C8CD0EBD08371328AC /* Pods-SurveyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurveyAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SurveyAppTests/Pods-SurveyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		50BD7E8E0C3166874992D786 /* Pods_SurveyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurveyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F72C80ADD595F8CC5D03C00 /* Pods_SurveyAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurveyAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -281,6 +282,7 @@
 		E09C3EB627E5A9270043EE6F = {
 			isa = PBXGroup;
 			children = (
+				0488F0E1286C008700D5F598 /* Package.swift */,
 				E09C3EC127E5A9270043EE6F /* SurveyApp */,
 				E09C3ED827E5A9290043EE6F /* SurveyAppTests */,
 				E09C3EE227E5A9290043EE6F /* SurveyAppUITests */,

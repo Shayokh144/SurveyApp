@@ -1,0 +1,35 @@
+version: "Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)"
+options: "8f91f5c080ee05dfa082fbbdc06113a444cc9a4781f02ab54a8aa8fd08142ceb"
+build_start_time: [1656475440, 392287015]
+build_end_time: [1656475440, 471136093]
+inputs:
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/BitBucketCloud.swift"
+  : [1656474355, 452544689]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/BitBucketMetadata.swift"
+  : [1656474355, 452669143]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/BitBucketServerDSL.swift"
+  : [1656474355, 452803611]
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/Danger.swift": [1656474355, 452939271]
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/DangerDSL.swift": [1656474355, 453067779]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/DangerResults.swift"
+  : [1656474355, 453194141]
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/DangerUtils.swift": [1656474355, 453308820]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/Extensions/DateFormatterExtensions.swift"
+  : [1656474355, 453485488]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/Extensions/NSRegularExpressionExtensions.swift"
+  : [1656474355, 453605175]
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/File.swift": [1656474355, 453709363]
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/GitDSL.swift": [1656474355, 453844070]
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/GitDiff.swift": [1656474355, 453975200]
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/GitHubDSL.swift": [1656474355, 454083442]
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/GitLabDSL.swift": [1656474355, 454224348]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/Plugins/SwiftLint/CurrentPathProvider.swift"
+  : [1656474355, 454461574]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/Plugins/SwiftLint/SwiftLint.swift"
+  : [1656474355, 454574346]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/Plugins/SwiftLint/SwiftLintViolation.swift"
+  : [1656474355, 454712390]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/Plugins/SwiftLint/SwiftlintReportDeleter.swift"
+  : [1656474355, 454835176]
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/Report.swift": [1656474355, 454957485]
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Danger/Settings.swift": [1656474355, 455101966]

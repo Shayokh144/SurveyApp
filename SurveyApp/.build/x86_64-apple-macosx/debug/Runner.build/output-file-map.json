@@ -1,0 +1,35 @@
+{
+  "": {
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/master.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Runner/Commands/Edit.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/Commands/Edit.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/Commands/Edit.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/Commands/Edit~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/Commands/Edit.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Runner/Commands/RunDangerJS.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/Commands/RunDangerJS.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/Commands/RunDangerJS.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/Commands/RunDangerJS~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/Commands/RunDangerJS.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Runner/Commands/Runner.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/Commands/Runner.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/Commands/Runner.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/Commands/Runner~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/Commands/Runner.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Runner/MarathonScriptManager.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/MarathonScriptManager.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/MarathonScriptManager.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/MarathonScriptManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/MarathonScriptManager.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Runner/main.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/main.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/main.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Runner.build/main.swiftdeps"
+  }
+}
