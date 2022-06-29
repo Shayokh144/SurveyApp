@@ -29,7 +29,6 @@ jobs:
       - name: Danger
         uses: danger/swift@3.3.0
         with:
-            args: --failOnErrors --no-publish-check
-            supported path: "Dangerfile.swift"
+            args: "--dangerfile ./dangerfile.ts"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
