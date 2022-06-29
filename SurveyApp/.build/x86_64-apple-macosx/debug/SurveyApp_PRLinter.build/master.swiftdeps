@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)"
+options: "8f91f5c080ee05dfa082fbbdc06113a444cc9a4781f02ab54a8aa8fd08142ceb"
+build_start_time: [1656475440, 557862043]
+build_end_time: [1656475440, 785509109]
+inputs:
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/SurveyApp_PRLinter.build/DerivedSources/resource_bundle_accessor.swift"
+  : [1656475202, 650288581]
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/SurveyApp/src/utils/network/ReachabilityCenter.swift": [1656420850, 582987308]

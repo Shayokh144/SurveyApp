@@ -1,0 +1,14 @@
+version: "Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)"
+options: "cc8d7cc55be3f0b45407c1d49f03ee17a224954b9bd1166cd075381672d6eedd"
+build_start_time: [1656475434, 598572015]
+build_end_time: [1656475434, 996866941]
+inputs:
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Runner/Commands/Edit.swift"
+  : [1656474355, 459803104]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Runner/Commands/RunDangerJS.swift"
+  : [1656474355, 459915637]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Runner/Commands/Runner.swift"
+  : [1656474355, 460040807]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Runner/MarathonScriptManager.swift"
+  : [1656474355, 460162639]
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/Runner/main.swift": [1656474355, 460271835]

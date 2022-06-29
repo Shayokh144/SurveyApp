@@ -1,0 +1,4 @@
+module RequestKit {
+    header "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RequestKit.build/RequestKit-Swift.h"
+    requires objc
+}

@@ -1,0 +1,27 @@
+{
+  "object" : {
+    "repositories" : {
+      "https://github.com/danger/swift.git" : {
+        "repositoryURL" : "https://github.com/danger/swift.git",
+        "subpath" : "swift-163f916a"
+      },
+      "https://github.com/mxcl/Version" : {
+        "repositoryURL" : "https://github.com/mxcl/Version",
+        "subpath" : "Version-9ad39a68"
+      },
+      "https://github.com/nerdishbynature/octokit.swift" : {
+        "repositoryURL" : "https://github.com/nerdishbynature/octokit.swift",
+        "subpath" : "octokit.swift-d0cb70b6"
+      },
+      "https://github.com/nerdishbynature/RequestKit.git" : {
+        "repositoryURL" : "https://github.com/nerdishbynature/RequestKit.git",
+        "subpath" : "RequestKit-530774d6"
+      },
+      "https://github.com/shibapm/Logger" : {
+        "repositoryURL" : "https://github.com/shibapm/Logger",
+        "subpath" : "Logger-4ca4cf49"
+      }
+    }
+  },
+  "version" : 1
+}

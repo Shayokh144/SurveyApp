@@ -1,0 +1,35 @@
+version: "Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)"
+options: "8f91f5c080ee05dfa082fbbdc06113a444cc9a4781f02ab54a8aa8fd08142ceb"
+build_start_time: [1656475433, 348495006]
+build_end_time: [1656475434, 512249946]
+inputs:
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/CliArgs/CliArgs.swift"
+  : [1656474355, 460494995]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/CliArgs/CliArgsParser.swift"
+  : [1656474355, 460607051]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/CreateConfig.swift"
+  : [1656474355, 460714340]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/DangerCommand.swift"
+  : [1656474355, 460825204]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/DangerJSVersionFinder.swift"
+  : [1656474355, 460930109]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/DangerSwiftOption.swift"
+  : [1656474355, 461033821]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/DangerfileArgumentsPath.swift"
+  : [1656474355, 461140155]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/Files Import/DangerFileGenerator.swift"
+  : [1656474355, 461296081]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/Files Import/ImportsFinder.swift"
+  : [1656474355, 461403846]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/GetDangerJSPath.swift"
+  : [1656474355, 461510658]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/HelpMessagePresenter.swift"
+  : [1656474355, 461615562]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/NSRegularExpression+FilesImport.swift"
+  : [1656474355, 461732387]
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/Runtime.swift": [1656474355, 461843490]
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/SPMDanger.swift": [1656474355, 461969137]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/String+Path.swift"
+  : [1656474355, 462154865]
+  ? "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/VersionChecker.swift"
+  : [1656474355, 462298393]

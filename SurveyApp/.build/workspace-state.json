@@ -1,0 +1,95 @@
+{
+  "object" : {
+    "artifacts" : [
+
+    ],
+    "dependencies" : [
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "logger",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/shibapm/Logger",
+          "name" : "Logger"
+        },
+        "state" : {
+          "checkoutState" : {
+            "revision" : "53c3ecca5abe8cf46697e33901ee774236d94cce",
+            "version" : "0.2.3"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "Logger"
+      },
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "octokit.swift",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/nerdishbynature/octokit.swift",
+          "name" : "OctoKit"
+        },
+        "state" : {
+          "checkoutState" : {
+            "revision" : "9521cdff919053868ab13cd08a228f7bc1bde2a9",
+            "version" : "0.11.0"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "octokit.swift"
+      },
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "requestkit",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/nerdishbynature/RequestKit.git",
+          "name" : "RequestKit"
+        },
+        "state" : {
+          "checkoutState" : {
+            "revision" : "fd5e9e99aada7432170366c9e95967011ce13bad",
+            "version" : "2.4.0"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "RequestKit"
+      },
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "swift",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/danger/swift.git",
+          "name" : "danger-swift"
+        },
+        "state" : {
+          "checkoutState" : {
+            "revision" : "36fc10dd9d02f09cf61cad6231a3f414d0d997d2",
+            "version" : "3.13.0"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "swift"
+      },
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "version",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/mxcl/Version",
+          "name" : "Version"
+        },
+        "state" : {
+          "checkoutState" : {
+            "revision" : "1fe824b80d89201652e7eca7c9252269a1d85e25",
+            "version" : "2.0.1"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "Version"
+      }
+    ]
+  },
+  "version" : 5
+}

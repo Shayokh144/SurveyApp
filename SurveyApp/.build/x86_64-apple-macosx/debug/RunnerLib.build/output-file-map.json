@@ -1,0 +1,101 @@
+{
+  "": {
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/master.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/CliArgs/CliArgs.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/CliArgs/CliArgs.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/CliArgs/CliArgs.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/CliArgs/CliArgs~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/CliArgs/CliArgs.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/CliArgs/CliArgsParser.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/CliArgs/CliArgsParser.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/CliArgs/CliArgsParser.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/CliArgs/CliArgsParser~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/CliArgs/CliArgsParser.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/CreateConfig.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/CreateConfig.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/CreateConfig.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/CreateConfig~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/CreateConfig.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/DangerCommand.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/DangerCommand.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/DangerCommand.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/DangerCommand~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/DangerCommand.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/DangerJSVersionFinder.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/DangerJSVersionFinder.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/DangerJSVersionFinder.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/DangerJSVersionFinder~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/DangerJSVersionFinder.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/DangerSwiftOption.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/DangerSwiftOption.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/DangerSwiftOption.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/DangerSwiftOption~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/DangerSwiftOption.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/DangerfileArgumentsPath.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/DangerfileArgumentsPath.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/DangerfileArgumentsPath.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/DangerfileArgumentsPath~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/DangerfileArgumentsPath.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/Files Import/DangerFileGenerator.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/Files Import/DangerFileGenerator.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/Files Import/DangerFileGenerator.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/Files Import/DangerFileGenerator~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/Files Import/DangerFileGenerator.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/Files Import/ImportsFinder.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/Files Import/ImportsFinder.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/Files Import/ImportsFinder.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/Files Import/ImportsFinder~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/Files Import/ImportsFinder.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/GetDangerJSPath.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/GetDangerJSPath.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/GetDangerJSPath.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/GetDangerJSPath~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/GetDangerJSPath.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/HelpMessagePresenter.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/HelpMessagePresenter.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/HelpMessagePresenter.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/HelpMessagePresenter~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/HelpMessagePresenter.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/NSRegularExpression+FilesImport.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/NSRegularExpression+FilesImport.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/NSRegularExpression+FilesImport.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/NSRegularExpression+FilesImport~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/NSRegularExpression+FilesImport.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/Runtime.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/Runtime.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/Runtime.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/Runtime~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/Runtime.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/SPMDanger.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/SPMDanger.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/SPMDanger.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/SPMDanger~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/SPMDanger.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/String+Path.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/String+Path.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/String+Path.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/String+Path~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/String+Path.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/swift/Sources/RunnerLib/VersionChecker.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/VersionChecker.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/VersionChecker.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/VersionChecker~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/RunnerLib.build/VersionChecker.swiftdeps"
+  }
+}

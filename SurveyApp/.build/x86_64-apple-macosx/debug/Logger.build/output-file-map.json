@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Logger.build/master.swiftdeps"
+  },
+  "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/checkouts/Logger/Sources/Logger/Logger.swift": {
+    "dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Logger.build/Logger.d",
+    "object": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Logger.build/Logger.swift.o",
+    "swiftmodule": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Logger.build/Logger~partial.swiftmodule",
+    "swift-dependencies": "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Logger.build/Logger.swiftdeps"
+  }
+}
