@@ -1,4 +1,0 @@
-module OctoKit {
-    header "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/OctoKit.build/OctoKit-Swift.h"
-    requires objc
-}

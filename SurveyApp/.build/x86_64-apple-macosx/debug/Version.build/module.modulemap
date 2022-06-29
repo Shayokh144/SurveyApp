@@ -1,4 +1,0 @@
-module Version {
-    header "/Users/nimble/Documents/MyProjects/github/surveyapp/SurveyApp/SurveyApp/.build/x86_64-apple-macosx/debug/Version.build/Version-Swift.h"
-    requires objc
-}
