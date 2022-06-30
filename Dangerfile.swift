@@ -10,9 +10,3 @@ if !changelogChanged && sourceChanges != nil {
   warn("No CHANGELOG entry added.")
 }
 warn("DANGER IS ADDED")
-// You can use these functions to send feedback:
-message("Highlight something in the table")
-warn("Something pretty bad, but not important enough to fail the build")
-fail("Something that must be changed")
-
-markdown("Free-form markdown that goes under the table, so you can do whatever.")
