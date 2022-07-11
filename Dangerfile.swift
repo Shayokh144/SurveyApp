@@ -10,7 +10,6 @@ if !changelogChanged && sourceChanges != nil {
   warn("No CHANGELOG entry added.")
 }
 warn("DANGER IS ADDED")
-message("Highlight something in the table")
-warn("Something pretty bad, but not important enough to fail the build")
-markdown("Free-form markdown that goes under the table, so you can do whatever.")
-SwiftLint.lint(lintAllFiles: true)
+message("This is a test message...")
+//SwiftLint.lint(lintAllFiles: true)
+SwiftLint.lint(.all(directory: "SurveyApp"))
