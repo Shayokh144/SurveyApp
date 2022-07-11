@@ -14,25 +14,37 @@ on:
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
+#jobs:
   # This workflow contains a single job called "build"
-  build:
+  #build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
+    #steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      #- uses: actions/checkout@v3
 
       # Runs a set of commands using the runners shell
-      - name: install npm
-        run: brew install node
-      - name: install danger
-        run: npm install -g danger
-      - run: swift build
+      #- name: install npm
+        #run: brew install node
+      #- name: install danger
+        #run: npm install -g danger
+      #- run: swift build
 
-      - run: swift run danger-swift ci --verbose --failOnErrors
-        if: ${{ github.event_name == 'pull_request' }}
+      #- run: swift run danger-swift ci --verbose --failOnErrors
+        #if: ${{ github.event_name == 'pull_request' }}
+        #env:
+            #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: "Run Danger"
+    steps:
+      - uses: actions/checkout@v1
+      - name: Danger
+        uses: docker://ghcr.io/danger/danger-swift-with-swiftlint:3.13.0
+        with:
+            args: --failOnErrors --no-publish-check
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
