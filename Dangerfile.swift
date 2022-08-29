@@ -12,4 +12,6 @@ if !changelogChanged && sourceChanges != nil {
 warn("DANGER IS ADDED")
 message("This is a test message...")
 //SwiftLint.lint(lintAllFiles: true)
-SwiftLint.lint(.all(directory: "SurveyApp"))
+//SwiftLint.lint(.all(directory: "SurveyApp"))
+let filesToLint = allSourceFiles.filter { !$0.contains("Documentation/") }
+SwiftLint.lint(.files(filesToLint))
