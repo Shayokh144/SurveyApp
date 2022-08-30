@@ -5,8 +5,9 @@
 //  Created by Asif on 19/3/22.
 //
 
-  import Foundation
- import UIKit
+import Foundation
+import UIKit
+
 class UIConstants{
     public static let storyBoardName = "SurveyAppMain"
     public static let loginViewStoryBoardId = "loginViewId"
